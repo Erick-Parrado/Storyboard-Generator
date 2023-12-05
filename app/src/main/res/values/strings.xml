@@ -1,3 +1,81 @@
 <resources>
+
     <string name="app_name">Storyboard-Generator</string>
+    <string name="btnRegister">Registrarse</string> <!--main - profile-->
+    <string name="btnLogin">Iniciar sesión</string> <!--Login y register-->
+    <string name="tvEmail">Correo electrónico</string><!--Login, profile y Register-->
+    <string name="etEmail"></string><!--Login y Register (profile form)-->
+    <string name="tvPss">Contraseña</string><!--Login, profile y Register-->
+    <string name="etPss"></string><!--Login y Register (profile form)-->
+    <string name="tvUserProfile">Usuario</string><!--profile y profile form-->
+    <string name="etUserProfile"></string><!--profile y profile form-->
+
+
+    <!--MAIN - (Pantalla principal)-->
+    <string name="tvBienvenidoSC">Bienvenido</string>
+    <string name="btnLoginSC">Ingresar</string>
+
+    <!--REGISTER-->
+    <string name="ivRegister"></string>
+    <string name="tvRegister">Registro</string>
+    <string name="tvNameUser">Nombre de usuario</string>
+    <string name="etNameUser"></string>
+
+
+    <!--PROFILE-->
+    <string name="ibArrow"></string>
+    <string name="tvProfile">Perfil</string>
+    <string name="ivProfile"></string>
+    <string name="ibProfile"></string>
+
+    <!--PROFILE FORM-->
+
+    <string name="btnSave">Guardar cambios</string>
+
+    <!--LOGIN-->
+    <string name="tvLoginTitle">Ingreso</string>
+
+
+    <!--SETTINGS-->
+    <string name="tvTema">Cambiar tema</string>
+    <string name="tvHelp">Ayuda</string>
+    <string name="tvExit">Salir</string>
+
+    <!--MEMBERS TEAM-->
+    <string name="tvMembersTeam">Integrantes del equipo</string>
+    <string name="tvNameMembersTeam"></string>
+    <string name="tvRolMembersTeam"></string>
+
+    <!--PROJECTS-->
+    <string name="tvTitleMain">Proyectos</string>
+
+    <!--CREATE PROJECT-->
+    <string name="tvTitleProjectStart">Proyecto</string>
+    <string name="tvNameProject">Nombre del proyecto: </string>
+    <string name="etNameProject"></string>
+    <string name="tvProduct">Productora</string>
+    <string name="etProduct"></string>
+    <string name="tvStartDate">Fecha de inicio</string>
+    <string name="etStartDate">DD/MM/YYYY</string>
+    <string name="tvEndDate">Fecha de finalización</string>
+    <string name="etEndDate">DD/MM/YYYY</string>
+    <string name="btnConfirmarProject">Confirmar</string>
+
+    <!--CONFIGURACIÓN DE ARCHIVO-->
+    <string name="tvTitleConfig">Configuración de archivo</string>
+    <string name="tvNameFile">Nombre del archivo</string>
+    <string name="etNameFile"></string>
+    <string name="tvFormatoFile">Formato</string>
+    <string name="tvNumScenes">N. de escenas</string>
+    <string name="tvOrientation">Orientación</string>
+    <string name="btnSaveFile">Confirmar</string>
+
+    <!--SCENES MAIN-->
+
+    <!--SCENE FORM-->
+
+    <!--PLANE MAIN-->
+
+    <!--PLANEFORM-->
+
 </resources>

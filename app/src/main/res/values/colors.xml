@@ -2,4 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="TurquesaBlack">#025159</color>
+    <color name="ExtraLigthBlue">#C9F2E7</color>
+    <color name="IndustrialBliue">#FF3C54CF</color>
+    <color name="AppGray">#576869</color>
+    <color name="GrayBackground">#4A5B5C</color>
+    <color name="BlueLigthBtn">#5B99B0</color>
+    <color name="LigthGray">#F4F7F9</color>
+    <color name="Transparent">#00CAD7D8</color>
+
+    <color name="my_dark_primary">#00CAD7D8</color>
 </resources>
