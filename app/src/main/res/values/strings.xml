@@ -1,14 +1,15 @@
 <resources>
 
     <string name="app_name">Storyboard-Generator</string>
-    <string name="btnRegister">Registrarse</string> <!--main - profile-->
+    <string name="btnRegister">Registrarse</string> <!--main, Login y Register-->
     <string name="btnLogin">Iniciar sesión</string> <!--Login y register-->
-    <string name="tvEmail">Correo electrónico</string><!--Login, profile y Register-->
-    <string name="etEmail"></string><!--Login y Register (profile form)-->
-    <string name="tvPss">Contraseña</string><!--Login, profile y Register-->
-    <string name="etPss"></string><!--Login y Register (profile form)-->
-    <string name="tvUserProfile">Usuario</string><!--profile y profile form-->
-    <string name="etUserProfile"></string><!--profile y profile form-->
+    <string name="tvEmail">Correo electrónico</string><!--Login, profile, y Register (profile form)-->
+    <string name="etEmail">Email</string><!--Login, profile, y Register (profile form)-->
+    <string name="tvPss">Contraseña</string><!--Login, profile, y Register (profile form)-->
+    <string name="etPss">Contraseña</string><!--Login y Register (profile form)-->
+    <string name="tvNameUser">Usuario</string><!--register, profile y profile form-->
+    <string name="etNameUser">Usuario</string><!--register, profile y profile form-->
+    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y panel form-->
 
 
     <!--MAIN - (Pantalla principal)-->
@@ -17,10 +18,7 @@
 
     <!--REGISTER-->
     <string name="ivRegister"></string>
-    <string name="tvRegister">Registro</string>
-    <string name="tvNameUser">Nombre de usuario</string>
-    <string name="etNameUser"></string>
-
+    <string name="tvRegisterTitle">Registro</string>
 
     <!--PROFILE-->
     <string name="ibArrow"></string>
@@ -48,18 +46,54 @@
 
     <!--PROJECTS-->
     <string name="tvTitleMain">Proyectos</string>
+    <string name="tvTitleNameProject">Storyboard #1</string>
+    <string name="tvTitleMain">Proyectos</string>
+    <string name="tvTitleMain">Proyectos</string>
 
-    <!--CREATE PROJECT-->
-    <string name="tvTitleProjectStart">Proyecto</string>
-    <string name="tvNameProject">Nombre del proyecto: </string>
-    <string name="etNameProject"></string>
-    <string name="tvProduct">Productora</string>
-    <string name="etProduct"></string>
-    <string name="tvStartDate">Fecha de inicio</string>
-    <string name="etStartDate">DD/MM/YYYY</string>
-    <string name="tvEndDate">Fecha de finalización</string>
-    <string name="etEndDate">DD/MM/YYYY</string>
+    <!--CREATE PROJECT FORM-->
+    <string name="tvTitleCreateProject">Crear nuevo proyecto</string>
+    <string name="tvProjectNameForm">Nombre del proyecto: </string>
+    <string name="etProjectNameForm">ejm: Proyecto #1..</string>
+    <string name="tvProductoraProjectForm">Productora</string>
+    <string name="etProductoraProjectForm">Productora</string>
+    <string name="tvDateStartProject">Fecha de inicio</string>
+    <string name="etDateStartProject">DD/MM/YYYY</string>
+    <string name="tvDateEndProject">Fecha de finalización</string>
+    <string name="etDateEndProject">DD/MM/YYYY</string>
+    <string name="tvDescriptionProject">Descripción</string>
+    <string name="etDescriptionProject">Descripción del proyecto</string>
     <string name="btnConfirmarProject">Confirmar</string>
+
+    <!--PROJECT TEMPLATE-->
+    <string name="tvTitleProjectTemplate">Proyecto #1</string>
+    <string name="tvProductoraSubtitlePT">Equipo:</string>
+    <string name="tvProductoraPT">Ghibli</string>
+    <string name="tvEsceneTitlePT">Escena #1</string>
+    <string name="tvEscenaryPT">Arbol</string>
+    <string name="tvSpacePT">Bosque</string>
+    <string name="tvTimePT">Noche</string>
+    <string name="tvDurationPT">Duración:</string>
+    <string name="tvTimeDurationPT">30 seg..</string>
+
+    <!--SCENES MAIN-->
+
+    <!--SCENE FORM-->
+    <string name="tvTitleCreateEsceneForm">Nueva escena</string>
+    <string name="tvPositionEsceneForm">Posición</string>
+    <string name="etPositionEsceneForm">Posición</string>
+    <string name="tvDurationEsceneForm">Duración</string>
+    <string name="etDurationEsceneForm">ejem: 00:32s</string>
+    <string name="tvEscenaryEsceneForm">Escenario</string>
+    <string name="etEscenaryEsceneForm">ejm:.. El bosque</string>
+    <string name="tvDescriptionEsceneForm">Descripción</string>
+    <string name="etDescriptionEsceneForm">Descripción</string>
+    <string name="tvTimeEsceneForm">Tiempo</string>
+    <string name="etTimeEsceneForm">ejem:.. día</string>
+    <string name="btnConfirmarEscene">Confirmar</string>
+
+    <!--PLANE MAIN-->
+
+    <!--PLANE FORM-->
 
     <!--CONFIGURACIÓN DE ARCHIVO-->
     <string name="tvTitleConfig">Configuración de archivo</string>
@@ -69,13 +103,5 @@
     <string name="tvNumScenes">N. de escenas</string>
     <string name="tvOrientation">Orientación</string>
     <string name="btnSaveFile">Confirmar</string>
-
-    <!--SCENES MAIN-->
-
-    <!--SCENE FORM-->
-
-    <!--PLANE MAIN-->
-
-    <!--PLANEFORM-->
 
 </resources>

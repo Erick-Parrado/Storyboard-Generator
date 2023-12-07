@@ -13,7 +13,28 @@
         android:theme="@style/Theme.StoryboardGenerator"
         tools:targetApi="31">
         <activity
+            android:name=".CreateEsceneForm"
+            android:exported="false" />
+        <activity
+            android:name=".EsceneTemplate"
+            android:exported="false" />
+        <activity
+            android:name=".CreateProjectForm"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".Register"
+            android:exported="false" />
+        <activity
+            android:name=".Projects"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProjectTemplate"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

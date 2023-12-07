@@ -1,0 +1,192 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/LightBackground"
+    tools:context=".Projects">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/GraygeLight"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/ibBackArrow"
+            android:layout_width="1dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Flecha hacia atras"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/backarrow" />
+
+        <TextView
+            android:id="@+id/tvTitleProjectsView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvTitleMain"
+            android:textAlignment="center"
+            android:textColor="@color/GrayBackground"
+            android:textSize="30dp" />
+
+        <ImageButton
+            android:id="@+id/ibUser"
+            android:layout_width="6dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Imagen de perfil"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/profile" />
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvProjectNameForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sans_font"
+        android:text="@string/tvProjectNameForm"
+        android:textColor="@color/BlackTurquesa"
+        android:textSize="20dp" />
+
+
+    <EditText
+        android:id="@+id/etProjectName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BlackTurquesa"
+        android:hint="@string/etNameUser"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tvProductoraProjectForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sans_font"
+        android:text="@string/tvProductoraProjectForm"
+        android:textColor="@color/BlackTurquesa"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/etProductoraProject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/BlackTurquesa"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="@string/etProductoraProjectForm"
+        android:minHeight="48dp" />
+    <Button
+        android:id="@+id/btnConfirmar"
+        android:layout_width="207dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/BlackTurquesa"
+        android:padding="10dp"
+        android:text="@string/btnConfirmarProject"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+
+    <!--
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/GraygeLight"
+        android:outlineAmbientShadowColor="@color/black"
+        android:layout_height="124dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ibProject"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@color/Transparent"
+                android:contentDescription="Imagen del proyecto"
+                app:srcCompat="@drawable/imggallery" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="63dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvTitleNameProject"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/sans_font"
+                        android:text="@string/tvTitleNameProject"
+                        android:textSize="20dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvStudioProjects"
+                        android:layout_width="135dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tvEditeTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/ibAddProjects"
+        android:layout_width="159dp"
+        android:layout_height="65dp"
+        android:layout_gravity="center"
+        android:background="@color/Transparent"
+        android:contentDescription="imgMore"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/add" />-->
+
+
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:background="@color/ExtraLightBlue"
+    tools:context=".Register">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/ivRegisterLogo"
+            android:layout_width="0dp"
+            android:layout_height="75dp"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tvRegisterTitleView"
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvRegisterTitle"
+            android:textAlignment="center"
+            android:paddingRight="40dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/IndustrialBlue"
+            android:textSize="28dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="554dp"
+        android:orientation="vertical"
+        android:layout_marginTop="18dp">
+
+        <TextView
+            android:id="@+id/tvNameUserRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvNameUser"
+            android:textColor="@color/TurquesaBlack"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/etNameUserRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BlueLightBtn"
+            android:ems="10"
+            android:hint="@string/etNameUser"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tvEmailRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvEmail"
+            android:textColor="@color/TurquesaBlack"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/etEmailRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/BlueLightBtn"
+            android:ems="10"
+            android:hint="@string/etEmail"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/tvPssRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvPss"
+            android:textColor="@color/TurquesaBlack"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/etPssRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/etPss"
+            android:inputType="numberPassword"
+            android:backgroundTint="@color/BlueLightBtn"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btnRegisterRegister"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/BlueLightBtn"
+            android:padding="10dp"
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:text="@string/btnRegister" />
+
+        <Button
+            android:id="@+id/bntLoginRegister"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/IndustrialBlue"
+            android:background="@drawable/diseno_boton"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:text="@string/btnLogin" />
+
+    </LinearLayout>
+
+</LinearLayout>
