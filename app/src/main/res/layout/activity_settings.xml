@@ -1,10 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Settings">
 
-  </androidx.constraintlayout.widget.ConstraintLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="111dp"
+      android:layout_marginBottom="8dp"
+      android:background="@color/GraygeLight"
+      android:orientation="horizontal"
+      android:padding="20dp">
+
+    <ImageButton
+        android:id="@+id/ibBackArrow"
+        android:layout_width="1dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:background="@color/Transparent"
+        android:contentDescription="Flecha hacia atras"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/backarrow" />
+
+    <TextView
+        android:id="@+id/tvTitleSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:fontFamily="@font/sans_font"
+        android:text="@string/tvTitleUserProfileForm"
+        android:textAlignment="center"
+        android:textColor="@color/GrayBackground"
+        android:textSize="34dp"
+        android:layout_marginRight="40dp"/>
+
+  </LinearLayout>
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="87dp"
+          android:layout_margin="10dp"
+          android:backgroundTint="#F4F4F4"
+          android:outlineAmbientShadowColor="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <ImageButton
+              android:id="@+id/ibTheme"
+              android:layout_width="101dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:backgroundTint="@color/Transparent"
+              android:contentDescription="Cambiar tema a claro u oscuro"
+              android:scaleType="fitCenter"
+              app:srcCompat="@drawable/sun_and_moon" />
+
+          <TextView
+              android:id="@+id/tvTheme"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:fontFamily="@font/sans_font"
+              android:text="@string/tvTheme"
+              android:layout_marginRight="60dp"
+              android:textSize="25dp" />
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="77dp"
+          android:layout_margin="10dp"
+          android:backgroundTint="#F4F4F4"
+          android:outlineAmbientShadowColor="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <ImageButton
+              android:id="@+id/ibInfo"
+              android:layout_width="101dp"
+              android:layout_height="match_parent"
+              android:layout_weight="1"
+              android:backgroundTint="@color/Transparent"
+              android:contentDescription="Ir a información"
+              android:scaleType="fitCenter"
+              app:srcCompat="@drawable/info" />
+
+          <TextView
+              android:id="@+id/tvInfo"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:fontFamily="@font/sans_font"
+              android:text="@string/tvInfo"
+              android:layout_marginRight="90dp"
+              android:textSize="25dp" />
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="80dp"
+          android:layout_margin="10dp"
+          android:backgroundTint="#F4F4F4"
+          android:outlineAmbientShadowColor="@color/black">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+          <ImageButton
+              android:id="@+id/ibExit"
+              android:layout_width="101dp"
+              android:layout_height="70dp"
+              android:layout_marginTop="5dp"
+              android:layout_weight="1"
+              android:backgroundTint="@color/Transparent"
+              android:contentDescription="Botón para salir"
+              android:scaleType="fitCenter"
+              app:srcCompat="@drawable/exit" />
+
+          <TextView
+              android:id="@+id/tvExit"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="20dp"
+              android:layout_marginRight="177dp"
+              android:fontFamily="@font/sans_font"
+              android:text="@string/tvExitSt"
+              android:textSize="25dp" />
+
+        </LinearLayout>
+
+      </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+  </ScrollView>
+
+</LinearLayout>

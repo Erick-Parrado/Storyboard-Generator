@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TeamMembers">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/GraygeLight"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/ibBackArrow"
+            android:layout_width="1dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Flecha hacia atras"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/backarrow" />
+
+        <TextView
+            android:id="@+id/tvTitleTeamMembers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvTitleTeamMembers"
+            android:textAlignment="center"
+            android:textColor="@color/GrayBackground"
+            android:textSize="34dp"
+            android:layout_marginRight="40dp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="126dp"
+                android:layout_margin="10dp"
+                android:backgroundTint="#F4F4F4"
+                android:outlineAmbientShadowColor="@color/black">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/ibMemberProfilePhoto"
+                        android:layout_width="215dp"
+                        android:layout_height="match_parent"
+
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/Transparent"
+                        android:contentDescription="foto de perfil del miembro del equipo"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/profile" />
+
+                    <LinearLayout
+                        android:layout_width="333dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvNameMember"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:fontFamily="@font/sans_font"
+                            android:text="@string/tvNameMember"
+                            android:textAlignment="center"
+                            android:textSize="25dp" />
+
+                        <TextView
+                            android:id="@+id/tvRolMember"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tvRolMember"
+                            android:textAlignment="center"
+                            android:textSize="23dp" />
+                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/ibDeleteMembers"
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="0dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/Transparent"
+                        android:contentDescription="foto de perfil del miembro del equipo"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/trash" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

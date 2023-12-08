@@ -129,4 +129,34 @@
     <string name="tvOrientation">Orientación</string>
     <string name="btnSaveFile">Confirmar</string>
 
+    <!--USER PROFILE-->
+    <string name="tvTitleUserProfile">Perfil</string>
+    <string name="tvUserNameUP">SofíaMendez24</string>
+    <string name="tvTitleEmailUP">Correo</string>
+    <string name="tvEmailUP">sofMendez@gmail.com..</string>
+    <string name="tvTitlePssUP">Contraseña</string>
+    <string name="tvPssUP">***</string>
+    <string name="btnUserProfileEdit">Editar</string>
+
+    <!--USER PROFILE FORM-->
+    <string name="tvTitleUserProfileForm">Editar perfil</string>
+    <string name="tvTitleUserNameForm">Nombre de usuario</string>
+    <string name="tvUserNameForm">SofíaMendez24</string>
+    <string name="tvTitleEmailForm">Correo</string>
+    <string name="tvEmailForm">sofMendez@gmail.com..</string>
+    <string name="tvTitlePssForm">Contraseña</string>
+    <string name="tvPssForm">***</string>
+
+    <!--SETTINGS-->
+    <string name="tvTitleSettings">Ajustes</string>
+    <string name="tvTheme">Cambiar tema</string>
+    <string name="tvInfo">Información</string>
+    <string name="tvExitSt">Salir</string>
+
+    <!--TEAM MEMBERS-->
+    <string name="tvTitleTeamMembers">Miembros</string>
+    <string name="tvNameMember">DemirYaman</string>
+    <string name="tvRolMember">Administrador</string>
+
+
 </resources>

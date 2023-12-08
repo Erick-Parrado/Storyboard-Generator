@@ -37,18 +37,19 @@
                 android:text="@string/tvTitleCreateEsceneForm"
                 android:textAlignment="center"
                 android:textColor="@color/GrayBackground"
-                android:textSize="30dp" />
+                android:textSize="30dp"
+                android:layout_marginRight="7dp"/>
 
             <ImageButton
-                android:id="@+id/ibEditEsceneInfo"
+                android:id="@+id/ibDeletePlane"
                 android:layout_width="6dp"
                 android:layout_height="52dp"
-                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:background="@color/Transparent"
-                android:contentDescription="Editar info del proyecto"
+                android:contentDescription="Eliminar escena"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/lapiz" />
+                android:layout_marginTop="15dp"
+                app:srcCompat="@drawable/trash" />
 
 
 

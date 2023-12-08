@@ -41,15 +41,15 @@
 
 
         <ImageButton
-            android:id="@+id/ibEditPlaneInfo"
+            android:id="@+id/ibDeletePlane"
             android:layout_width="6dp"
             android:layout_height="52dp"
-            android:layout_marginTop="15dp"
             android:layout_weight="1"
             android:background="@color/Transparent"
-            android:contentDescription="Editar info del proyecto"
+            android:contentDescription="Eliminar plano"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/lapiz" />
+            android:layout_marginTop="15dp"
+            app:srcCompat="@drawable/trash" />
 
     </LinearLayout>
 

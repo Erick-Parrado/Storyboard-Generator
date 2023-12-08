@@ -39,15 +39,15 @@
         android:textSize="25dp" />
 
   <ImageButton
-      android:id="@+id/ibEditProjectInfo"
+      android:id="@+id/ibDeleteProject"
       android:layout_width="6dp"
       android:layout_height="52dp"
       android:layout_weight="1"
       android:background="@color/Transparent"
-      android:contentDescription="Editar info del proyecto"
+      android:contentDescription="Eliminar proyecto"
       android:scaleType="fitCenter"
       android:layout_marginTop="15dp"
-      app:srcCompat="@drawable/lapiz" />
+      app:srcCompat="@drawable/trash" />
 
 
   </LinearLayout>
