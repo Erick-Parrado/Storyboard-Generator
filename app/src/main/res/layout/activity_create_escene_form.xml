@@ -39,6 +39,17 @@
                 android:textColor="@color/GrayBackground"
                 android:textSize="30dp" />
 
+            <ImageButton
+                android:id="@+id/ibEditEsceneInfo"
+                android:layout_width="6dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:background="@color/Transparent"
+                android:contentDescription="Editar info del proyecto"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/lapiz" />
+
 
 
 
@@ -167,7 +178,7 @@
                     android:layout_marginBottom="10dp"
                     android:backgroundTint="@color/BlackTurquesa"
                     android:padding="10dp"
-                    android:text="@string/btnConfirmarEscene"
+                    android:text="@string/btnConfirmar"
                     android:textColor="@color/white"
                     android:textSize="20dp" />
 

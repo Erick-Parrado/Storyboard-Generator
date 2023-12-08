@@ -49,73 +49,19 @@
             app:srcCompat="@drawable/profile" />
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/tvProjectNameForm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/sans_font"
-        android:text="@string/tvProjectNameForm"
-        android:textColor="@color/BlackTurquesa"
-        android:textSize="20dp" />
-
-
-    <EditText
-        android:id="@+id/etProjectName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/BlackTurquesa"
-        android:hint="@string/etNameUser"
-        android:ems="10"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:textSize="18dp" />
-
-    <TextView
-        android:id="@+id/tvProductoraProjectForm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/sans_font"
-        android:text="@string/tvProductoraProjectForm"
-        android:textColor="@color/BlackTurquesa"
-        android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/etProductoraProject"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/BlackTurquesa"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="@string/etProductoraProjectForm"
-        android:minHeight="48dp" />
-    <Button
-        android:id="@+id/btnConfirmar"
-        android:layout_width="207dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/BlackTurquesa"
-        android:padding="10dp"
-        android:text="@string/btnConfirmarProject"
-        android:textColor="@color/white"
-        android:textSize="20dp" />
-
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
-
-    <!--
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="10dp"
         android:backgroundTint="@color/GraygeLight"
         android:outlineAmbientShadowColor="@color/black"
         android:layout_height="124dp">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -165,12 +111,16 @@
                     <TextView
                         android:id="@+id/tvStudioProjects"
                         android:layout_width="135dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="@string/tvStudioProjects"
+                        android:textSize="20dp"/>
 
                     <TextView
                         android:id="@+id/tvEditeTime"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="@string/tvEditeTime"
+                        android:textSize="20dp"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -186,7 +136,7 @@
         android:background="@color/Transparent"
         android:contentDescription="imgMore"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/add" />-->
+        app:srcCompat="@drawable/add" />
 
 
 </LinearLayout>

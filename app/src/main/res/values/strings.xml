@@ -9,7 +9,8 @@
     <string name="etPss">Contraseña</string><!--Login y Register (profile form)-->
     <string name="tvNameUser">Usuario</string><!--register, profile y profile form-->
     <string name="etNameUser">Usuario</string><!--register, profile y profile form-->
-    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y panel form-->
+    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y Plane form-->
+    <string name="btnConfirmar">Confirmar</string><!--Project form, escene form, plane form y create file form-->
 
 
     <!--MAIN - (Pantalla principal)-->
@@ -47,11 +48,11 @@
     <!--PROJECTS-->
     <string name="tvTitleMain">Proyectos</string>
     <string name="tvTitleNameProject">Storyboard #1</string>
-    <string name="tvTitleMain">Proyectos</string>
-    <string name="tvTitleMain">Proyectos</string>
+    <string name="tvStudioProjects">Ghibli</string>
+    <string name="tvEditeTime">Hace 20 h</string>
 
     <!--CREATE PROJECT FORM-->
-    <string name="tvTitleCreateProject">Crear nuevo proyecto</string>
+    <string name="tvTitleCreateProject">Nuevo proyecto</string>
     <string name="tvProjectNameForm">Nombre del proyecto: </string>
     <string name="etProjectNameForm">ejm: Proyecto #1..</string>
     <string name="tvProductoraProjectForm">Productora</string>
@@ -62,18 +63,29 @@
     <string name="etDateEndProject">DD/MM/YYYY</string>
     <string name="tvDescriptionProject">Descripción</string>
     <string name="etDescriptionProject">Descripción del proyecto</string>
-    <string name="btnConfirmarProject">Confirmar</string>
 
     <!--PROJECT TEMPLATE-->
     <string name="tvTitleProjectTemplate">Proyecto #1</string>
     <string name="tvProductoraSubtitlePT">Equipo:</string>
     <string name="tvProductoraPT">Ghibli</string>
     <string name="tvEsceneTitlePT">Escena #1</string>
-    <string name="tvEscenaryPT">Arbol</string>
-    <string name="tvSpacePT">Bosque</string>
+    <string name="tvEscenaryPT">Bosque</string>
+    <string name="tvSpacePT">Exterior</string>
     <string name="tvTimePT">Noche</string>
     <string name="tvDurationPT">Duración:</string>
     <string name="tvTimeDurationPT">30 seg..</string>
+
+    <!--PROJECT TEMPLATE-->
+    <string name="tvTitleEsceneTemplate">Escena #1</string>
+    <string name="tvTitleDurationEsceneET">Duración:</string>
+    <string name="tvDurationEsceneET">2 minutos</string>
+    <string name="tvTitleDescriptionEsceneET">Descripción:</string>
+    <string name="tvDescriptionEsceneET">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</string>
+    <string name="tvTitlePlaneET">Plano #1</string>
+    <string name="tvTitleTypePlaneET">Tipo:</string>
+    <string name="tvTypePlaneET">Info del tipo</string>dd
+    <string name="tvTitleDurationPlaneET">Duración:</string>dd
+    <string name="tvDurationPlaneET">20 seg</string>dd
 
     <!--SCENES MAIN-->
 
@@ -89,11 +101,24 @@
     <string name="etDescriptionEsceneForm">Descripción</string>
     <string name="tvTimeEsceneForm">Tiempo</string>
     <string name="etTimeEsceneForm">ejem:.. día</string>
-    <string name="btnConfirmarEscene">Confirmar</string>
 
     <!--PLANE MAIN-->
 
+
     <!--PLANE FORM-->
+    <string name="tvTitleCreatePlaneForm">Nuevo plano</string>
+    <string name="tvPositionPlaneForm">Posición</string>
+    <string name="etPositionPlaneForm">ejem: 1..</string>
+    <string name="tvTypePlaneForm">Tipo de plano</string>
+    <string name="etTypePlaneForm">Tipo</string>
+    <string name="tvDurationPlaneForm">Duración</string>
+    <string name="etDurationPlaneForm">ejem: 00:00:32 seg</string>
+    <string name="tvShotPlaneForm">Tiro</string>
+    <string name="etShotPlaneForm">Shot</string>
+    <string name="tvMovePlaneForm">Movimiento</string>
+    <string name="etMovePlaneForm">Shot</string>
+    <string name="tvDescriptionPlaneForm">Descripción</string>
+    <string name="etDescriptionPlaneForm">Escriba su descripción..</string>
 
     <!--CONFIGURACIÓN DE ARCHIVO-->
     <string name="tvTitleConfig">Configuración de archivo</string>

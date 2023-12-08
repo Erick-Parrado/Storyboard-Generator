@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/LightBackground"
+    tools:context=".CreatePlaneForm">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/GraygeLight"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/ibBackArrow"
+            android:layout_width="16dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Parra cerrar el formulario"
+            android:paddingRight="20dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/close" />
+
+        <TextView
+            android:id="@+id/tvTitleCreatePlaneForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvTitleCreatePlaneForm"
+            android:textAlignment="center"
+            android:textColor="@color/GrayBackground"
+            android:textSize="30dp" />
+
+
+        <ImageButton
+            android:id="@+id/ibEditPlaneInfo"
+            android:layout_width="6dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Editar info del proyecto"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/lapiz" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+            <TextView
+                android:id="@+id/tvPositionPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvPositionPlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+
+            <EditText
+                android:id="@+id/etPositionPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:hint="@string/etPositionPlaneForm"
+                android:ems="10"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textSize="18dp" />
+
+
+            <TextView
+                android:id="@+id/tvTypePlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvTypePlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/etTypePlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/etTypePlaneForm"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/tvDurationPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvDurationPlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/etDurationPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/etDurationPlaneForm"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/tvShotPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvShotPlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/etShotPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/etEscenaryEsceneForm"
+                android:minHeight="48dp" />
+
+
+
+            <TextView
+                android:id="@+id/tvMovePlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvMovePlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/etMovePlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="@string/etMovePlaneForm"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/tvDescriptionPlaneForm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvDescriptionPlaneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/etDescriptionPlaneForm"
+                android:layout_width="361dp"
+                android:layout_height="107dp"
+                android:gravity="top|left"
+                android:hint="@string/etDescriptionPlaneForm"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:scrollHorizontally="false" />
+
+
+            <Button
+                android:id="@+id/btnConfirmarPlane"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:padding="10dp"
+                android:text="@string/btnConfirmar"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

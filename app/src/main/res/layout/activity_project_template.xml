@@ -89,7 +89,7 @@
                 android:text="@string/tvProductoraPT" />
 
             <ImageButton
-                android:id="@+id/imageButton2"
+                android:id="@+id/ibTeamPT"
                 android:layout_width="1dp"
                 android:layout_height="63dp"
                 android:layout_weight="1"
@@ -109,26 +109,27 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="170dp"
         android:layout_margin="10dp"
         android:backgroundTint="@color/GraygeLight"
         android:outlineAmbientShadowColor="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="174dp"
             android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/tvEsceneTitleProjectTemplate"
+                android:id="@+id/tvEsceneTitlePT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:textSize="20dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/sans_font"
+                android:paddingLeft="10dp"
                 android:text="@string/tvEsceneTitlePT"
-                android:layout_marginTop="15dp"/>
+                android:textSize="23dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -138,22 +139,22 @@
 
                 <TextView
                     android:id="@+id/tvEscenaryPT"
-                    android:layout_width="141dp"
+                    android:layout_width="131dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:textAlignment="center"
                     android:text="@string/tvEscenaryPT"
+                    android:textAlignment="center"
                     android:textSize="20dp" />
 
                 <TextView
                     android:id="@+id/tvSpacePT"
-                    android:layout_width="141dp"
+                    android:layout_width="126dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginTop="15dp"
-                    android:textSize="20dp"
                     android:text="@string/tvSpacePT"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                   android:shadowColor="@color/black"/>
 
 
                 <TextView
@@ -162,8 +163,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_weight="1"
-                    android:textAlignment="center"
                     android:text="@string/tvTimePT"
+                    android:textAlignment="center"
                     android:textSize="20dp" />
 
             </LinearLayout>
@@ -176,7 +177,7 @@
 
                 <TextView
                     android:id="@+id/tvDurationPT"
-                    android:layout_width="140dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/tvDurationPT"

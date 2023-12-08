@@ -10,64 +10,34 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.storyboard_generator.listview.ListAdapter;
+import com.example.storyboard_generator.listview.Model;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Projects extends AppCompatActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
-
+public class Projects extends AppCompatActivity{
+/*
     private ListView listView;
-    private Button btnProject;
-    private EditText nameProject;
-    private EditText productProject;
-    private List<String> Lista = new ArrayList<>();
-    private ArrayAdapter<String> adapter;
 
+    private List<Model> lista = new ArrayList<>();
+    ListAdapter adapter = new ListAdapter(Projects.this,R.layout.activity_projects);
+
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_projects);
-        begin();
-        btnProject.setOnClickListener(this);
-        listView.setOnItemClickListener(this);
+      /*  begin();
+       lista.add(new Model(R.mipmap.ic_launcher, "Proyecto1","Ghibli","hace 12 seg"));
 
-
-
-      /*  listView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addNewEscene();
-            }
-        });*/
+        listView.setAdapter(adapter);*/
     }
 
-    public void onClick (View view){
-        switch (view.getId()){
-            case R.id.btnConfirmar:
-                String texto = productProject.getText().toString().trim();
-                Lista.add(texto);
-                productProject.getText().clear();
-                adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-                listView.setAdapter(adapter);
-        }
-    }
-
-    private void addNewEscene(){
-
-    }
+/*
     private void begin(){
     this.listView = findViewById(R.id.listView);
-    this.btnProject = findViewById(R.id.btnConfirmar);
-    this.nameProject = findViewById(R.id.etProjectName);
-    this.productProject = findViewById(R.id.etProductoraProject);
     }
+*/
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    /*@Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-        super.onPointerCaptureChanged(hasCapture);
-    }*/
 }
