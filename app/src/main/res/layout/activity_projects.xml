@@ -46,23 +46,18 @@
             android:background="@color/Transparent"
             android:contentDescription="Imagen de perfil"
             android:scaleType="fitCenter"
+            android:text="show popup"
+            android:onClick="showPopup"
             app:srcCompat="@drawable/profile" />
 
     </LinearLayout>
 
     <ListView
-        android:id="@+id/listView"
+        android:id="@+id/lvLista"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scrollbars="vertical"
-        android:layout_marginTop="12dp"
-        android:padding="10dp"
-        tools:listitem="@layout/activity_projects_items"
-        android:divider="@color/Transparent"
-        android:dividerHeight="10.0sp"/>
+        android:layout_height="372dp"
+        android:cacheColorHint="@color/white"></ListView>
 
-    <!--
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="10dp"
@@ -134,7 +129,7 @@
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>-->
+    </androidx.cardview.widget.CardView>
 
     <ImageButton
         android:id="@+id/ibAddProjects"
