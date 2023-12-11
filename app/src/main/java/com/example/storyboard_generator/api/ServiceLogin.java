@@ -9,6 +9,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ServiceLogin {
+    public int test = 0;
     @POST("login")
     public Call<ResponseCredentials> accessLogin(@Body Loger login);
 }
