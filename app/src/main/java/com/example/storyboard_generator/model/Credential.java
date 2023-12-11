@@ -3,7 +3,6 @@ package com.example.storyboard_generator.model;
 public class Credential {
     private String us_identifier;
     private String us_key;
-
     private String user_id;
 
     public void setUs_identifier(String us_identifier) {
@@ -29,4 +28,5 @@ public class Credential {
     public String getUser_id() {
         return user_id;
     }
+
 }
