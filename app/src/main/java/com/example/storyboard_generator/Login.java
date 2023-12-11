@@ -2,7 +2,6 @@ package com.example.storyboard_generator;
 
 import static com.example.storyboard_generator.api.ApiValues.BASE_URL;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -17,12 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.storyboard_generator.api.ServiceLogin;
-import com.example.storyboard_generator.model.Connection;
 import com.example.storyboard_generator.model.Credential;
 import com.example.storyboard_generator.model.Error;
 import com.example.storyboard_generator.model.Info;
 import com.example.storyboard_generator.model.Loger;
-import com.example.storyboard_generator.model.ResponseConnection;
 import com.example.storyboard_generator.model.ResponseCredentials;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
@@ -54,7 +51,6 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        validateConnection();
         begin();
     }
 
@@ -66,29 +62,6 @@ public class Login extends AppCompatActivity {
         this.etPass = findViewById(R.id.etPssLogin);
         btnLoginLogin.setOnClickListener(this::handleLogin);
         btnRegisterLogin.setOnClickListener(this::goToRegister);
-        this.tvError = findViewById(R.id.tvError);
-    }
-
-    private void validateConnection(){
-        retrofit = ClientRetrofit.getClient(BASE_URL);
-        ServiceLogin serviceLogin = retrofit.create(ServiceLogin.class);
-        Call<ResponseConnection> call = serviceLogin.confirmConnection();
-        call.enqueue(new Callback<ResponseConnection>() {
-            @Override
-            public void onResponse(Call<ResponseConnection> call, Response<ResponseConnection> response) {
-                if(response.isSuccessful()){
-                    alert(":v");
-                }
-                else{
-                    alert(":'v");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ResponseConnection> call, Throwable t) {
-                alert(">:'v");
-            }
-        });
     }
 
     private void handleLogin(View view){
@@ -119,7 +92,6 @@ public class Login extends AppCompatActivity {
                         }
                         ArrayList<Credential> credentials = body.getCredentials();
                         if(!isNullOrEmpty(credentials)){
-                            alert("Bien hecho ;D");
                             for(Credential c:credentials){
                                 SharedPreferences SPCredentials = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = SPCredentials.edit();
@@ -130,19 +102,17 @@ public class Login extends AppCompatActivity {
                             goToProject();
                         }
                         else{
-                            alert("Cagaste 👻");
+                            alert("Error en usuario o contraseña");
                         }
                     }
                     else{
-                        alert("Cagaste 👻");
+                        alert("No se han proveido datos");
                     }
                 }
 
                 @Override
                 public void onFailure(Call<ResponseCredentials> call, Throwable t) {
-
                     Log.i("response",t.getMessage());
-                    tvError.setText(t.getMessage());
                     alert("Cagaste 💀");
                 }
             });

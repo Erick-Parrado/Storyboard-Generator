@@ -14,19 +14,6 @@ public class ClientRetrofit {
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(String baseUrl){
-
-//        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-//        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-//
-//// Agrega el interceptor a OkHttpClient.
-//        OkHttpClient client = new OkHttpClient.Builder()
-//                .addInterceptor(loggingInterceptor)
-//                .build();
-//
-//        Gson gson = new GsonBuilder()
-//                .setLenient()
-//                .create();
-
         if(retrofit==null){
             retrofit = new Retrofit.Builder()
                     .baseUrl(baseUrl)
