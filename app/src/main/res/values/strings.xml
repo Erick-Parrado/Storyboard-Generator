@@ -1,5 +1,4 @@
 <resources>
-
     <string name="app_name">Storyboard-Generator</string>
     <string name="btnRegister">Registrarse</string> <!--main, Login y Register-->
     <string name="btnLogin">Iniciar sesión</string> <!--Login y register-->
@@ -157,6 +156,9 @@
     <string name="tvTitleTeamMembers">Miembros</string>
     <string name="tvNameMember">DemirYaman</string>
     <string name="tvRolMember">Administrador</string>
+
+    <!--PIN-->
+    <string name="tvTitlePin">PIN</string>
 
 
 </resources>

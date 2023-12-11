@@ -16,7 +16,7 @@
         android:padding="20dp">
 
         <ImageButton
-            android:id="@+id/ibBackArrow"
+            android:id="@+id/ibPinClose"
             android:layout_width="1dp"
             android:layout_height="56dp"
             android:layout_marginTop="6dp"
@@ -49,6 +49,15 @@
             android:text="show popup"
             android:onClick="showPopup"
             app:srcCompat="@drawable/profile" />
+
+        <ImageButton
+            android:id="@+id/ibSettings"
+            android:layout_width="6dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/settings" />
 
     </LinearLayout>
 
@@ -131,15 +140,37 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/ibAddProjects"
-        android:layout_width="159dp"
-        android:layout_height="65dp"
-        android:layout_gravity="center"
-        android:background="@color/Transparent"
-        android:contentDescription="imgMore"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/add" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="15dp"
+        >
+
+        <ImageButton
+            android:id="@+id/ibAddProjects"
+            android:layout_width="145dp"
+            android:layout_height="63dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@color/Transparent"
+            android:contentDescription="imgMore"
+            android:onClick="addProject"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/add"
+            android:layout_marginLeft="30dp" />
+
+        <ImageButton
+            android:id="@+id/ibUnirse"
+            android:layout_width="149dp"
+            android:layout_height="74dp"
+            android:layout_centerInParent="true"
+            android:background="@color/Transparent"
+            android:contentDescription="Button Unirse"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/members"
+            android:paddingBottom="10dp"/>
+    </LinearLayout>
 
 
 </LinearLayout>

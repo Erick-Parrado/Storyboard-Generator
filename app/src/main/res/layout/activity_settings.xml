@@ -16,7 +16,7 @@
       android:padding="20dp">
 
     <ImageButton
-        android:id="@+id/ibBackArrow"
+        android:id="@+id/ibPinClose"
         android:layout_width="1dp"
         android:layout_height="52dp"
         android:layout_marginTop="6dp"
@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/backarrow" />
 
     <TextView
-        android:id="@+id/tvTitleSettings"
+        android:id="@+id/tvTitlePin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
