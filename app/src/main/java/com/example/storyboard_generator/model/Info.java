@@ -4,6 +4,8 @@ public class Info {
     private int status;
     private String message;
 
+    private int count;
+
     public void setMessage(String message) {
         this.message = message;
     }

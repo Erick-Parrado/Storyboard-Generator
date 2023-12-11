@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 public class ResponseCredentials {
     private Error error;
-
     private Info info;
-
     private ArrayList<Credential> credentials;
     private String message;
 
