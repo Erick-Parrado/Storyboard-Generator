@@ -13,11 +13,16 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.storyboard_generator.api.ServiceLogin;
+import com.example.storyboard_generator.model.Connection;
 import com.example.storyboard_generator.model.Credential;
+import com.example.storyboard_generator.model.Error;
+import com.example.storyboard_generator.model.Info;
 import com.example.storyboard_generator.model.Loger;
+import com.example.storyboard_generator.model.ResponseConnection;
 import com.example.storyboard_generator.model.ResponseCredentials;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
@@ -41,15 +46,125 @@ public class Login extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPass;
 
+    private TextView tvError;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        validateConnection();
         begin();
     }
 
+
+    private void begin(){
+        this.btnLoginLogin = findViewById(R.id.btnLoginLogin);
+        this.btnRegisterLogin = findViewById(R.id.btnRegisterLogin);
+        this.etEmail = findViewById(R.id.etEmailLogin);
+        this.etPass = findViewById(R.id.etPssLogin);
+        btnLoginLogin.setOnClickListener(this::handleLogin);
+        btnRegisterLogin.setOnClickListener(this::goToRegister);
+        this.tvError = findViewById(R.id.tvError);
+    }
+
+    private void validateConnection(){
+        retrofit = ClientRetrofit.getClient(BASE_URL);
+        ServiceLogin serviceLogin = retrofit.create(ServiceLogin.class);
+        Call<ResponseConnection> call = serviceLogin.confirmConnection();
+        call.enqueue(new Callback<ResponseConnection>() {
+            @Override
+            public void onResponse(Call<ResponseConnection> call, Response<ResponseConnection> response) {
+                if(response.isSuccessful()){
+                    alert(":v");
+                }
+                else{
+                    alert(":'v");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseConnection> call, Throwable t) {
+                alert(">:'v");
+            }
+        });
+    }
+
+    private void handleLogin(View view){
+        if(!validEmail(etEmail.getText().toString()) && etPass.getText().length() <=3){
+            alert("Error login");
+        }
+        else{
+            //String password = md5(etPass.getText().toString());
+            Loger loger = new Loger();
+            loger.setUser_email(etEmail.getText().toString());
+            loger.setUser_pass(etPass.getText().toString());
+            retrofit = ClientRetrofit.getClient(BASE_URL);
+            ServiceLogin service = retrofit.create(ServiceLogin.class);
+            Call<ResponseCredentials> call = service.accessLogin(loger);
+            call.enqueue(new Callback<ResponseCredentials>() {
+                @Override
+                public void onResponse(Call<ResponseCredentials> call, Response<ResponseCredentials> response) {
+                    if(response.isSuccessful()){
+                        alert(":v");
+                        ResponseCredentials body = response.body();
+                        if(!isNullOrEmpty(body.getError())) {
+                            Error error =body.getError();
+                            alert(error.getMessage());
+                        }
+                        if(!isNullOrEmpty(body.getInfo())){
+                            Info info = body.getInfo();
+                            alert(info.getMessage());
+                        }
+                        ArrayList<Credential> credentials = body.getCredentials();
+                        if(!isNullOrEmpty(credentials)){
+                            alert("Bien hecho ;D");
+                            for(Credential c:credentials){
+                                SharedPreferences SPCredentials = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = SPCredentials.edit();
+                                editor.putString("key",c.getUs_key());
+                                editor.putString("identifier",c.getUs_identifier());
+                                editor.commit();
+                            }
+                            goToProject();
+                        }
+                        else{
+                            alert("Cagaste 👻");
+                        }
+                    }
+                    else{
+                        alert("Cagaste 👻");
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseCredentials> call, Throwable t) {
+
+                    Log.i("response",t.getMessage());
+                    tvError.setText(t.getMessage());
+                    alert("Cagaste 💀");
+                }
+            });
+        }
+    }
+    private void goToProject(){
+        try{
+            Intent goProjects = new Intent(getApplicationContext(), Projects.class);
+            startActivity(goProjects);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+    }
+    private void goToRegister(View view){
+        try{
+            Intent goProjects = new Intent(getApplicationContext(), Register.class);
+            startActivity(goProjects);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+
+    }
     private boolean validEmail(String data){
         Pattern pattern =Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\\-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
         Matcher mather = pattern.matcher(data);
@@ -86,7 +201,7 @@ public class Login extends AppCompatActivity {
             StringBuilder hexString = new StringBuilder();
             for (byte aMessageDigest : messageDigest) {
                 String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2)                h = "0" + h;
+                while (h.length() < 2) h = "0" + h;
                 hexString.append(h);
             }
             return hexString.toString();
@@ -100,80 +215,6 @@ public class Login extends AppCompatActivity {
 
 
     private void alert(String mssg){
-        Toast.makeText(this,mssg,Toast.LENGTH_LONG);
-    }
-
-    private void begin(){
-        this.btnLoginLogin = findViewById(R.id.btnLoginLogin);
-        this.btnRegisterLogin = findViewById(R.id.btnRegisterLogin);
-        this.etEmail = findViewById(R.id.etEmailLogin);
-        this.etPass = findViewById(R.id.etPssLogin);
-
-        btnLoginLogin.setOnClickListener(this::handleLogin);
-        btnRegisterLogin.setOnClickListener(this::goToRegister);
-    }
-
-    private void handleLogin(View view){
-        if(!validEmail(etEmail.getText().toString()) && etPass.getText().length() <=3){
-            Toast.makeText(this,"Error login",Toast.LENGTH_LONG);
-        }
-        else{
-            String password = md5(etPass.getText().toString());
-            Loger loger = new Loger();
-            loger.setUser_email(etEmail.getText().toString());
-            loger.setUser_pass(password);
-            retrofit = ClientRetrofit.getClient(BASE_URL);
-            ServiceLogin serviceLogin = retrofit.create(ServiceLogin.class);
-            Call<ResponseCredentials> call = serviceLogin.accessLogin(loger);
-            call.enqueue(new Callback<ResponseCredentials>() {
-                @Override
-                public void onResponse(Call<ResponseCredentials> call, Response<ResponseCredentials> response) {
-                    if(response.isSuccessful()){
-                        ResponseCredentials body = response.body();
-                        String message = body.getMessage();
-                        ArrayList<Credential> list = body.getCredentials();
-                        alert("Bien hecho ;D");
-                        if(message.equals("OK") && !isNullOrEmpty(list)){
-                            for(Credential c:list){
-                                SharedPreferences SPCredentials = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = SPCredentials.edit();
-                                editor.putString("key",c.getUs_key());
-                                editor.putString("identifier",c.getUs_identifier());
-                                editor.commit();
-                            }
-                        }
-                        else{
-                            alert("Cagaste 👻");
-                        }
-                    }
-                    else{
-                        alert("Cagaste 👻");
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseCredentials> call, Throwable t) {
-                    Log.i("response",t.getMessage());
-                    alert("Cagaste 💀");
-                }
-            });
-        }
-    }
-    private void goToProject(View view){
-        try{
-            Intent goProjects = new Intent(getApplicationContext(), Projects.class);
-            startActivity(goProjects);
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
-    }
-    private void goToRegister(View view){
-        try{
-            Intent goProjects = new Intent(getApplicationContext(), Register.class);
-            startActivity(goProjects);
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
-
+        Toast.makeText(this,mssg,Toast.LENGTH_LONG).show();
     }
 }
