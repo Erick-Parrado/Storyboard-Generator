@@ -16,11 +16,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.storyboard_generator.api.ServiceLogin;
+import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.model.Credential;
 import com.example.storyboard_generator.model.Error;
 import com.example.storyboard_generator.model.Info;
 import com.example.storyboard_generator.model.Loger;
 import com.example.storyboard_generator.model.ResponseCredentials;
+import com.example.storyboard_generator.model.UserDAO;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
 import java.security.MessageDigest;
@@ -64,58 +66,35 @@ public class Login extends AppCompatActivity {
         btnRegisterLogin.setOnClickListener(this::goToRegister);
     }
 
+    private void setLoginSP(User user){
+        SharedPreferences.Editor editor;
+        SharedPreferences SPCredentials = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
+        editor = SPCredentials.edit();
+        editor.putString("key",user.getKey());
+        editor.putString("identifier",user.getIdentifier());
+        editor.commit();
+        SharedPreferences SPUser = getSharedPreferences("USER", Context.MODE_PRIVATE);
+        editor = SPUser.edit();
+        editor.putInt("user_id",user.getId());
+        editor.commit();
+    }
+
     private void handleLogin(View view){
         if(!validEmail(etEmail.getText().toString()) && etPass.getText().length() <=3){
             alert("Error login");
         }
         else{
-            //String password = md5(etPass.getText().toString());
-            Loger loger = new Loger();
-            loger.setUser_email(etEmail.getText().toString());
-            loger.setUser_pass(etPass.getText().toString());
-            retrofit = ClientRetrofit.getClient(BASE_URL);
-            ServiceLogin service = retrofit.create(ServiceLogin.class);
-            Call<ResponseCredentials> call = service.accessLogin(loger);
-            call.enqueue(new Callback<ResponseCredentials>() {
-                @Override
-                public void onResponse(Call<ResponseCredentials> call, Response<ResponseCredentials> response) {
-                    if(response.isSuccessful()){
-                        alert(":v");
-                        ResponseCredentials body = response.body();
-                        if(!isNullOrEmpty(body.getError())) {
-                            Error error =body.getError();
-                            alert(error.getMessage());
-                        }
-                        if(!isNullOrEmpty(body.getInfo())){
-                            Info info = body.getInfo();
-                            alert(info.getMessage());
-                        }
-                        ArrayList<Credential> credentials = body.getCredentials();
-                        if(!isNullOrEmpty(credentials)){
-                            for(Credential c:credentials){
-                                SharedPreferences SPCredentials = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = SPCredentials.edit();
-                                editor.putString("key",c.getUs_key());
-                                editor.putString("identifier",c.getUs_identifier());
-                                editor.commit();
-                            }
-                            goToProject();
-                        }
-                        else{
-                            alert("Error en usuario o contraseña");
-                        }
-                    }
-                    else{
-                        alert("No se han proveido datos");
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ResponseCredentials> call, Throwable t) {
-                    Log.i("response",t.getMessage());
-                    alert("Cagaste 💀");
-                }
-            });
+            try{
+                String email = etEmail.getText().toString();
+                String password = etPass.getText().toString();
+                UserDAO userDAO = new UserDAO();
+                User user = userDAO.login(email,password);
+                setLoginSP(user);
+                goToProject();
+            }
+            catch (Exception e){
+                alert(e.getMessage());
+            }
         }
     }
     private void goToProject(){
@@ -149,38 +128,6 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private static boolean isNullOrEmpty(Object obj){
-        if(obj==null)return true;
-        if(obj instanceof String) return ((String)obj).trim().equals("") || ((String)obj).equalsIgnoreCase("NULL");
-        if(obj instanceof Integer) return ((Integer)obj)==0;
-        if(obj instanceof Long) return ((Long)obj).equals(new Long(0));
-        if(obj instanceof Double) return ((Double)obj).equals(0.0);
-        if(obj instanceof Collection) return (((Collection)obj).isEmpty());
-        return false;
-    }
-
-
-    private static String md5(final String s) {
-        final String MD5 = "MD5";
-        try {
-            // Create MD5 Hash
-            MessageDigest digest = MessageDigest.getInstance(MD5);
-            digest.update(s.getBytes());
-            byte messageDigest[] = digest.digest();
-            // Create Hex String
-            StringBuilder hexString = new StringBuilder();
-            for (byte aMessageDigest : messageDigest) {
-                String h = Integer.toHexString(0xFF & aMessageDigest);
-                while (h.length() < 2) h = "0" + h;
-                hexString.append(h);
-            }
-            return hexString.toString();
-        }
-        catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
 
 
