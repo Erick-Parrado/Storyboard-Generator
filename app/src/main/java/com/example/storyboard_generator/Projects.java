@@ -38,9 +38,9 @@ public class Projects extends AppCompatActivity{
 
         ListView lvLista = findViewById(R.id.lvLista);
 
-        SharedPreferences SPManager = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
-
-        Toast.makeText(this,SPManager.getString("key",":v"), Toast.LENGTH_SHORT).show();
+//        SharedPreferences SPManager = getSharedPreferences("CREDENTIALS", Context.MODE_PRIVATE);
+//
+//        Toast.makeText(this,SPManager.getString("key",":v"), Toast.LENGTH_SHORT).show();
 
         ArrayAdapter<String> itemsAdpater = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, projects);
 

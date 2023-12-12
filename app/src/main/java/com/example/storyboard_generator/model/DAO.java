@@ -12,14 +12,13 @@ import retrofit2.Retrofit;
 
 public class DAO {
     protected Retrofit retrofit;
-    protected Exception exception;
+    public static Exception exception;
 
     public DAO(){
         retrofit = ClientRetrofit.getClient(BASE_URL);
-        exception = null;
     }
 
-   protected boolean isNullOrEmpty(Object obj){
+   static public boolean isNullOrEmpty(Object obj){
         if(obj==null)return true;
         if(obj instanceof String) return ((String)obj).trim().equals("") || ((String)obj).equalsIgnoreCase("NULL");
         if(obj instanceof Integer) return ((Integer)obj)==0;

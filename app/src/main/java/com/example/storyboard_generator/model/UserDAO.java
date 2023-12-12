@@ -1,16 +1,14 @@
 package com.example.storyboard_generator.model;
 
-import static com.example.storyboard_generator.api.ApiValues.BASE_URL;
 import static com.example.storyboard_generator.api.ApiValues.NO_RESPONDED_EXCEPTION;
 import static com.example.storyboard_generator.api.ApiValues.NO_RESPONSE_EXCEPTION;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import com.example.storyboard_generator.api.ServiceLogin;
 import com.example.storyboard_generator.entities.User;
-import com.example.storyboard_generator.remote.ClientRetrofit;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +17,6 @@ import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class UserDAO extends DAO {
 
@@ -27,52 +24,46 @@ public class UserDAO extends DAO {
         super();
     }
 
-    public User login(String email, String password) throws Exception{
-        User user= new User();
+    public void login(String email, String password,ResponseTaker responseTaker) throws Exception{
         //String password = md5(etPass.getText().toString());
         Loger loger = new Loger();
         loger.setUser_email(email);
         loger.setUser_pass(password);
         ServiceLogin service = retrofit.create(ServiceLogin.class);
-        Call<ResponseCredentials> call = service.accessLogin(loger);
-        call.enqueue(new Callback<ResponseCredentials>() {
+        Call<ResponseObj> call = service.accessLogin(loger);
+        calling(call,responseTaker);
+        //Toast.makeText(view.getContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
+    }
+
+    private void calling(Call call,ResponseTaker responseTaker) throws Exception{
+        Exception exceptionCall = new Exception();
+        call.enqueue(new Callback<ResponseObj>() {
             @Override
-            public void onResponse(Call<ResponseCredentials> call, Response<ResponseCredentials> response) {
+            public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
                 if(response.isSuccessful()){
-                    ResponseCredentials body = response.body();
+                    ResponseObj body = response.body();
                     if(!isNullOrEmpty(body.getError())) {
                         Error error =body.getError();
-                        exception = new Exception(error.getStatus());
+                        DAO.exception= new Exception(error.getStatus());
                     }
                     if(!isNullOrEmpty(body.getInfo())){
                         Info info = body.getInfo();
                     }
-                    ArrayList<Credential> credentials = body.getCredentials();
-                    if(!isNullOrEmpty(credentials)){
-                        for(Credential c:credentials){
-                            user.setId(c.getUser_id());
-                            user.setIdentifier(c.getUs_identifier());
-                            user.setKey(c.getUs_key());
-                        }
-                    }
+                    responseTaker.takeResponse(body);
                 }
                 else{
-                    exception = new Exception(NO_RESPONSE_EXCEPTION);
+                    DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
                 }
             }
-
             @Override
-            public void onFailure(Call<ResponseCredentials> call, Throwable t) {
+            public void onFailure(Call<ResponseObj> call, Throwable t) {
                 Log.i("response",t.getMessage());
-                exception = new Exception(NO_RESPONDED_EXCEPTION);
+                DAO.exception = new Exception(NO_RESPONDED_EXCEPTION);
             }
         });
-        if(isNullOrEmpty(exception)){
+        if(DAO.exception!=null){
+            throw DAO.exception;
         }
-        if(!isNullOrEmpty(exception)){
-            throw exception;
-        }
-        return user;
     }
 
     private static String md5(final String s) {

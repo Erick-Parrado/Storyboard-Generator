@@ -10,7 +10,6 @@ import com.example.storyboard_generator.api.ServiceLogin;
 import com.example.storyboard_generator.model.Credential;
 import com.example.storyboard_generator.model.Error;
 import com.example.storyboard_generator.model.Info;
-import com.example.storyboard_generator.model.ResponseCredentials;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
 import java.util.ArrayList;
@@ -47,6 +46,19 @@ public class User {
         return false;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", email='").append(email).append('\'');
+        sb.append(", password='").append(password).append('\'');
+        sb.append(", phone='").append(phone).append('\'');
+        sb.append(", identifier='").append(identifier).append('\'');
+        sb.append(", key='").append(key).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 
     ////////////////////SETTER/////////////////////
     public void setId(int id) {this.id = id;}

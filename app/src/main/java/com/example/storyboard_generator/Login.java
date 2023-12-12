@@ -18,10 +18,12 @@ import android.widget.Toast;
 import com.example.storyboard_generator.api.ServiceLogin;
 import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.model.Credential;
+import com.example.storyboard_generator.model.DAO;
 import com.example.storyboard_generator.model.Error;
 import com.example.storyboard_generator.model.Info;
 import com.example.storyboard_generator.model.Loger;
-import com.example.storyboard_generator.model.ResponseCredentials;
+import com.example.storyboard_generator.model.ResponseObj;
+import com.example.storyboard_generator.model.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
@@ -62,6 +64,7 @@ public class Login extends AppCompatActivity {
         this.btnRegisterLogin = findViewById(R.id.btnRegisterLogin);
         this.etEmail = findViewById(R.id.etEmailLogin);
         this.etPass = findViewById(R.id.etPssLogin);
+        this.tvError = findViewById(R.id.tvError);
         btnLoginLogin.setOnClickListener(this::handleLogin);
         btnRegisterLogin.setOnClickListener(this::goToRegister);
     }
@@ -84,19 +87,39 @@ public class Login extends AppCompatActivity {
             alert("Error login");
         }
         else{
+            ResponseTaker responseTaker = new ResponseTaker() {
+                @Override
+                public void takeResponse(ResponseObj body) {
+                    User user = new User();
+                    ArrayList<Credential> credentials = body.getCredentials();
+                    alert(DAO.isNullOrEmpty(credentials)+"");
+                    if(!DAO.isNullOrEmpty(credentials)){
+                        for(Credential c:credentials){
+                            user.setId(c.getUser_id());
+                            user.setIdentifier(c.getUs_identifier());
+                            user.setKey(c.getUs_key());
+                        }
+                        setLoginSP(user);
+                        goToProject();
+                    }
+                    else{
+                        alert(":P");
+                    }
+                }
+            };
+            UserDAO userDAO = new UserDAO();
+            String email = etEmail.getText().toString();
+            String password = etPass.getText().toString();
             try{
-                String email = etEmail.getText().toString();
-                String password = etPass.getText().toString();
-                UserDAO userDAO = new UserDAO();
-                User user = userDAO.login(email,password);
-                setLoginSP(user);
-                goToProject();
+                userDAO.login(email,password,responseTaker);
             }
             catch (Exception e){
-                alert(e.getMessage());
+                Log.i("Error",e.getMessage());
             }
+
         }
     }
+
     private void goToProject(){
         try{
             Intent goProjects = new Intent(getApplicationContext(), Projects.class);
@@ -126,10 +149,6 @@ public class Login extends AppCompatActivity {
         }
         return false;
     }
-
-
-
-
 
     private void alert(String mssg){
         Toast.makeText(this,mssg,Toast.LENGTH_LONG).show();
