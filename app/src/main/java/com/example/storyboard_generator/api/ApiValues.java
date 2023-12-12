@@ -1,7 +1,7 @@
 package com.example.storyboard_generator.api;
 
 public interface ApiValues {
-        String BASE_URL = "http:/192.168.5.106/Storyboard-Generator-API/API/";
+        String BASE_URL = "http:/110.57.30.208/Storyboard-Generator-API/API/";
 
         //End Points
 
@@ -10,6 +10,9 @@ public interface ApiValues {
         //USERS
         String GET_USER_URL = "users/{user_id}";
         String POST_USER_URL = "users";
+
+        //PROJECT
+        String POST_PROJECT_URL = "project/{user_id}";
 
         //Exceptions
         String NO_RESPONSE_EXCEPTION = "734";

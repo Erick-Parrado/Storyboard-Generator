@@ -21,10 +21,18 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.storyboard_generator.entities.Project;
+import com.example.storyboard_generator.entities.User;
+import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.layout.OurActivity;
+import com.example.storyboard_generator.model.ProjectDAO;
+import com.example.storyboard_generator.model.ResponseObj;
+import com.example.storyboard_generator.model.ResponseTaker;
+import com.example.storyboard_generator.model.UserDAO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -45,9 +53,17 @@ public class CreateProjectForm extends OurActivity {
 
     public static final String DATE_FORMAT = "yyyyMMdd_HHmmss";
     public static final String IMAGE_DIRECTORY = "ImageScalling";
+
+    private String mini64;
+
     private Button btAddImage;
     private Button btAddImageG;
+    private EditText etTittle;
+    private EditText etDescription;
+    private EditText etProducer;
     private ImageView ivMini;
+
+    private Button btConfirm;
 
 
 
@@ -59,13 +75,50 @@ public class CreateProjectForm extends OurActivity {
     }
 
     private void begin(){
+        etTittle = findViewById(R.id.etTittle);
+        etProducer= findViewById(R.id.etProducer);
+        etDescription = findViewById(R.id.etDescription);
         btAddImage = findViewById(R.id.tvAddImage);
         btAddImageG = findViewById(R.id.tvAddImageG);
         ivMini = findViewById(R.id.ivMini);
         btAddImage.setOnClickListener(this::openCamera);
         btAddImageG.setOnClickListener(this::openGallery);
+        btConfirm = findViewById(R.id.btnConfirmarProject);
+        btConfirm.setOnClickListener(this::handleCreateUser);
     }
 
+    private  void handleCreateUser(View view){
+        ResponseTaker responseTaker = new ResponseTaker() {
+            @Override
+            public void takeResponse(ResponseObj body) {
+                AlertActor alertActor = new AlertActor() {
+                    @Override
+                    public void alertAction() {
+                        goToLayout(Login.class);
+                    }
+                };
+                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
+            }
+        };
+        try{
+            Project project = takeProject();
+            ProjectDAO projectDAO = new ProjectDAO();
+            projectDAO.createProject(1001,responseTaker);
+        }catch (Exception e){
+            snackBar(e.getMessage(),true);
+        }
+    }
+
+    private Project takeProject(){
+        Project project = new Project();
+        project.setTitle(etTittle.getText().toString());
+        project.setDescription(etDescription.getText().toString());
+        project.setProducer(etProducer.getText().toString());
+        return project;
+    }
+    private void validVoids(){
+
+    }
 
     private void requestPermissionCamera(){
         ActivityCompat.requestPermissions(this,new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA_CODE);
@@ -83,7 +136,7 @@ public class CreateProjectForm extends OurActivity {
             case REQUEST_CAMERA_CODE:
                 permission="camara";
                 break;
-            case REQUEST_GALLERY_CODE:_CODE:
+            case REQUEST_GALLERY_CODE:
                 permission="galeria";
                 break;
             default:
@@ -99,7 +152,7 @@ public class CreateProjectForm extends OurActivity {
                         openCamera(view);
                     break;
                 case REQUEST_GALLERY_CODE:
-                    openGallery(view);
+                        openGallery(view);
                     break;
             }
         }
@@ -148,75 +201,14 @@ public class CreateProjectForm extends OurActivity {
         Bitmap imgBitmap = (Bitmap) extras.get("data");
         ivMini.setImageBitmap(imgBitmap);
         ivMini.setMinimumHeight(120);
-
-    }
-
-    private void copyFile(File sourceFile, File destFile) throws IOException {
-        if (!sourceFile.exists()) {
-            return;
-        }
+        mini64 = encodeImage(imgBitmap);
     }
 
     private void processGallery(Intent data){
-        Uri uriPhoto = data.getData();
-        File file;
-        File destFile;
-        SimpleDateFormat dateFormatter;
-        dateFormatter = new SimpleDateFormat(DATE_FORMAT, Locale.US);
-
-
-
-        file = new File(Environment.getExternalStorageDirectory()
-                + "/" + IMAGE_DIRECTORY);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-        Log.d(".PICK_GALLERY_IMAGE", "Selected image uri path :" + uriPhoto.toString());
-
-        snackBar(uriPhoto.toString(),true);
-
-        File sourceFile = new File(getPathFromGooglePhotosUri(uriPhoto));
-
-
-        Bitmap imgBitmap = BitmapFactory.decodeFile(file.getPath());
-        ivMini.setImageBitmap(imgBitmap);
-        ivMini.setMinimumHeight(120);
-
-    }
-
-    public String getPathFromGooglePhotosUri(Uri uriPhoto) {
-        if (uriPhoto == null)
-            return null;
-
-        FileInputStream input = null;
-        FileOutputStream output = null;
-        try {
-            ParcelFileDescriptor pfd = getContentResolver().openFileDescriptor(uriPhoto, "r");
-            FileDescriptor fd = pfd.getFileDescriptor();
-            input = new FileInputStream(fd);
-
-            String tempFilename = getTempFilename(this);
-            output = new FileOutputStream(tempFilename);
-
-            int read;
-            byte[] bytes = new byte[4096];
-            while ((read = input.read(bytes)) != -1) {
-                output.write(bytes, 0, read);
-            }
-            return tempFilename;
-        } catch (IOException ignored) {
-            // Nothing we can do
-        } finally {
-                closeSilently(input);
-               closeSilently(output);
-        }
-        return null;
-    }
-
-    private static String getTempFilename(Context context) throws IOException {
-        File outputDir = context.getCacheDir();
-        File outputFile = File.createTempFile("image", "tmp", outputDir);
-        return outputFile.getAbsolutePath();
+        Uri imageUri = data.getData();
+        Bitmap imgBitmap = BitmapFactory.decodeFile(imageUri.toString());
+        ivMini.setImageURI(imageUri);
+        mini64 = encodeImage(imgBitmap);
     }
 
     private String encodeImage(Bitmap bm) {
@@ -226,15 +218,6 @@ public class CreateProjectForm extends OurActivity {
         String imgDecodableString = Base64.encodeToString(b, Base64.DEFAULT);
 
         return imgDecodableString;
-    }
-    public static void closeSilently(Closeable c) {
-        if (c == null)
-            return;
-        try {
-            c.close();
-        } catch (Throwable t) {
-            // Do nothing
-        }
     }
 
     public static Bitmap decodeBase64(String input)
