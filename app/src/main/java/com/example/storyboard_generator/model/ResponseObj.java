@@ -12,7 +12,6 @@ public class ResponseObj {
 
     //Users
 
-
     public void setCredentials(ArrayList<Credential> credentials) {
         this.credentials = credentials;
     }
