@@ -2,11 +2,16 @@ package com.example.storyboard_generator.model;
 
 import java.util.ArrayList;
 
-public class ResponseCredentials {
+public class ResponseObj {
+    //Templates
     private Error error;
     private Info info;
+
+    //Login
     private ArrayList<Credential> credentials;
-    private String message;
+
+    //Users
+
 
     public void setCredentials(ArrayList<Credential> credentials) {
         this.credentials = credentials;
@@ -19,17 +24,11 @@ public class ResponseCredentials {
     public Error getError() {
         return error;
     }
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     public ArrayList<Credential> getCredentials() {
         return credentials;
     }
 
-    public String getMessage() {
-        return message;
-    }
 
     public void setInfo(Info info) {
         this.info = info;
