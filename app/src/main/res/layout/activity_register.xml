@@ -60,6 +60,7 @@
             android:hint="@string/etNameUser"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textColorHint="@color/AppGray"
             android:textSize="18dp" />
 
         <TextView
@@ -80,6 +81,7 @@
             android:ems="10"
             android:hint="@string/etEmail"
             android:inputType="textEmailAddress"
+            android:textColorHint="@color/AppGray"
             android:minHeight="48dp" />
 
         <TextView
@@ -99,6 +101,7 @@
             android:ems="10"
             android:hint="@string/etPss"
             android:inputType="numberPassword"
+            android:textColorHint="@color/AppGray"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp" />
 
@@ -114,18 +117,6 @@
             android:layout_marginTop="35dp"
             android:textSize="20dp"
             android:text="@string/btnRegister" />
-
-        <Button
-            android:id="@+id/bntLoginRegister"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/IndustrialBlue"
-            android:background="@drawable/diseno_boton"
-            android:padding="10dp"
-            android:textSize="20dp"
-            android:text="@string/btnLogin" />
 
     </LinearLayout>
 

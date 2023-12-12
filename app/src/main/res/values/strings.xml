@@ -3,15 +3,19 @@
     <string name="app_name">Storyboard-Generator</string>
     <string name="btnRegister">Registrarse</string> <!--main, Login y Register-->
     <string name="btnLogin">Iniciar sesión</string> <!--Login y register-->
+    <string name="tvPhone">Telefono</string><!--Login, profile, y Register (profile form)-->
+    <string name="etPhone">Telefono</string><!--Login y Register (profile form)-->
     <string name="tvEmail">Correo electrónico</string><!--Login, profile, y Register (profile form)-->
     <string name="etEmail">Email</string><!--Login, profile, y Register (profile form)-->
     <string name="tvPss">Contraseña</string><!--Login, profile, y Register (profile form)-->
     <string name="etPss">Contraseña</string><!--Login y Register (profile form)-->
+    <string name="tvPssConf">Confirmar Contraseña</string><!--Login, profile, y Register (profile form)-->
+    <string name="etPssConf">Confirmar Contraseña</string><!--Login y Register (profile form)-->
     <string name="tvNameUser">Usuario</string><!--register, profile y profile form-->
     <string name="etNameUser">Usuario</string><!--register, profile y profile form-->
-    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y Plane form-->
+    <string name="tvAddImage">📷</string><!--Project form y Plane form-->
+    <string name="tvAddImageG">🌆</string><!--Project form y Plane form-->
     <string name="btnConfirmar">Confirmar</string><!--Project form, escene form, plane form y create file form-->
-
 
     <!--MAIN - (Pantalla principal)-->
     <string name="tvBienvenidoSC">Bienvenido</string>
@@ -63,6 +67,7 @@
     <string name="etDateEndProject">DD/MM/YYYY</string>
     <string name="tvDescriptionProject">Descripción</string>
     <string name="etDescriptionProject">Descripción del proyecto</string>
+    <string name="tvOptionPF">Elija una opción</string>
 
     <!--PROJECT TEMPLATE-->
     <string name="tvTitleProjectTemplate">Proyecto #1</string>
