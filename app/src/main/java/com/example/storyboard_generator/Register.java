@@ -1,11 +1,13 @@
 package com.example.storyboard_generator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.storyboard_generator.entities.User;
+import com.example.storyboard_generator.layout.ExtrasSetter;
 import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.model.ResponseObj;
@@ -45,18 +47,19 @@ public class Register extends OurActivity {
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
             public void takeResponse(ResponseObj body) {
-                AlertActor alertActor = new AlertActor() {
+                ExtrasSetter extrasSetter = new ExtrasSetter() {
                     @Override
-                    public void alertAction() {
-                        goToLayout(Login.class);
+                    public void setExtras(Intent i) {
+                        i.putExtra("justRegistered",true);
                     }
                 };
-                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
+                goToLayout(Login.class,extrasSetter);
             }
         };
         try{
             User user = takeUser();
             UserDAO userDAO = new UserDAO();
+            tinyAlert(user.getEmail(),true);
             userDAO.register(user,responseTaker);
         }catch (Exception e){
             snackBar(e.getMessage(),true);

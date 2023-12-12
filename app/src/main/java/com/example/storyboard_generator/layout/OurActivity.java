@@ -23,6 +23,15 @@ public class OurActivity extends AppCompatActivity {
         }
     }
 
+    protected void goToLayout(Class layout,ExtrasSetter extrasSetter){
+        try{
+            Intent go = new Intent(getApplicationContext(), layout);
+            extrasSetter.setExtras(go);
+            startActivity(go);
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+    }
     protected void snackBar(String message,boolean tiny){
         View view = findViewById(android.R.id.content);
         Snackbar.make(view,message,Snackbar.LENGTH_LONG).show();
@@ -37,17 +46,6 @@ public class OurActivity extends AppCompatActivity {
                 alertActor.alertAction();
             }
         }).show();
-    }
-
-    protected void snackBar(String message,boolean tiny,String action){
-        View view = findViewById(android.R.id.content);
-        Snackbar snackbar = Snackbar.make(getApplicationContext(),view,message,(tiny)?Snackbar.LENGTH_SHORT:Snackbar.LENGTH_LONG)
-                .setAction(action, new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                    }
-                });
-        snackbar.show();
     }
 
     protected void tinyAlert(String message,boolean tiny){

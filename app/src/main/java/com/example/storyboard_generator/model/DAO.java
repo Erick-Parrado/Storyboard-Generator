@@ -34,10 +34,12 @@ public class DAO {
                         Error error =body.getError();
                         DAO.exception= new Exception(error.getStatus());
                     }
-                    if(!isNullOrEmpty(body.getInfo())){
-                        Info info = body.getInfo();
+                    else{
+                        if(!isNullOrEmpty(body.getInfo())){
+                            Info info = body.getInfo();
+                        }
+                        responseTaker.takeResponse(body);
                     }
-                    responseTaker.takeResponse(body);
                 }
                 else{
                     DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);

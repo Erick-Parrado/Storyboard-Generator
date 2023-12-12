@@ -42,6 +42,21 @@ public class Login extends OurActivity {
         begin();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        justRegistered();
+    }
+
+    public void justRegistered(){
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            boolean registered = (boolean) extras.get("justRegistered");
+            if(registered){
+                snackBar("Registro exitoso, ahora inicia tu sesion ;D",false);
+            }
+        }
+    }
 
     private void begin(){
         this.btnLoginLogin = findViewById(R.id.btnLoginLogin);
@@ -103,7 +118,7 @@ public class Login extends OurActivity {
         }
     }
     private boolean validPass(String pass) {
-        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&*(){}\\-\\]\\[\\/<>]{8,}$");
+        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);
 
         if (mather.find() != true) {
