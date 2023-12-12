@@ -1,24 +1,5 @@
 package com.example.storyboard_generator.entities;
 
-import static com.example.storyboard_generator.api.ApiValues.BASE_URL;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
-
-import com.example.storyboard_generator.api.ServiceLogin;
-import com.example.storyboard_generator.model.Credential;
-import com.example.storyboard_generator.model.Error;
-import com.example.storyboard_generator.model.Info;
-import com.example.storyboard_generator.remote.ClientRetrofit;
-
-import java.util.ArrayList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-
 public class User {
 
     protected int id;
@@ -30,6 +11,12 @@ public class User {
     private String key;
 
     public User(){}
+    public User(String name, String email, String password, String phone){
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+    }
     public User(int id, String name, String email, String password, String phone) {
         this.id = id;
         this.name = name;
@@ -38,13 +25,6 @@ public class User {
         this.phone = phone;
     }
 
-    static public void register(int id, String name, String email, String password, String phone){
-
-    }
-
-    private boolean accessProject(int projectId){
-        return false;
-    }
 
     @Override
     public String toString() {

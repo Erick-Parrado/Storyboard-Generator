@@ -37,8 +37,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="670dp"
-        android:layout_marginTop="18dp"
+        android:layout_height="640dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -54,7 +54,7 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BlueLightBtn"
+            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etNameUser"
             android:inputType="text"
@@ -75,10 +75,10 @@
             android:id="@+id/etPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BlueLightBtn"
+            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etPhone"
-            android:inputType="text"
+            android:inputType="number"
             android:minHeight="48dp"
             android:textSize="18dp" />
 
@@ -96,7 +96,7 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BlueLightBtn"
+            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etEmail"
             android:inputType="textEmailAddress"
@@ -116,10 +116,10 @@
             android:id="@+id/etPss"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BlueLightBtn"
+            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etPss"
-            android:inputType="numberPassword"
+            android:inputType="text"
             android:minHeight="48dp" />
 
         <TextView
@@ -136,14 +136,14 @@
             android:id="@+id/etPssConf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/BlueLightBtn"
+            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etPssConf"
-            android:inputType="numberPassword"
+            android:inputType="text"
             android:minHeight="48dp" />
 
         <Button
-            android:id="@+id/btnRegisterRegister"
+            android:id="@+id/btRegister"
             android:layout_width="207dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -153,18 +153,6 @@
             android:padding="10dp"
             android:text="@string/btnRegister"
             android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/bntLoginRegister"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/diseno_boton"
-            android:padding="10dp"
-            android:text="@string/btnLogin"
-            android:textColor="@color/IndustrialBlue"
             android:textSize="20dp" />
 
     </LinearLayout>

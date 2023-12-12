@@ -1,6 +1,6 @@
 package com.example.storyboard_generator.model;
 
-public class Loger {
+public class LogerApi {
     private String user_email;
     private String user_pass;
 

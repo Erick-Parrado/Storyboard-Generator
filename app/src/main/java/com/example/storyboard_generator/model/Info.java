@@ -1,7 +1,7 @@
 package com.example.storyboard_generator.model;
 
 public class Info {
-    private int status;
+    private String status;
     private String message;
 
     private int count;
@@ -14,11 +14,11 @@ public class Info {
         return message;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 }

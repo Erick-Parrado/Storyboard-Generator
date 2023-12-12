@@ -1,11 +1,6 @@
 package com.example.storyboard_generator;
 
-import static com.example.storyboard_generator.api.ApiValues.BASE_URL;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,33 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.storyboard_generator.api.ServiceLogin;
 import com.example.storyboard_generator.entities.User;
+import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.model.Credential;
 import com.example.storyboard_generator.model.DAO;
-import com.example.storyboard_generator.model.Error;
-import com.example.storyboard_generator.model.Info;
-import com.example.storyboard_generator.model.Loger;
 import com.example.storyboard_generator.model.ResponseObj;
 import com.example.storyboard_generator.model.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
-import com.example.storyboard_generator.remote.ClientRetrofit;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class Login extends AppCompatActivity {
+public class Login extends OurActivity {
     private Button btnLoginLogin;
     private Button btnRegisterLogin;
 
@@ -83,8 +67,8 @@ public class Login extends AppCompatActivity {
     }
 
     private void handleLogin(View view){
-        if(!validEmail(etEmail.getText().toString()) && etPass.getText().length() <=3){
-            alert("Error login");
+        if(!validEmail(etEmail.getText().toString()) && !validPass(etPass.getText().toString())){
+            tinyAlert("Error login",true);
         }
         else{
             ResponseTaker responseTaker = new ResponseTaker() {
@@ -92,7 +76,6 @@ public class Login extends AppCompatActivity {
                 public void takeResponse(ResponseObj body) {
                     User user = new User();
                     ArrayList<Credential> credentials = body.getCredentials();
-                    alert(DAO.isNullOrEmpty(credentials)+"");
                     if(!DAO.isNullOrEmpty(credentials)){
                         for(Credential c:credentials){
                             user.setId(c.getUser_id());
@@ -103,7 +86,7 @@ public class Login extends AppCompatActivity {
                         goToProject();
                     }
                     else{
-                        alert(":P");
+                        tinyAlert("Usuario o contraseña incorrectas",true);
                     }
                 }
             };
@@ -119,23 +102,25 @@ public class Login extends AppCompatActivity {
 
         }
     }
+    private boolean validPass(String pass) {
+        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&*(){}\\-\\]\\[\\/<>]{8,}$");
+        Matcher mather = pattern.matcher(pass);
 
-    private void goToProject(){
-        try{
-            Intent goProjects = new Intent(getApplicationContext(), Projects.class);
-            startActivity(goProjects);
-        }catch (Exception e){
-            System.err.println(e.getMessage());
+        if (mather.find() != true) {
+            System.out.println("Contreseña incompleta.");
+            return false;
+        }
+        else{
+            System.out.println("Contraseña correcta.");
+            return true;
         }
     }
-    private void goToRegister(View view){
-        try{
-            Intent goProjects = new Intent(getApplicationContext(), Register.class);
-            startActivity(goProjects);
-        }catch (Exception e){
-            System.err.println(e.getMessage());
-        }
 
+    private void goToProject(){
+        goToLayout(Projects.class);
+    }
+    private void goToRegister(View view){
+        goToLayout(Register.class);
     }
     private boolean validEmail(String data){
         Pattern pattern =Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\\-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
@@ -148,9 +133,5 @@ public class Login extends AppCompatActivity {
             System.out.println("El email ingresado es inválido.");
         }
         return false;
-    }
-
-    private void alert(String mssg){
-        Toast.makeText(this,mssg,Toast.LENGTH_LONG).show();
     }
 }

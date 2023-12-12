@@ -1,22 +1,16 @@
 package com.example.storyboard_generator.model;
 
-import static com.example.storyboard_generator.api.ApiValues.NO_RESPONDED_EXCEPTION;
-import static com.example.storyboard_generator.api.ApiValues.NO_RESPONSE_EXCEPTION;
-
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.storyboard_generator.api.ServiceLogin;
+import com.example.storyboard_generator.api.ServiceUsers;
 import com.example.storyboard_generator.entities.User;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class UserDAO extends DAO {
 
@@ -25,17 +19,30 @@ public class UserDAO extends DAO {
     }
 
     public void login(String email, String password,ResponseTaker responseTaker) throws Exception{
-        //String password = md5(etPass.getText().toString());
-        Loger loger = new Loger();
+        String pass = md5(password);
+        LogerApi loger = new LogerApi();
         loger.setUser_email(email);
-        loger.setUser_pass(password);
+        loger.setUser_pass(pass);
         ServiceLogin service = retrofit.create(ServiceLogin.class);
         Call<ResponseObj> call = service.accessLogin(loger);
         calling(call,responseTaker);
-        //Toast.makeText(view.getContext(), exception.getMessage(), Toast.LENGTH_SHORT).show();
     }
 
-    public void register(String )
+
+    public void register(User user,ResponseTaker responseTaker) throws  Exception{
+        UserApi userBody = new UserApi();
+        String[] completeName = user.getName().split(" ");
+        String name = completeName[0];
+        String lastName = completeName[1];
+        userBody.setUser_name(name);
+        userBody.setUser_lastName(lastName);
+        userBody.setUser_email(user.getEmail());
+        userBody.setUser_pass(md5(user.getPassword()));
+        userBody.setUser_phone(user.getPhone());
+        ServiceUsers service = retrofit.create(ServiceUsers.class);
+        Call<ResponseObj> call = service.postUser(userBody);
+        calling(call,responseTaker);
+    }
 
     private static String md5(final String s) {
         final String MD5 = "MD5";
