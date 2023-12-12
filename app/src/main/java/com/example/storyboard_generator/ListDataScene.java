@@ -8,7 +8,7 @@ public class ListDataScene {
     String dayTime;
     String duration;
 
-    public ListDataScene(String title, String scenery, String space, String dateTime, String duration) {
+    public ListDataScene(String title, String scenery, String space, String dayTime, String duration) {
         this.title = title;
         this.scenery = scenery;
         this.space = space;
