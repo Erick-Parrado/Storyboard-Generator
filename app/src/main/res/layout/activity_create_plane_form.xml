@@ -84,7 +84,8 @@
                 android:ems="10"
                 android:inputType="text"
                 android:minHeight="48dp"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:textColorHint="@color/GrayBackground"/>
 
 
             <TextView
@@ -125,7 +126,8 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="@string/etDurationPlaneForm"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:textColorHint="@color/GrayBackground"/>
 
             <TextView
                 android:id="@+id/tvShotPlaneForm"
@@ -145,7 +147,8 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="@string/etEscenaryEsceneForm"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:textColorHint="@color/GrayBackground"/>
 
 
 
@@ -167,7 +170,8 @@
                 android:ems="10"
                 android:inputType="text"
                 android:hint="@string/etMovePlaneForm"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                android:textColorHint="@color/GrayBackground"/>
 
             <TextView
                 android:id="@+id/tvDescriptionPlaneForm"
@@ -187,7 +191,8 @@
                 android:hint="@string/etDescriptionPlaneForm"
                 android:inputType="textMultiLine"
                 android:lines="5"
-                android:scrollHorizontally="false" />
+                android:scrollHorizontally="false"
+                android:textColorHint="@color/GrayBackground"/>
 
 
             <Button

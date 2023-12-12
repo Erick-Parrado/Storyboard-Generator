@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class ListAdapterProjects extends ArrayAdapter<ListDataProjects> {
+    public int id;
     public ListAdapterProjects(@NonNull Context context, ArrayList<ListDataProjects> dataArrayList) {
         super(context, R.layout.activity_projects_items, dataArrayList);
     }

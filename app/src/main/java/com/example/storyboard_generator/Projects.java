@@ -35,20 +35,5 @@ public class Projects extends AppCompatActivity {
         listAdapter = new ListAdapterProjects(Projects.this, dataArrayList);
         binding.listView.setAdapter(listAdapter);
         binding.listView.setClickable(true);
-
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View view = listAdapter.getView(i, null, null);
-            final int finalI = i;
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(Projects.this, ProjectTemplate.class);
-                    intent.putExtra("title", titleList[finalI]);
-                    intent.putExtra("studio", studioList[finalI]);
-                    intent.putExtra("image", imageList[finalI]);
-                    startActivity(intent);
-                }
-            });
-        }
     }
 }

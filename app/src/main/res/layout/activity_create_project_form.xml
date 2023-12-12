@@ -83,6 +83,7 @@
           android:hint="@string/etNameUser"
           android:inputType="text"
           android:minHeight="48dp"
+          android:textColorHint="@color/GrayBackground"
           android:textSize="18dp" />
 
       <TextView
@@ -103,6 +104,7 @@
           android:ems="10"
           android:hint="@string/etProductoraProjectForm"
           android:inputType="text"
+          android:textColorHint="@color/GrayBackground"
           android:minHeight="48dp" />
 
       <!--<TextView
@@ -163,6 +165,7 @@
           android:hint="@string/etDescriptionProject"
           android:inputType="textMultiLine"
           android:lines="5"
+          android:textColorHint="@color/GrayBackground"
           android:scrollHorizontally="false" />
 
       <TextView
