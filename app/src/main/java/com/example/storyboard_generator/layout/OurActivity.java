@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.storyboard_generator.Projects;
-import com.example.storyboard_generator.R;
 import com.google.android.material.snackbar.Snackbar;
 
 public class OurActivity extends AppCompatActivity {
@@ -31,12 +29,12 @@ public class OurActivity extends AppCompatActivity {
     }
 
 
-    protected void snackBar(String message,boolean tiny,String actor,SnackActor snackActor){
+    protected void snackBar(String message, boolean tiny, String actor, AlertActor alertActor){
         View view = findViewById(android.R.id.content);
         Snackbar.make(view,message,Snackbar.LENGTH_LONG).setAction(actor, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                snackActor.snackAction();
+                alertActor.alertAction();
             }
         }).show();
     }
@@ -71,25 +69,46 @@ public class OurActivity extends AppCompatActivity {
                     }
                 }).show();
     }
-    public void seriousAlert(String title,String message,String positive_mssg,String negative_mssg){
+
+    public void noPermisionAlert(String permission){
+        AlertActor positiveActor = new AlertActor() {
+            @Override
+            public void alertAction() {
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                        Uri.fromParts("package",getPackageName(),null));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        };
+
+        AlertActor negativeActor = new AlertActor() {
+            @Override
+            public void alertAction() {
+                finish();
+            }
+        };
+
+
+        seriousAlert("Permisos de "+permission,
+                "No se han concedido permisos para el acceso al "+permission+".Por favor, activarlos desde ajustes para continuar con el uso de la aplicacion",
+                "Ajustes",positiveActor,
+                "Salir",negativeActor);
+    }
+    public void seriousAlert(String title,String message,String positiveMssg,AlertActor positiveActor, String negativeMssg,AlertActor negativeActor){
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de permisos")
-                .setMessage("No se han concedido permisos para el acceso al Por favor, activarlos desde ajustes para continuar con el uso de la aplicacion")
-                .setPositiveButton("Ajustes", new DialogInterface.OnClickListener() {
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveMssg, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.fromParts("package",getPackageName(),null));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
+                        positiveActor.alertAction();
                     }
-                }).setNegativeButton("Salir", new DialogInterface.OnClickListener() {
+                }).setNegativeButton(negativeMssg, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        finish();
+                        negativeActor.alertAction();
                     }
                 }).show();
     }

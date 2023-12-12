@@ -13,7 +13,8 @@
     <string name="etPssConf">Confirmar Contraseña</string><!--Login y Register (profile form)-->
     <string name="tvNameUser">Usuario</string><!--register, profile y profile form-->
     <string name="etNameUser">Usuario</string><!--register, profile y profile form-->
-    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y Plane form-->
+    <string name="tvAddImage">Tomar imagen 📷</string><!--Project form y Plane form-->
+    <string name="tvAddImageG">Añadir imagen 🖼️</string><!--Project form y Plane form-->
     <string name="btnConfirmar">Confirmar</string><!--Project form, escene form, plane form y create file form-->
 
 

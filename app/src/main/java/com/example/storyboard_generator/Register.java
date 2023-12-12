@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.layout.OurActivity;
-import com.example.storyboard_generator.layout.SnackActor;
+import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.model.ResponseObj;
 import com.example.storyboard_generator.model.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
@@ -47,13 +47,13 @@ public class Register extends OurActivity {
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
             public void takeResponse(ResponseObj body) {
-                SnackActor snackActor = new SnackActor() {
+                AlertActor alertActor = new AlertActor() {
                     @Override
-                    public void snackAction() {
+                    public void alertAction() {
                         goToLayout(Login.class);
                     }
                 };
-                snackBar("Registro exitoso",false,"Iniciar Sesión",snackActor);
+                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
             }
         };
         try{
