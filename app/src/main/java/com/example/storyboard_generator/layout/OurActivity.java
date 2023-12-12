@@ -6,11 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
 
 public class OurActivity extends AppCompatActivity {
 
@@ -21,6 +24,15 @@ public class OurActivity extends AppCompatActivity {
         }catch (Exception e){
             System.err.println(e.getMessage());
         }
+    }
+
+    protected void validVoids(ArrayList<String> fields) throws Exception{
+        for(String field:fields){
+            if(field.isEmpty()){
+                throw new Exception("Hay campos obligatorios vacios");
+            }
+        }
+
     }
 
     protected void goToLayout(Class layout,ExtrasSetter extrasSetter){

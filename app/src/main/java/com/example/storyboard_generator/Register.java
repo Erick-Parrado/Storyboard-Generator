@@ -14,11 +14,12 @@ import com.example.storyboard_generator.model.ResponseObj;
 import com.example.storyboard_generator.model.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Register extends OurActivity {
-
     private EditText etName;
     private EditText etPhone;
     private EditText etEmail;
@@ -73,6 +74,8 @@ public class Register extends OurActivity {
         String email = etEmail.getText().toString();
         String pass = etPass.getText().toString();
         String passConf = etPassConf.getText().toString();
+        ArrayList<String> fields = new ArrayList<String>(Arrays.asList(name,phone,email,pass,passConf));
+        validVoids(fields);
         validEmail(email);
         validPass(pass,passConf);
         validUnVoids(name);
@@ -123,5 +126,4 @@ public class Register extends OurActivity {
             throw  new Exception("El email ingresado no es inválido.");
         }
     }
-
 }
