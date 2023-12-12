@@ -118,8 +118,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:hint="@string/tvUserNameForm"
-                        android:textColor="@color/AppGray"
                         android:backgroundTint="#CFCECE"
+                        android:textColorHint="@color/GrayBackground"
                         android:textSize="23dp" />
                 </LinearLayout>
 
@@ -152,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:text="@string/tvEmailUP"
-                        android:textColor="#B6B3B3"
+                        android:textColorHint="@color/GrayBackground"
                         android:backgroundTint="#A3A1A1"
                         android:textSize="23dp" />
                 </LinearLayout>
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:hint="@string/tvPssUP"
-                        android:textColor="@color/AppGray"
+                        android:textColorHint="@color/GrayBackground"
                         android:backgroundTint="#CFCECE"
                         android:textSize="23dp" />
                 </LinearLayout>

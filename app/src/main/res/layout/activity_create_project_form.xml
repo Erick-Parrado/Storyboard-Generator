@@ -54,7 +54,7 @@
 
   <ScrollView
       android:layout_width="match_parent"
-      android:layout_height="match_parent">
+      android:layout_height="match_parent" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -75,7 +75,7 @@
 
 
       <EditText
-          android:id="@+id/etTittle"
+          android:id="@+id/etProjectNameForm"
           android:layout_width="match_parent"
           android:layout_height="55dp"
           android:backgroundTint="@color/BlackTurquesa"
@@ -83,6 +83,7 @@
           android:hint="@string/etNameUser"
           android:inputType="text"
           android:minHeight="48dp"
+          android:textColorHint="@color/GrayBackground"
           android:textSize="18dp" />
 
       <TextView
@@ -103,6 +104,7 @@
           android:ems="10"
           android:hint="@string/etProductoraProjectForm"
           android:inputType="text"
+          android:textColorHint="@color/GrayBackground"
           android:minHeight="48dp" />
 
       <!--<TextView
@@ -163,43 +165,73 @@
           android:hint="@string/etDescriptionProject"
           android:inputType="textMultiLine"
           android:lines="5"
+          android:textColorHint="@color/GrayBackground"
           android:scrollHorizontally="false" />
+
+      <TextView
+          android:id="@+id/tvOptionPF"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:fontFamily="@font/sans_font"
+          android:text="@string/tvOptionPF"
+          android:textColor="@color/GrayBackground"
+          android:textSize="20dp"
+          android:textAlignment="center"
+          android:layout_marginBottom="20dp"/>
 
 
       <TableRow
           android:layout_width="match_parent"
           android:layout_height="wrap_content">
-        <Button
+
+        <ImageButton
             android:id="@+id/tvAddImage"
-            android:layout_width="wrap_content"
+            android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/BlackTurquesa"
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#81476A6C"
+            android:contentDescription="Añadir imagen desde la camara"
             android:fontFamily="@font/sans_font"
-            android:text="@string/tvAddImage"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-        <Button
+            android:src="@drawable/camera"
+            android:textSize="80dp" />
+
+        <ImageButton
             android:id="@+id/tvAddImageG"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="94dp"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="9dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/BlackTurquesa"
+            android:background="@drawable/roundstyle"
+            android:backgroundTint="#81476A6C"
+            android:contentDescription="Añadir imagen desde el alamacenamiento"
             android:fontFamily="@font/sans_font"
-            android:text="@string/tvAddImageG"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/storage"
+            android:textSize="80dp" />
 
       </TableRow>
-
+      <androidx.cardview.widget.CardView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/Transparent">
       <ImageView
           android:id="@+id/ivMini"
           android:layout_width="match_parent"
           android:layout_marginTop="15dp"
-          android:layout_height="120dp"
+          android:layout_height="wrap_content"
+          android:maxHeight="120dp"
           android:scaleType="centerCrop" />
+
+      </androidx.cardview.widget.CardView>
+
+
       <Button
           android:id="@+id/btnConfirmarProject"
           android:layout_width="207dp"
@@ -216,6 +248,5 @@
 
     </LinearLayout>
   </ScrollView>
-
 
 </LinearLayout>

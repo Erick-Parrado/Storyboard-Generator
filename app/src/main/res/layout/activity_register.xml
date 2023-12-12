@@ -54,11 +54,12 @@
             android:id="@+id/etName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/GrayBackground"
+            android:backgroundTint="@color/BlueLightBtn"
             android:ems="10"
             android:hint="@string/etNameUser"
             android:inputType="text"
             android:minHeight="48dp"
+            android:textColorHint="@color/AppGray"
             android:textSize="18dp" />
 
         <TextView
@@ -80,6 +81,7 @@
             android:hint="@string/etPhone"
             android:inputType="number"
             android:minHeight="48dp"
+            android:textColorHint="@color/AppGray"
             android:textSize="18dp" />
 
         <TextView
@@ -96,10 +98,11 @@
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/GrayBackground"
+            android:backgroundTint="@color/BlueLightBtn"
             android:ems="10"
             android:hint="@string/etEmail"
             android:inputType="textEmailAddress"
+            android:textColorHint="@color/AppGray"
             android:minHeight="48dp" />
 
         <TextView
@@ -107,19 +110,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:textColorHint="@color/AppGray"
             android:fontFamily="@font/sans_font"
             android:text="@string/tvPss"
             android:textColor="@color/TurquesaBlack"
             android:textSize="20dp" />
 
         <EditText
-            android:id="@+id/etPss"
+            android:id="@+id/etPssRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/GrayBackground"
             android:ems="10"
             android:hint="@string/etPss"
             android:inputType="text"
+            android:textColorHint="@color/AppGray"
+            android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp" />
 
         <TextView
@@ -147,13 +152,13 @@
             android:layout_width="207dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
             android:backgroundTint="@color/BlueLightBtn"
             android:padding="10dp"
-            android:text="@string/btnRegister"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:layout_marginTop="35dp"
+            android:textSize="20dp"
+            android:text="@string/btnRegister" />
 
     </LinearLayout>
 

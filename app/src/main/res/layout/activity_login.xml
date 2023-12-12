@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp"
+    android:background="@color/ExtraLightBlue"
     tools:context=".Login">
 
     <LinearLayout
@@ -58,6 +59,7 @@
             android:backgroundTint="@color/BlueLightBtn"
             android:ems="10"
             android:hint="@string/etEmail"
+            android:textColorHint="@color/AppGray"
             android:inputType="textEmailAddress"
             android:minHeight="48dp" />
 
@@ -78,6 +80,7 @@
             android:ems="10"
             android:hint="@string/etPss"
             android:inputType="text"
+            android:textColorHint="@color/AppGray"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp"  />
 
@@ -88,22 +91,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="45dp"
             android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
             android:backgroundTint="@color/BlueLightBtn"
             android:padding="10dp"
             android:text="@string/btnLogin"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/btnRegisterLogin"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/diseno_boton"
-            android:padding="10dp"
-            android:text="@string/btnRegister"
-            android:textColor="@color/IndustrialBlue"
             android:textSize="20dp" />
 
     </LinearLayout>
