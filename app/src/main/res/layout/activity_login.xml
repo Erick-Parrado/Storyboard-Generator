@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="25dp"
+    android:background="@color/ExtraLightBlue"
     tools:context=".Login">
 
     <LinearLayout
@@ -79,6 +80,7 @@
             android:ems="10"
             android:hint="@string/etPss"
             android:inputType="numberPassword"
+            android:textColorHint="@color/AppGray"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp"  />
 
@@ -93,19 +95,7 @@
             android:padding="10dp"
             android:layout_marginTop="45dp"
             android:textSize="20dp"
-            android:text="@string/btnRegister" />
-
-        <Button
-            android:id="@+id/btnRegisterLogin"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="20dp"
-            android:textColor="@color/IndustrialBlue"
-            android:background="@drawable/diseno_boton"
-            android:padding="10dp"
-            android:textSize="20dp"
-            android:text="@string/btnLogin" />
+            android:text="@string/btnLogin"  />
 
     </LinearLayout>
 
