@@ -31,11 +31,7 @@ public class UserDAO extends DAO {
 
     public void register(User user,ResponseTaker responseTaker) throws  Exception{
         UserApi userBody = new UserApi();
-        String[] completeName = user.getName().split(" ");
-        String name = completeName[0];
-        String lastName = completeName[1];
-        userBody.setUser_name(name);
-        userBody.setUser_lastName(lastName);
+        userBody.setUser_name(user.getName());
         userBody.setUser_email(user.getEmail());
         userBody.setUser_pass(md5(user.getPassword()));
         userBody.setUser_phone(user.getPhone());

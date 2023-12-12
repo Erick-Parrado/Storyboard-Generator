@@ -67,8 +67,8 @@ public class Login extends OurActivity {
     }
 
     private void handleLogin(View view){
-        if(!validEmail(etEmail.getText().toString()) && !validPass(etPass.getText().toString())){
-            tinyAlert("Error login",true);
+        if(!validEmail(etEmail.getText().toString()) || !validPass(etPass.getText().toString())){
+            tinyAlert("Usuario o contraseña incorrectas",true);
         }
         else{
             ResponseTaker responseTaker = new ResponseTaker() {

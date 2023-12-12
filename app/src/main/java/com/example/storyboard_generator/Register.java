@@ -23,7 +23,6 @@ public class Register extends OurActivity {
     private EditText etPass;
     private EditText etPassConf;
     private Button btRegister;
-    private Button btLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,6 @@ public class Register extends OurActivity {
     private  void validPhone(String phone) throws  Exception{
         Pattern pattern =Pattern.compile("^\\d{10}$");
         Matcher mather = pattern.matcher(phone);
-
         if (mather.find() == true) {
             System.out.println("Numero telefonico correcto.");
         }
@@ -100,7 +98,7 @@ public class Register extends OurActivity {
 
         if (mather.find() != true) {
             System.out.println("Contreseña incompleta.");
-            throw  new Exception("La contraseña debe tener 1 minuscula, 1 mayuscula, 1 numero y 1 caracter especial.");
+            throw  new Exception("La contraseña debe tener 8 caracteres,1 minuscula, 1 mayuscula, 1 numero y 1 caracter especial.");
         }
         else if(!pass.equals(passConf)){
             System.out.println("Contraseñas no coinciden.");
@@ -110,7 +108,6 @@ public class Register extends OurActivity {
             System.out.println("Contraseña correcta.");
         }
     }
-
 
     private void validEmail(String email) throws Exception{
         Pattern pattern =Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\\-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
