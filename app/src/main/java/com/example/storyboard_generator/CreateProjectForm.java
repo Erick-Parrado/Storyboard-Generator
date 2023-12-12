@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -56,8 +57,8 @@ public class CreateProjectForm extends OurActivity {
 
     private String mini64;
 
-    private Button btAddImage;
-    private Button btAddImageG;
+    private ImageButton ibAddImage;
+    private ImageButton ibAddImageG;
     private EditText etTittle;
     private EditText etDescription;
     private EditText etProducer;
@@ -75,14 +76,14 @@ public class CreateProjectForm extends OurActivity {
     }
 
     private void begin(){
-        etTittle = findViewById(R.id.etTittle);
+        etTittle = findViewById(R.id.etProjectNameForm);
         etProducer= findViewById(R.id.etProducer);
         etDescription = findViewById(R.id.etDescription);
-        btAddImage = findViewById(R.id.tvAddImage);
-        btAddImageG = findViewById(R.id.tvAddImageG);
+        ibAddImage = findViewById(R.id.ibAddImage);
+        ibAddImageG = findViewById(R.id.ibAddImageG);
         ivMini = findViewById(R.id.ivMini);
-        btAddImage.setOnClickListener(this::openCamera);
-        btAddImageG.setOnClickListener(this::openGallery);
+        ibAddImage.setOnClickListener(this::openCamera);
+        ibAddImageG.setOnClickListener(this::openGallery);
         btConfirm = findViewById(R.id.btnConfirmarProject);
         btConfirm.setOnClickListener(this::handleCreateUser);
     }

@@ -38,7 +38,7 @@ public class Register extends OurActivity {
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
         etEmail = findViewById(R.id.etEmail);
-        etPass = findViewById(R.id.etPss);
+        etPass = findViewById(R.id.etPssLogin);
         etPassConf=findViewById(R.id.etPssConf);
         btRegister = findViewById(R.id.btRegister);
         btRegister.setOnClickListener(this::handleRegister);

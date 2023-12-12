@@ -186,7 +186,7 @@
           android:layout_height="wrap_content">
 
         <ImageButton
-            android:id="@+id/tvAddImage"
+            android:id="@+id/ibAddImage"
             android:layout_width="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -200,7 +200,7 @@
             android:textSize="80dp" />
 
         <ImageButton
-            android:id="@+id/tvAddImageG"
+            android:id="@+id/ibAddImageG"
             android:layout_width="wrap_content"
             android:layout_height="94dp"
             android:layout_gravity="center"

@@ -33,7 +33,7 @@ public class Projects extends AppCompatActivity {
             dataArrayList.add(listDataProjects);
         }
         listAdapter = new ListAdapterProjects(Projects.this, dataArrayList);
-        binding.listView.setAdapter(listAdapter);
-        binding.listView.setClickable(true);
+        binding.lvProjects.setAdapter(listAdapter);
+        binding.lvProjects.setClickable(true);
     }
 }

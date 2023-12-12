@@ -25,7 +25,6 @@ import retrofit2.Retrofit;
 
 public class Login extends OurActivity {
     private Button btnLoginLogin;
-    private Button btnRegisterLogin;
 
     private Retrofit retrofit;
     private EditText etEmail;
@@ -60,12 +59,10 @@ public class Login extends OurActivity {
 
     private void begin(){
         this.btnLoginLogin = findViewById(R.id.btnLoginLogin);
-        this.btnRegisterLogin = findViewById(R.id.btnRegisterLogin);
         this.etEmail = findViewById(R.id.etEmailLogin);
         this.etPass = findViewById(R.id.etPssLogin);
         //this.tvError = findViewById(R.id.tvError);
         btnLoginLogin.setOnClickListener(this::handleLogin);
-        btnRegisterLogin.setOnClickListener(this::goToRegister);
     }
 
     private void setLoginSP(User user){
