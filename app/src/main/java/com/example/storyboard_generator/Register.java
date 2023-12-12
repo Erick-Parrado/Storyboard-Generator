@@ -22,7 +22,6 @@ public class Register extends OurActivity {
     private EditText etEmail;
     private EditText etPass;
     private EditText etPassConf;
-
     private Button btRegister;
     private Button btLogin;
 
