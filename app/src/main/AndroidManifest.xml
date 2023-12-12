@@ -12,10 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StoryboardGenerator"
         tools:targetApi="31">
-
+        <activity
+            android:name=".PlaneTemplate"
+            android:exported="false" />
         <activity
             android:name=".Settings"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".TeamMembers"
+            android:exported="false" />
         <activity
             android:name=".EditUserForm"
             android:exported="false" />
@@ -29,7 +34,7 @@
             android:name=".CreateEsceneForm"
             android:exported="false" />
         <activity
-            android:name=".EsceneTemplate"
+            android:name=".SceneTemplate"
             android:exported="false" />
         <activity
             android:name=".CreateProjectForm"
@@ -44,15 +49,11 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".Projects"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".TeamMembers"
-            android:exported="true" >
-
+            android:name=".Projects"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

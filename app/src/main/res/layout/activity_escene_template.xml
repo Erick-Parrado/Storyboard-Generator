@@ -6,49 +6,94 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/LightBackground"
-    tools:context=".EsceneTemplate">
+    tools:context=".SceneTemplate">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="111dp"
+        android:layout_height="160dp"
         android:layout_marginBottom="8dp"
         android:background="@color/GraygeLight"
         android:orientation="horizontal"
         android:padding="20dp">
 
-        <ImageButton
-            android:id="@+id/ibBackArrow"
-            android:layout_width="1dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="6dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Flecha hacia atras"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/backarrow" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTitleEsceneTemplate"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/sans_font"
-            android:text="@string/tvTitleEsceneTemplate"
-            android:textAlignment="center"
-            android:textColor="@color/GrayBackground"
-            android:textSize="30dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-        <ImageButton
-            android:id="@+id/ibEditEsceneInfo"
-            android:layout_width="6dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Editar info del proyecto"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/lapiz" />
+                <ImageButton
+                    android:id="@+id/ibBackArrow"
+                    android:layout_width="1dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    android:background="@color/Transparent"
+                    android:contentDescription="Flecha hacia atras"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/backarrow" />
+
+
+                <TextView
+                    android:id="@+id/tvTitleEsceneTemplate"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sans_font"
+                    android:text="@string/tvTitleEsceneTemplate"
+                    android:textAlignment="center"
+                    android:textColor="@color/GrayBackground"
+                    android:textSize="34dp" />
+
+                <ImageButton
+                    android:id="@+id/ibEditEsceneInfo"
+                    android:layout_width="6dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/Transparent"
+                    android:contentDescription="Editar info del proyecto"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/lapiz" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp">
+
+                <TextView
+                    android:id="@+id/tvSceneryET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvSpaceET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+
+                <TextView
+                    android:id="@+id/tvDayTimePT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TextView" />
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
     <!--
@@ -215,16 +260,28 @@
     </androidx.cardview.widget.CardView>
 
 
-    <ScrollView
+    <!--<ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent" >-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scrollbars="vertical"
+                android:layout_marginTop="12dp"
+                tools:listitem="@layout/activity_plans_item"
+                android:divider="@color/Transparent"
+                android:dividerHeight="10.0sp"/>
+
+           <!-- <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:layout_margin="10dp"
@@ -325,7 +382,7 @@
                     </LinearLayout>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>-->
             <ImageButton
                 android:id="@+id/ibAddPlanes"
                 android:layout_width="159dp"
@@ -334,9 +391,10 @@
                 android:background="@color/Transparent"
                 android:contentDescription="imgMore"
                 android:scaleType="fitCenter"
+                android:layout_marginTop="20dp"
                 app:srcCompat="@drawable/add" />
         </LinearLayout>
-    </ScrollView>
+    <!--</ScrollView>-->
 
 
 </LinearLayout>

@@ -1,68 +1,15 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/LightBackground"
-    tools:context=".Projects">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="12dp"
+    android:layout_marginEnd="12dp"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="10dp"
+    app:cardElevation="8dp"
+    android:backgroundTint="@color/GraygeLight">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="111dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/GraygeLight"
-        android:orientation="horizontal"
-        android:padding="20dp">
-
-        <ImageButton
-            android:id="@+id/ibBackArrow"
-            android:layout_width="1dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="6dp"
-            android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Flecha hacia atras"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/backarrow" />
-
-        <TextView
-            android:id="@+id/tvTitleProjectsView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/sans_font"
-            android:text="@string/tvTitleMain"
-            android:textAlignment="center"
-            android:textColor="@color/GrayBackground"
-            android:textSize="30dp" />
-
-        <ImageButton
-            android:id="@+id/ibUser"
-            android:layout_width="6dp"
-            android:layout_height="70dp"
-            android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Imagen de perfil"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/profile" />
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:scrollbars="vertical"
-        android:layout_marginTop="12dp"
-        android:padding="10dp"
-        tools:listitem="@layout/activity_projects_items"
-        android:divider="@color/Transparent"
-        android:dividerHeight="10.0sp"/>
-
-    <!--
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="10dp"
@@ -134,17 +81,6 @@
             </LinearLayout>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>-->
+    </androidx.cardview.widget.CardView>
 
-    <ImageButton
-        android:id="@+id/ibAddProjects"
-        android:layout_width="159dp"
-        android:layout_height="65dp"
-        android:layout_gravity="center"
-        android:background="@color/Transparent"
-        android:contentDescription="imgMore"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/add" />
-
-
-</LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -26,6 +26,7 @@
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/backarrow" />
 
+        .
         <TextView
             android:id="@+id/tvTitleProjectTemplate"
             android:layout_width="140dp"
@@ -79,7 +80,7 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvStudioProjectTemplate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -107,16 +108,28 @@
         android:layout_height="118dp"
         app:srcCompat="@drawable/logo" />
 
-    <androidx.cardview.widget.CardView
+    <ListView
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:scrollbars="vertical"
+        android:layout_marginTop="12dp"
+        android:padding="10dp"
+        tools:listitem="@layout/activity_escenes_item"
+        android:divider="@color/Transparent"
+        android:dividerHeight="10.0sp"/>
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
         android:layout_margin="10dp"
         android:backgroundTint="@color/GraygeLight"
         android:outlineAmbientShadowColor="@color/black">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="174dp"
+            android:layout_height="177dp"
             android:layout_weight="1"
             android:orientation="vertical"
             android:padding="10dp">
@@ -129,7 +142,7 @@
                 android:fontFamily="@font/sans_font"
                 android:paddingLeft="10dp"
                 android:text="@string/tvEsceneTitlePT"
-                android:textSize="23dp" />
+                android:textSize="26dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -195,7 +208,7 @@
 
         </LinearLayout>
 
-    </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>-->
 
     <ImageButton
         android:id="@+id/ibAddScenes"
