@@ -48,7 +48,7 @@ public class Login extends OurActivity {
         this.btnRegisterLogin = findViewById(R.id.btnRegisterLogin);
         this.etEmail = findViewById(R.id.etEmailLogin);
         this.etPass = findViewById(R.id.etPssLogin);
-        this.tvError = findViewById(R.id.tvError);
+        //this.tvError = findViewById(R.id.tvError);
         btnLoginLogin.setOnClickListener(this::handleLogin);
         btnRegisterLogin.setOnClickListener(this::goToRegister);
     }

@@ -75,7 +75,7 @@
 
 
       <EditText
-          android:id="@+id/etProjectNameForm"
+          android:id="@+id/etTittle"
           android:layout_width="match_parent"
           android:layout_height="55dp"
           android:backgroundTint="@color/BlackTurquesa"
@@ -96,7 +96,7 @@
           android:textSize="20dp" />
 
       <EditText
-          android:id="@+id/etProductoraProjectForm"
+          android:id="@+id/etProducer"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:backgroundTint="@color/BlackTurquesa"
@@ -156,7 +156,7 @@
           android:textSize="20dp" />
 
       <EditText
-          android:id="@+id/etDescriptionProject"
+          android:id="@+id/etDescription"
           android:layout_width="361dp"
           android:layout_height="93dp"
           android:gravity="top|left"

@@ -14,9 +14,21 @@ public class Project {
     private ArrayList<TeamMember>teamMembers;
     private ArrayList<Scene> scenes;
 
+    private String image;
 
-    public Project(String id, String title, String description, String pin, String producer, String updateDate ){
+    public Project() {
+    }
 
+    public Project(String id, String title, String description, String pin, String producer, LocalDateTime updateDate, ArrayList<TeamMember> teamMembers, ArrayList<Scene> scenes, String image) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.pin = pin;
+        this.producer = producer;
+        this.updateDate = updateDate;
+        this.teamMembers = teamMembers;
+        this.scenes = scenes;
+        this.image = image;
     }
 
     public void  addScene(Scene scene){
@@ -50,6 +62,10 @@ public class Project {
 
     private Integer scenesCount(){
         return null;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public String getId() {
@@ -114,6 +130,10 @@ public class Project {
 
     public void setScenes(ArrayList<Scene> scenes) {
         this.scenes = scenes;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }
 
