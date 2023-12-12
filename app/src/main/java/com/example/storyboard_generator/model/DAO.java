@@ -25,7 +25,6 @@ public class DAO {
         retrofit = ClientRetrofit.getClient(BASE_URL);
     }
     protected void calling(Call call, ResponseTaker responseTaker) throws Exception{
-        Exception exceptionCall = new Exception();
         call.enqueue(new Callback<ResponseObj>() {
             @Override
             public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
@@ -39,6 +38,36 @@ public class DAO {
                         Info info = body.getInfo();
                     }
                     responseTaker.takeResponse(body);
+                }
+                else{
+                    DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
+                }
+            }
+            @Override
+            public void onFailure(Call<ResponseObj> call, Throwable t) {
+                Log.i("onFailure",t.getMessage());
+                DAO.exception = new Exception(NO_RESPONDED_EXCEPTION);
+            }
+        });
+        if(DAO.exception!=null){
+            throw DAO.exception;
+        }
+    }
+
+    protected void calling(Call call) throws Exception{
+        call.enqueue(new Callback<ResponseObj>() {
+            @Override
+            public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
+                if(response.isSuccessful()){
+                    ResponseObj body = response.body();
+                    if(!isNullOrEmpty(body.getError())) {
+                        Error error =body.getError();
+                        DAO.exception= new Exception(error.getStatus());
+                    }
+                    if(!isNullOrEmpty(body.getInfo())){
+                        Info info = body.getInfo();
+                        DAO.exception= new Exception(info.getStatus());
+                    }
                 }
                 else{
                     DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
