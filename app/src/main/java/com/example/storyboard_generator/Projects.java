@@ -19,8 +19,6 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.Toast;
 
-import com.example.storyboard_generator.listview.ListAdapter;
-import com.example.storyboard_generator.listview.Model;
 
 import java.util.ArrayList;
 import java.util.List;
