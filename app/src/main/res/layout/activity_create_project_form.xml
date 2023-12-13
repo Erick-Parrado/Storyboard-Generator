@@ -8,14 +8,14 @@
     tools:context=".CreateProjectForm">
 
 <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="120dp"
-      android:background="@color/GraygeLight"
-      android:orientation="horizontal"
-      android:padding="20dp">
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@color/GraygeLight"
+    android:orientation="horizontal"
+    android:padding="20dp">
 
   <ImageButton
-      android:id="@+id/ibBackArrow"
+      android:id="@+id/ibClose"
       android:layout_width="16dp"
       android:layout_height="56dp"
       android:layout_marginTop="10dp"
@@ -26,17 +26,17 @@
       android:scaleType="fitCenter"
       app:srcCompat="@drawable/close" />
 
-    <TextView
-        android:id="@+id/tvTitleCreateProjectForm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_weight="1"
-        android:fontFamily="@font/sans_font"
-        android:text="@string/tvTitleCreateProject"
-        android:textAlignment="center"
-        android:textColor="@color/GrayBackground"
-        android:textSize="25dp" />
+  <TextView
+      android:id="@+id/tvTitleCreateProjectForm"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="12dp"
+      android:layout_weight="1"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvTitleCreateProject"
+      android:textAlignment="center"
+      android:textColor="@color/GrayBackground"
+      android:textSize="25dp" />
 
   <ImageButton
       android:id="@+id/ibDeleteProject"
@@ -50,203 +50,238 @@
       app:srcCompat="@drawable/trash" />
 
 
+</LinearLayout>
+
+<ScrollView
+android:layout_width="match_parent"
+android:layout_height="match_parent" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+  <TextView
+      android:id="@+id/tvProjectNameForm"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvProjectNameForm"
+      android:textColor="@color/BlackTurquesa"
+      android:textSize="20dp" />
+
+
+  <EditText
+      android:id="@+id/etProjectNameForm"
+      android:layout_width="match_parent"
+      android:layout_height="55dp"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:ems="10"
+      android:hint="@string/etNameUser"
+      android:inputType="text"
+      android:minHeight="48dp"
+      android:textColorHint="@color/GrayBackground"
+      android:textSize="18dp" />
+
+  <TextView
+      android:id="@+id/tvProductoraProjectForm"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvProductoraProjectForm"
+      android:textColor="@color/BlackTurquesa"
+      android:textSize="20dp" />
+
+  <EditText
+      android:id="@+id/etProducer"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:ems="10"
+      android:hint="@string/etProductoraProjectForm"
+      android:inputType="text"
+      android:textColorHint="@color/GrayBackground"
+      android:minHeight="48dp" />
+
+  <!--<TextView
+      android:id="@+id/tvDateStartProject"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvDateStartProject"
+      android:textColor="@color/BlackTurquesa"
+      android:textSize="20dp" />
+
+  <EditText
+      android:id="@+id/etDateStartProject"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="date"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:hint="@string/etDateStartProject"
+      android:minHeight="48dp" />
+
+  <TextView
+      android:id="@+id/tvDateEndtProject"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvDateEndProject"
+      android:textColor="@color/BlackTurquesa"
+      android:textSize="20dp" />
+
+  <EditText
+      android:id="@+id/etDateEndProject"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:ems="10"
+      android:inputType="date"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:hint="@string/etDateEndProject"
+      android:minHeight="48dp" />-->
+
+  <TextView
+      android:id="@+id/tvDescriptionProject"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvDescriptionProject"
+      android:textColor="@color/BlackTurquesa"
+      android:textSize="20dp" />
+
+  <EditText
+      android:id="@+id/etDescription"
+      android:layout_width="361dp"
+      android:layout_height="93dp"
+      android:gravity="top|left"
+      android:hint="@string/etDescriptionProject"
+      android:inputType="textMultiLine"
+      android:lines="5"
+      android:textColorHint="@color/GrayBackground"
+      android:scrollHorizontally="false" />
+
+  <TextView
+      android:id="@+id/tvOptionPF"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="20dp"
+      android:fontFamily="@font/sans_font"
+      android:text="@string/tvOptionPF"
+      android:textColor="@color/GrayBackground"
+      android:textSize="20dp"
+      android:textAlignment="center"
+      android:layout_marginBottom="20dp"/>
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingLeft="70dp">
+
+    <ImageButton
+        android:id="@+id/ibAddImage"
+        android:layout_width="5dp"
+        android:layout_height="73dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#81476A6C"
+        android:contentDescription="Añadir imagen desde la camara"
+        android:fontFamily="@font/sans_font"
+        android:scaleType="fitCenter"
+        android:src="@drawable/camera" />
+
+    <ImageButton
+        android:id="@+id/ibAddImageG"
+        android:layout_width="5dp"
+        android:layout_height="73dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="80dp"
+        android:layout_marginBottom="9dp"
+        android:layout_weight="1"
+        android:background="@drawable/roundstyle"
+        android:backgroundTint="#81476A6C"
+        android:contentDescription="Añadir imagen desde el alamacenamiento"
+        android:fontFamily="@font/sans_font"
+        android:scaleType="fitCenter"
+        android:src="@drawable/storage"
+        android:textSize="80dp" />
+
+  </LinearLayout>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:paddingLeft="20dp">
+
+    <TextView
+        android:id="@+id/tvCamera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sans_font"
+        android:text="@string/tvCamera"
+        android:textColor="@color/GrayBackground"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="20dp"/>
+    <TextView
+        android:id="@+id/tvStorage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sans_font"
+        android:text="@string/tvStorage"
+        android:textColor="@color/GrayBackground"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="20dp"/>
+
   </LinearLayout>
 
-  <ScrollView
+  <androidx.cardview.widget.CardView
       android:layout_width="match_parent"
-      android:layout_height="match_parent" >
-
-    <LinearLayout
+      android:layout_height="wrap_content"
+      android:backgroundTint="@color/Transparent">
+    <ImageView
+        android:id="@+id/ivMini"
         android:layout_width="match_parent"
+        android:layout_marginTop="15dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:maxHeight="120dp"
+        android:scaleType="centerCrop" />
+
+  </androidx.cardview.widget.CardView>
 
 
-      <TextView
-          android:id="@+id/tvProjectNameForm"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvProjectNameForm"
-          android:textColor="@color/BlackTurquesa"
-          android:textSize="20dp" />
+  <Button
+      android:id="@+id/btnConfirmarProject"
+      android:layout_width="207dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="40dp"
+      android:layout_marginBottom="10dp"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:padding="10dp"
+      android:text="@string/btnConfirmar"
+      android:textColor="@color/white"
+      android:textSize="20dp" />
 
-
-      <EditText
-          android:id="@+id/etProjectNameForm"
-          android:layout_width="match_parent"
-          android:layout_height="55dp"
-          android:backgroundTint="@color/BlackTurquesa"
-          android:ems="10"
-          android:hint="@string/etNameUser"
-          android:inputType="text"
-          android:minHeight="48dp"
-          android:textColorHint="@color/GrayBackground"
-          android:textSize="18dp" />
-
-      <TextView
-          android:id="@+id/tvProductoraProjectForm"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvProductoraProjectForm"
-          android:textColor="@color/BlackTurquesa"
-          android:textSize="20dp" />
-
-      <EditText
-          android:id="@+id/etProducer"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:backgroundTint="@color/BlackTurquesa"
-          android:ems="10"
-          android:hint="@string/etProductoraProjectForm"
-          android:inputType="text"
-          android:textColorHint="@color/GrayBackground"
-          android:minHeight="48dp" />
-
-      <!--<TextView
-          android:id="@+id/tvDateStartProject"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvDateStartProject"
-          android:textColor="@color/BlackTurquesa"
-          android:textSize="20dp" />
-
-      <EditText
-          android:id="@+id/etDateStartProject"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:ems="10"
-          android:inputType="date"
-          android:backgroundTint="@color/BlackTurquesa"
-          android:hint="@string/etDateStartProject"
-          android:minHeight="48dp" />
-
-      <TextView
-          android:id="@+id/tvDateEndtProject"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvDateEndProject"
-          android:textColor="@color/BlackTurquesa"
-          android:textSize="20dp" />
-
-      <EditText
-          android:id="@+id/etDateEndProject"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:ems="10"
-          android:inputType="date"
-          android:backgroundTint="@color/BlackTurquesa"
-          android:hint="@string/etDateEndProject"
-          android:minHeight="48dp" />-->
-
-      <TextView
-          android:id="@+id/tvDescriptionProject"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvDescriptionProject"
-          android:textColor="@color/BlackTurquesa"
-          android:textSize="20dp" />
-
-      <EditText
-          android:id="@+id/etDescription"
-          android:layout_width="361dp"
-          android:layout_height="93dp"
-          android:gravity="top|left"
-          android:hint="@string/etDescriptionProject"
-          android:inputType="textMultiLine"
-          android:lines="5"
-          android:textColorHint="@color/GrayBackground"
-          android:scrollHorizontally="false" />
-
-      <TextView
-          android:id="@+id/tvOptionPF"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginTop="20dp"
-          android:fontFamily="@font/sans_font"
-          android:text="@string/tvOptionPF"
-          android:textColor="@color/GrayBackground"
-          android:textSize="20dp"
-          android:textAlignment="center"
-          android:layout_marginBottom="20dp"/>
-
-
-      <TableRow
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
-
-        <ImageButton
-            android:id="@+id/ibAddImage"
-            android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/roundstyle"
-            android:backgroundTint="#81476A6C"
-            android:contentDescription="Añadir imagen desde la camara"
-            android:fontFamily="@font/sans_font"
-            android:src="@drawable/camera"
-            android:textSize="80dp" />
-
-        <ImageButton
-            android:id="@+id/ibAddImageG"
-            android:layout_width="wrap_content"
-            android:layout_height="94dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="9dp"
-            android:layout_weight="1"
-            android:background="@drawable/roundstyle"
-            android:backgroundTint="#81476A6C"
-            android:contentDescription="Añadir imagen desde el alamacenamiento"
-            android:fontFamily="@font/sans_font"
-            android:scaleType="fitCenter"
-            android:src="@drawable/storage"
-            android:textSize="80dp" />
-
-      </TableRow>
-      <androidx.cardview.widget.CardView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:backgroundTint="@color/Transparent">
-      <ImageView
-          android:id="@+id/ivMini"
-          android:layout_width="match_parent"
-          android:layout_marginTop="15dp"
-          android:layout_height="wrap_content"
-          android:maxHeight="120dp"
-          android:scaleType="centerCrop" />
-
-      </androidx.cardview.widget.CardView>
-
-
-      <Button
-          android:id="@+id/btnConfirmarProject"
-          android:layout_width="207dp"
-          android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:layout_marginTop="40dp"
-          android:layout_marginBottom="10dp"
-          android:backgroundTint="@color/BlackTurquesa"
-          android:padding="10dp"
-          android:text="@string/btnConfirmar"
-          android:textColor="@color/white"
-          android:textSize="20dp" />
-
-
-    </LinearLayout>
-  </ScrollView>
 
 </LinearLayout>
+</ScrollView>
+
+    </LinearLayout>

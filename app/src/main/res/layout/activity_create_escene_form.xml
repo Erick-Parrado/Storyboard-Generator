@@ -41,7 +41,7 @@
                 android:layout_marginRight="7dp"/>
 
             <ImageButton
-                android:id="@+id/ibDeletePlane"
+                android:id="@+id/ibDeleteScene"
                 android:layout_width="6dp"
                 android:layout_height="52dp"
                 android:layout_weight="1"
@@ -69,7 +69,7 @@
 
 
                 <TextView
-                    android:id="@+id/tvPositionEsceneForm"
+                    android:id="@+id/tvPositionSceneForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -80,7 +80,7 @@
 
 
                 <EditText
-                    android:id="@+id/etPositionEsceneForm"
+                    android:id="@+id/etPositionSceneForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/BlackTurquesa"
@@ -92,7 +92,7 @@
                     android:textColorHint="@color/GrayBackground"/>
 
                 <TextView
-                    android:id="@+id/tvDurationEsceneForm"
+                    android:id="@+id/tvDurationSceneForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -102,7 +102,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/etDurationEsceneForm"
+                    android:id="@+id/etDurationSceneForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/BlackTurquesa"
@@ -113,7 +113,7 @@
                     android:textColorHint="@color/GrayBackground"/>
 
                 <TextView
-                    android:id="@+id/tvEscenaryEsceneForm"
+                    android:id="@+id/tvScenerySceneForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -123,7 +123,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/etEscenaryEsceneForm"
+                    android:id="@+id/etScenerySceneForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/BlackTurquesa"
@@ -134,7 +134,7 @@
                     android:textColorHint="@color/GrayBackground"/>
 
                 <TextView
-                    android:id="@+id/tvDescriptionEsceneForm"
+                    android:id="@+id/tvDescriptionSceneForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -144,7 +144,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/etDescriptionEsceneForm"
+                    android:id="@+id/etDescriptionSceneForm"
                     android:layout_width="361dp"
                     android:layout_height="93dp"
                     android:gravity="top|left"
@@ -155,7 +155,7 @@
                     android:textColorHint="@color/GrayBackground"/>
 
                 <TextView
-                    android:id="@+id/tvTimeEsceneForm"
+                    android:id="@+id/tvTimeSceneForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -165,7 +165,7 @@
                     android:textSize="20dp" />
 
                 <EditText
-                    android:id="@+id/etTimeEsceneForm"
+                    android:id="@+id/etTimeSceneForm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/BlackTurquesa"
@@ -177,7 +177,7 @@
 
 
                 <Button
-                    android:id="@+id/btnConfirmarEscene"
+                    android:id="@+id/btnConfirmarScene"
                     android:layout_width="207dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

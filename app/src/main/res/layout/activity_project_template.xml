@@ -9,46 +9,68 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="111dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:background="@color/GraygeLight"
         android:orientation="horizontal"
         android:padding="20dp">
 
-        <ImageButton
-            android:id="@+id/ibBackArrow"
-            android:layout_width="1dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="6dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Flecha hacia atras"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/backarrow" />
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/ibBackArrow"
+                    android:layout_width="1dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    android:background="@color/Transparent"
+                    android:contentDescription="Flecha hacia atras"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/backarrow" />
+
+                <TextView
+                    android:id="@+id/tvTitleProjectTemplate"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sans_font"
+                    android:text="@string/tvTitleProjectTemplate"
+                    android:textAlignment="center"
+                    android:textColor="@color/GrayBackground"
+                    android:textSize="30dp" />
+
+                <ImageButton
+                    android:id="@+id/ibEditProjectInfo"
+                    android:layout_width="6dp"
+                    android:layout_height="52dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_weight="1"
+                    android:background="@color/Transparent"
+                    android:contentDescription="Editar info del proyecto"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/lapiz" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvSharePIN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tvSharePIN"
+                android:textSize="20dp"
+                android:textAlignment="center"/>
+        </LinearLayout>
 
         .
-        <TextView
-            android:id="@+id/tvTitleProjectTemplate"
-            android:layout_width="140dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_weight="1"
-            android:fontFamily="@font/sans_font"
-            android:text="@string/tvTitleProjectTemplate"
-            android:textAlignment="center"
-            android:textColor="@color/GrayBackground"
-            android:textSize="30dp" />
-
-        <ImageButton
-            android:id="@+id/ibEditProjectInfo"
-            android:layout_width="6dp"
-            android:layout_height="52dp"
-            android:layout_weight="1"
-            android:background="@color/Transparent"
-            android:contentDescription="Editar info del proyecto"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/lapiz" />
 
     </LinearLayout>
 
@@ -105,11 +127,13 @@
     <ImageView
         android:id="@+id/ivImagePrincipalProject"
         android:layout_width="match_parent"
-        android:layout_height="118dp"
+        android:layout_height="129dp"
+        android:maxHeight="127dp"
+        android:scaleType="fitCenter"
         app:srcCompat="@drawable/logo" />
 
     <ListView
-        android:id="@+id/listViewScenes"
+        android:id="@+id/lvScenes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"

@@ -5,10 +5,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,9 +18,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.StoryboardGenerator"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+
         <activity
             android:name=".PlaneTemplate"
             android:exported="false" />
@@ -35,9 +37,7 @@
         <activity
             android:name=".UserProfile"
             android:exported="false" />
-        <activity
-            android:name=".CreatePlaneForm"
-            android:exported="false" />
+
         <activity
             android:name=".CreateEsceneForm"
             android:exported="false" />
@@ -51,6 +51,9 @@
             android:name=".ProjectTemplate"
             android:exported="false" />
         <activity
+            android:name=".CreatePlaneForm"
+            android:exported="false"/>
+        <activity
             android:name=".Login"
             android:exported="false" />
         <activity
@@ -61,7 +64,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" >
+            android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -12,6 +12,7 @@
     <color name="Transparent">#00CAD7D8</color>
     <color name="BlueLightBtn">#2AB8C6</color>
     <color name="my_dark_primary">#FF3C54CF</color><!--predeterminado y para botones huecos-->
+    <color name="ExtraLightGray">#ECECEC</color><!--Tarjetas claras pero sobre el lightGray-->
 
     <!--Dark Theme-->
     <color name="AppGray">#576869</color><!--Fondo de estructura de la app-->
