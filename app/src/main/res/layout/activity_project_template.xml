@@ -48,7 +48,6 @@
                     android:textAlignment="center"
                     android:textColor="@color/GrayBackground"
                     android:textSize="30dp" />
-
                 <ImageButton
                     android:id="@+id/ibEditProjectInfo"
                     android:layout_width="6dp"
@@ -59,6 +58,7 @@
                     android:contentDescription="Editar info del proyecto"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/lapiz" />
+
             </LinearLayout>
 
             <TextView
