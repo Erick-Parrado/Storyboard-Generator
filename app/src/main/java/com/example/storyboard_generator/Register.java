@@ -38,35 +38,46 @@ public class Register extends OurActivity {
         etName = findViewById(R.id.etName);
         etPhone = findViewById(R.id.etPhone);
         etEmail = findViewById(R.id.etEmail);
-        etPass = findViewById(R.id.etPssLogin);
+        etPass = findViewById(R.id.etPssRegister);
         etPassConf=findViewById(R.id.etPssConf);
         btRegister = findViewById(R.id.btRegister);
         btRegister.setOnClickListener(this::handleRegister);
     }
 
     private void handleRegister(View view){
+        ExtrasSetter extrasSetter = new ExtrasSetter() {
+            @Override
+            public void setExtras(Intent i) {
+                i.putExtra("justRegistered",true);
+            }
+        };
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
             public void takeResponse(ResponseObj body) {
-                ExtrasSetter extrasSetter = new ExtrasSetter() {
-                    @Override
-                    public void setExtras(Intent i) {
-                        i.putExtra("justRegistered",true);
-                    }
-                };
                 goToLayout(Login.class,extrasSetter);
+            }
+        };
+        AlertActor alertActor = new AlertActor() {
+            @Override
+            public void alertAction() {
+                goToLayout(Login.class);
             }
         };
         try{
             User user = takeUser();
-            UserDAO userDAO = new UserDAO();
             tinyAlert(user.getEmail(),true);
+            UserDAO userDAO = new UserDAO();
             userDAO.register(user,responseTaker);
         }catch (Exception e){
-            snackBar(e.getMessage(),true);
+            switch (e.getMessage()){
+                case "209":
+                    snackBar("Ya estas registrado,intenta>> ",false,"Iniciar sesion",alertActor);
+                    break;
+                default:
+                    snackBar(e.getMessage(),true);
+            }
         }
     }
-
 
     private User takeUser() throws Exception{
         String name = etName.getText().toString();
@@ -83,6 +94,7 @@ public class Register extends OurActivity {
         User user = new User(name,email,pass,phone);
         return user;
     }
+
     private  void validUnVoids(String name) throws Exception{
         if(name=="")throw new Exception("No pueden haber campos vacios");
     }
@@ -99,7 +111,7 @@ public class Register extends OurActivity {
 
     }
     private void validPass(String pass,String passConf) throws Exception{
-        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&*(){}\\-\\]\\[\\/<>]{8,}$");
+        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);
 
         if (mather.find() != true) {
@@ -111,7 +123,7 @@ public class Register extends OurActivity {
             throw  new Exception("Las contraseñas no coinciden.");
         }
         else{
-            System.out.println("Contraseña correcta.");
+            System.out.println("Contraseña correcta");
         }
     }
 

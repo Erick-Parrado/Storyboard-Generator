@@ -35,6 +35,7 @@ public class UserDAO extends DAO {
         userBody.setUser_email(user.getEmail());
         userBody.setUser_pass(md5(user.getPassword()));
         userBody.setUser_phone(user.getPhone());
+//        throw new Exception(md5(user.getPassword()));
         ServiceUsers service = retrofit.create(ServiceUsers.class);
         Call<ResponseObj> call = service.postUser(userBody);
         calling(call,responseTaker);

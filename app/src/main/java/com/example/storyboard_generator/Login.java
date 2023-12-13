@@ -105,37 +105,37 @@ public class Login extends OurActivity {
             UserDAO userDAO = new UserDAO();
             String email = etEmail.getText().toString();
             String password = etPass.getText().toString();
+            tinyAlert(email+" "+password,false);
             try{
                 userDAO.login(email,password,responseTaker);
             }
             catch (Exception e){
+                tinyAlert(e.getMessage(),false);
                 Log.i("Error",e.getMessage());
             }
 
         }
     }
     private boolean validPass(String pass) {
-        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&*(){}\\-\\]\\[\\/<>]{8,}$");
+        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);
 
-        if (mather.find() != true) {
+        if (mather.find() == true) {
             System.out.println("Contreseña incompleta.");
-            return false;
+            return true;
         }
         else{
             System.out.println("Contraseña correcta.");
-            return true;
+            return false;
         }
     }
 
     private void goToProject(){
         goToLayout(Projects.class);
     }
-    private void goToRegister(View view){
-        goToLayout(Register.class);
-    }
+
     private boolean validEmail(String data){
-        Pattern pattern =Pattern.compile("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\\-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$");
+        Pattern pattern =Pattern.compile("^([a-zA-Z0-9!\\\"#$%&'()*,_.\\-\\/]{3,})@([a-z]{5,})\\.([a-z]{2,3})(\\.[a-z]{2,3})?$");
         Matcher mather = pattern.matcher(data);
         if (mather.find() == true) {
             System.out.println("El email ingresado es válido.");
