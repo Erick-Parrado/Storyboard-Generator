@@ -94,8 +94,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="#F4F4F4"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/ExtraLightGray"
                 android:outlineAmbientShadowColor="@color/black">
 
                 <LinearLayout
@@ -109,16 +109,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sans_font"
-                        android:text="@string/tvTitleUserNameForm"
+                        android:text="@string/tvNameUser"
                         android:textSize="25dp" />
 
                     <EditText
-                        android:id="@+id/tvUserNameForm"
+                        android:id="@+id/etNameUserForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:hint="@string/tvUserNameForm"
-                        android:backgroundTint="#CFCECE"
+                        android:hint="@string/tvUserNameUP"
+                        android:backgroundTint="@color/GrayBackground"
                         android:textColorHint="@color/GrayBackground"
                         android:textSize="23dp" />
                 </LinearLayout>
@@ -128,8 +128,8 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:backgroundTint="#F4F4F4"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/ExtraLightGray"
                 android:outlineAmbientShadowColor="@color/black">
 
                 <LinearLayout
@@ -143,17 +143,17 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sans_font"
-                        android:text="@string/tvTitleEmailUP"
+                        android:text="@string/tvEmail"
                         android:textSize="25dp" />
 
                     <EditText
-                        android:id="@+id/tvEmailForm"
+                        android:id="@+id/etEmailUserForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="@string/tvEmailUP"
+                        android:text="@string/tvEmailResp"
                         android:textColorHint="@color/GrayBackground"
-                        android:backgroundTint="#A3A1A1"
+                        android:backgroundTint="@color/GrayBackground"
                         android:textSize="23dp" />
                 </LinearLayout>
 
@@ -162,8 +162,43 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:backgroundTint="@color/ExtraLightGray"
+                android:outlineAmbientShadowColor="@color/black">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvTitlePhoneForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/sans_font"
+                        android:text="@string/tvPhone"
+                        android:textSize="25dp" />
+
+                    <EditText
+                        android:id="@+id/etPhoneUserForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:hint="@string/tvPhoneResp"
+                        android:textColorHint="@color/GrayBackground"
+                        android:backgroundTint="@color/GrayBackground"
+                        android:textSize="23dp"
+                        android:inputType="phone"/>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:backgroundTint="#F4F4F4"
+                android:backgroundTint="@color/ExtraLightGray"
                 android:outlineAmbientShadowColor="@color/black">
 
                 <LinearLayout
@@ -177,24 +212,24 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:fontFamily="@font/sans_font"
-                        android:text="@string/tvTitlePssUP"
+                        android:text="@string/tvPss"
                         android:textSize="25dp" />
 
                     <EditText
-                        android:id="@+id/tvPssForm"
+                        android:id="@+id/etPssUserForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:hint="@string/tvPssUP"
+                        android:hint="@string/tvPssResp"
                         android:textColorHint="@color/GrayBackground"
-                        android:backgroundTint="#CFCECE"
+                        android:backgroundTint="@color/GrayBackground"
                         android:textSize="23dp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <Button
-                android:id="@+id/btnConfirmarProfileForm"
+                android:id="@+id/btnConfirmProfileForm"
                 android:layout_width="207dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

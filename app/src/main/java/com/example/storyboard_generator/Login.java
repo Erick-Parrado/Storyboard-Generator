@@ -24,12 +24,12 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import retrofit2.Retrofit;
+//import retrofit2.Retrofit;
 
 public class Login extends OurActivity {
     private Button btnLoginLogin;
 
-    private Retrofit retrofit;
+    //private Retrofit retrofit;
     private EditText etEmail;
     private EditText etPass;
 

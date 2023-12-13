@@ -54,7 +54,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/ivProfile"
+                android:id="@+id/ivProfileUP"
                 android:layout_width="159dp"
                 android:layout_height="181dp"
                 android:layout_marginStart="16dp"
@@ -94,7 +94,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="10dp"
-        android:backgroundTint="#F4F4F4"
+        android:backgroundTint="@color/ExtraLightGray"
         android:outlineAmbientShadowColor="@color/black"
         android:layout_height="wrap_content">
 
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/sans_font"
-                android:text="@string/tvTitleEmailUP"
+                android:text="@string/tvEmail"
                 android:textSize="25dp" />
 
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="@string/tvEmailUP"
+                android:text="@string/tvEmailResp"
                 android:textColor="@color/AppGray"
                 android:textSize="23dp" />
         </LinearLayout>
@@ -127,7 +127,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="10dp"
-        android:backgroundTint="#F4F4F4"
+        android:backgroundTint="@color/ExtraLightGray"
         android:outlineAmbientShadowColor="@color/black"
         android:layout_height="wrap_content">
 
@@ -137,20 +137,20 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvTitlePssForm"
+                android:id="@+id/tvTitlehoneUP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/sans_font"
-                android:text="@string/tvTitlePssForm"
+                android:text="@string/tvPhone"
                 android:textSize="25dp" />
 
             <TextView
-                android:id="@+id/tvPssForm"
+                android:id="@+id/tvPhoneUP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
-                android:text="@string/tvPssForm"
+                android:text="@string/tvPhoneResp"
                 android:textColor="@color/AppGray"
                 android:textSize="23dp" />
         </LinearLayout>
@@ -158,7 +158,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/btnUserProfileEdit"
+        android:id="@+id/btnEditProfile"
         android:layout_width="207dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

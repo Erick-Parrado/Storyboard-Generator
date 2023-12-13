@@ -5,12 +5,28 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.storyboard_generator.databinding.ActivityProjectTemplateBinding;
 
 import java.util.ArrayList;
 
 public class ProjectTemplate extends AppCompatActivity {
+
+    private ImageButton btnBackArrow;
+
+    private TextView titleProject;
+    private ImageButton btnEditProject;
+    private TextView pin;
+    private TextView studioName;
+    private ImageButton btnTeamView;
+
+    private ImageView imageProject;
+    private ImageButton btnAddScenes;
+    //private ListView lvScenes;
 
     ActivityProjectTemplateBinding binding;
     ListAdapterScene listAdapter;
@@ -20,6 +36,7 @@ public class ProjectTemplate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        begin();
 
         Intent intent = this.getIntent();
         if(intent != null){
@@ -49,8 +66,8 @@ public class ProjectTemplate extends AppCompatActivity {
             }
 
             listAdapter = new ListAdapterScene(ProjectTemplate.this, dataArrayList);
-            binding.listViewScenes.setAdapter(listAdapter);
-            binding.listViewScenes.setClickable(true);
+            binding.lvScenes.setAdapter(listAdapter);
+            binding.lvScenes.setClickable(true);
 
             for (int i = 0; i < listAdapter.getCount(); i++) {
                 View view = listAdapter.getView(i, null, null);
@@ -69,5 +86,17 @@ public class ProjectTemplate extends AppCompatActivity {
                 });
             }
         }
+    }
+
+    private void begin(){
+        this.btnBackArrow =  findViewById(R.id.ibBackArrow);
+        this.titleProject = findViewById(R.id.tvTitleProjectTemplate);
+        this.btnEditProject = findViewById(R.id.ibEditProjectInfo);
+        this.pin = findViewById(R.id.tvSharePIN);
+        this.studioName = findViewById(R.id.tvStudioProjectTemplate);
+        this.btnTeamView = findViewById(R.id.ibTeamPT);
+        this.imageProject = findViewById(R.id.ivImagePrincipalProject);
+        //this.lvScenes = findViewById(R.id.lvScenes);
+        this.btnAddScenes   = findViewById(R.id.ibAddScenes);
     }
 }
