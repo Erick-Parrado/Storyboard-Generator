@@ -46,11 +46,6 @@ public class Login extends OurActivity {
         intents = 0;
         justRegistered = false;
         begin();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
         justRegistered();
     }
 
@@ -125,19 +120,17 @@ public class Login extends OurActivity {
                         }
                     }
                 }
-            };
-            try{
-                UserDAO userDAO = new UserDAO();
-                String email = etEmail.getText().toString();
-                String password = etPass.getText().toString();
-                userDAO.login(email,password,responseTaker);
-                clearFields(fields);
-            }
-            catch (Exception e){
-                tinyAlert(e.getMessage(),false);
-                Log.i("Error",e.getMessage());
-            }
 
+                @Override
+                public void manageMessage(String mssg) {
+                    tinyAlert(mssg,false);
+                }
+            };
+            UserDAO userDAO = new UserDAO();
+            String email = etEmail.getText().toString();
+            String password = etPass.getText().toString();
+            userDAO.login(email,password,responseTaker);
+            clearFields(fields);
         }
     }
 

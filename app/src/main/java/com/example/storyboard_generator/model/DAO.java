@@ -21,47 +21,12 @@ import retrofit2.Retrofit;
 
 public class DAO {
     protected Retrofit retrofit;
-    public static Exception exception;
 
     public DAO(){
         retrofit = ClientRetrofit.getClient(BASE_URL);
     }
-    protected void calling(Call call, ResponseTaker responseTaker) throws Exception{
+    protected void calling(Call call, ResponseTaker responseTaker){
 
-        call.enqueue(new Callback<ResponseObj>() {
-            @Override
-            public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
-                if(response.isSuccessful()){
-                    DAO.exception =null;
-                    ResponseObj body = response.body();
-                    if(!isNullOrEmpty(body.getError())) {
-                        Error error =body.getError();
-                        DAO.exception= new Exception(error.getStatus());
-                    }
-                    if(!isNullOrEmpty(body.getInfo())){
-                        Info info = body.getInfo();
-                        //DAO.exception= new Exception(info.getStatus());
-                    }
-                    if( DAO.exception==null){
-                        responseTaker.takeResponse(body);
-                    }
-                }
-                else{
-                    DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
-                }
-            }
-            @Override
-            public void onFailure(Call<ResponseObj> call, Throwable t) {
-                Log.i("onFailure",t.getMessage());
-                DAO.exception = new Exception(NO_RESPONDED_EXCEPTION);
-            }
-        });
-        if(DAO.exception!=null){
-            throw DAO.exception;
-        }
-    }
-
-    protected void calling(Call call) throws Exception{
         call.enqueue(new Callback<ResponseObj>() {
             @Override
             public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
@@ -69,27 +34,56 @@ public class DAO {
                     ResponseObj body = response.body();
                     if(!isNullOrEmpty(body.getError())) {
                         Error error =body.getError();
-                        DAO.exception= new Exception(error.getStatus());
+                        responseTaker.manageMessage(error.getStatus()+"");
+                        return;
                     }
                     if(!isNullOrEmpty(body.getInfo())){
                         Info info = body.getInfo();
-                        DAO.exception= new Exception(info.getStatus());
+                        //responseTaker.manageMessage(info.getStatus()+"");
                     }
+                    responseTaker.takeResponse(body);
                 }
                 else{
-                    DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
+                    responseTaker.manageMessage(NO_RESPONSE_EXCEPTION);
                 }
             }
             @Override
             public void onFailure(Call<ResponseObj> call, Throwable t) {
                 Log.i("onFailure",t.getMessage());
-                DAO.exception = new Exception(NO_RESPONDED_EXCEPTION);
+                responseTaker.manageMessage(NO_RESPONDED_EXCEPTION);
             }
         });
-        if(DAO.exception!=null){
-            throw DAO.exception;
-        }
     }
+
+//    protected void calling(Call call) throws Exception{
+//        call.enqueue(new Callback<ResponseObj>() {
+//            @Override
+//            public void onResponse(Call<ResponseObj> call, Response<ResponseObj> response) {
+//                if(response.isSuccessful()){
+//                    ResponseObj body = response.body();
+//                    if(!isNullOrEmpty(body.getError())) {
+//                        Error error =body.getError();
+//                        DAO.exception= new Exception(error.getStatus());
+//                    }
+//                    if(!isNullOrEmpty(body.getInfo())){
+//                        Info info = body.getInfo();
+//                        DAO.exception= new Exception(info.getStatus());
+//                    }
+//                }
+//                else{
+//                    DAO.exception = new Exception(NO_RESPONSE_EXCEPTION);
+//                }
+//            }
+//            @Override
+//            public void onFailure(Call<ResponseObj> call, Throwable t) {
+//                Log.i("onFailure",t.getmanageMessage());
+//                DAO.exception = new Exception(NO_RESPONDED_EXCEPTION);
+//            }
+//        });
+//        if(DAO.exception!=null){
+//            throw DAO.exception;
+//        }
+//    }
    static public boolean isNullOrEmpty(Object obj){
         if(obj==null)return true;
         if(obj instanceof String) return ((String)obj).trim().equals("") || ((String)obj).equalsIgnoreCase("NULL");

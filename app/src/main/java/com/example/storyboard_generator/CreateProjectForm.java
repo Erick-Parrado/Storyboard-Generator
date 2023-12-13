@@ -68,30 +68,30 @@ public class CreateProjectForm extends OurActivity {
         ibAddImage.setOnClickListener(this::openCamera);
         ibAddImageG.setOnClickListener(this::openGallery);
         btConfirm = findViewById(R.id.btnConfirmarProject);
-        btConfirm.setOnClickListener(this::handleCreateUser);
+        //btConfirm.setOnClickListener(this::handleCreateUser);
     }
 
-    private  void handleCreateUser(View view){
-        ResponseTaker responseTaker = new ResponseTaker() {
-            @Override
-            public void takeResponse(ResponseObj body) {
-                AlertActor alertActor = new AlertActor() {
-                    @Override
-                    public void alertAction() {
-                        goToLayout(Login.class);
-                    }
-                };
-                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
-            }
-        };
-        try{
-            Project project = takeProject();
-            ProjectDAO projectDAO = new ProjectDAO();
-            projectDAO.createProject(1001,responseTaker);
-        }catch (Exception e){
-            snackBar(e.getMessage(),true);
-        }
-    }
+//    private  void handleCreateUser(View view){
+//        ResponseTaker responseTaker = new ResponseTaker() {
+//            @Override
+//            public void takeResponse(ResponseObj body) {
+//                AlertActor alertActor = new AlertActor() {
+//                    @Override
+//                    public void alertAction() {
+//                        goToLayout(Login.class);
+//                    }
+//                };
+//                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
+//            }
+//        };
+//        try{
+//            Project project = takeProject();
+//            ProjectDAO projectDAO = new ProjectDAO();
+//            projectDAO.createProject(1001,responseTaker);
+//        }catch (Exception e){
+//            snackBar(e.getMessage(),true);
+//        }
+//    }
 
     private Project takeProject(){
         Project project = new Project();

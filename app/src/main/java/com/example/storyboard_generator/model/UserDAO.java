@@ -19,7 +19,7 @@ public class UserDAO extends DAO {
         super();
     }
 
-    public void login(String email, String password, ResponseTaker responseTaker) throws Exception{
+    public void login(String email, String password, ResponseTaker responseTaker){
         String pass = md5(password);
         LogerApi loger = new LogerApi();
         loger.setUser_email(email);
@@ -30,7 +30,7 @@ public class UserDAO extends DAO {
     }
 
 
-    public void register(User user,ResponseTaker responseTaker) throws  Exception{
+    public void register(User user,ResponseTaker responseTaker){
         UserApi userBody = new UserApi();
         userBody.setUser_name(user.getName());
         userBody.setUser_email(user.getEmail());

@@ -54,48 +54,57 @@ public class Register extends OurActivity {
                 i.putExtra("justRegistered",true);
             }
         };
-        ResponseTaker responseTaker = new ResponseTaker() {
-            @Override
-            public void takeResponse(ResponseObj body) {
-                goToLayout(Login.class,extrasSetter);
-                clearFields(fields);
-            }
-        };
+
         AlertActor alertActor = new AlertActor() {
             @Override
             public void alertAction() {
                 goToLayout(Login.class);
             }
         };
-        try{
-            User user = takeUser();
-            tinyAlert(user.getEmail(),true);
-            UserDAO userDAO = new UserDAO();
-            userDAO.register(user,responseTaker);
-        }catch (Exception e){
-            switch (e.getMessage()){
-                case "209":
-                    snackBar("Ya estas registrado,intenta>> ",false,"Iniciar sesion",alertActor);
-                    break;
-                default:
-                    snackBar(e.getMessage(),true);
+        ResponseTaker responseTaker = new ResponseTaker() {
+            @Override
+            public void takeResponse(ResponseObj body) {
+                goToLayout(Login.class,extrasSetter);
+                clearFields(fields);
             }
-        }
+
+            @Override
+            public void manageMessage(String mssg) {
+                switch (mssg){
+                    case "209":
+                        tinyAlert(mssg,false);
+                        snackBar("Ya estas registrado,intenta: ",false,"Iniciar sesion",alertActor);
+                        break;
+                    default:
+                        snackBar(mssg,true);
+                }
+            }
+        };
+        User user = takeUser();
+        tinyAlert(user.getEmail(),true);
+        UserDAO userDAO = new UserDAO();
+        userDAO.register(user,responseTaker);
     }
 
-    private User takeUser() throws Exception{
-        String name = etName.getText().toString();
-        String phone = etPhone.getText().toString();
-        String email = etEmail.getText().toString();
-        String pass = etPass.getText().toString();
-        String passConf = etPassConf.getText().toString();
-        validVoids(fields);
-        validEmail(email);
-        validPass(pass,passConf);
-        validUnVoids(name);
-        validPhone(phone);
-        User user = new User(name,email,pass,phone);
-        return user;
+    private User takeUser(){
+        try {
+            String name = etName.getText().toString();
+            String phone = etPhone.getText().toString();
+            String email = etEmail.getText().toString();
+            String pass = etPass.getText().toString();
+            String passConf = etPassConf.getText().toString();
+            validVoids(fields);
+            validEmail(email);
+            validPass(pass,passConf);
+            validUnVoids(name);
+            validPhone(phone);
+            User user = new User(name,email,pass,phone);
+            return user;
+        }
+        catch (Exception e){
+            tinyAlert(e.getMessage(),false);
+            return new User();
+        }
     }
 
     private  void validUnVoids(String name) throws Exception{
