@@ -1,5 +1,6 @@
 <resources>
 
+
     <string name="app_name">Storyboard-Generator</string>
     <string name="btnRegister">Registrarse</string> <!--main, Login y Register-->
     <string name="btnLogin">Iniciar sesión</string> <!--Login y register-->
@@ -13,8 +14,10 @@
     <string name="etPssConf">Confirmar Contraseña</string><!--Login y Register (profile form)-->
     <string name="tvNameUser">Usuario</string><!--register, profile y profile form-->
     <string name="etNameUser">Usuario</string><!--register, profile y profile form-->
-    <string name="tvAddImage">Añadir imagen 📷</string><!--Project form y Plane form-->
-    <string name="btnConfirmar">Confirmar</string><!--Project form, escene form, plane form y create file form-->
+    <string name="tvEmailResp">sofMendez@gmail.com..</string><!--Respuesta provisional en user profile y edit user form-->
+    <string name="tvPssResp">***</string><!--Respuesta provisional en user profile y edit user form-->
+    <string name="tvPhoneResp">3229543498</string><!--Respuesta provisional en user profile y edit user form-->
+    <string name="btnConfirmar">Confirmar</string>
 
     <!--MAIN - (Pantalla principal)-->
     <string name="tvBienvenidoSC">Bienvenido</string>
@@ -23,12 +26,6 @@
     <!--REGISTER-->
     <string name="ivRegister"></string>
     <string name="tvRegisterTitle">Registro</string>
-
-    <!--PROFILE-->
-    <string name="ibArrow"></string>
-    <string name="tvProfile">Perfil</string>
-    <string name="ivProfile"></string>
-    <string name="ibProfile"></string>
 
     <!--PROFILE FORM-->
 
@@ -67,6 +64,8 @@
     <string name="tvDescriptionProject">Descripción</string>
     <string name="etDescriptionProject">Descripción del proyecto</string>
     <string name="tvOptionPF">Elija una opción</string>
+    <string name="tvCamera">Cámara</string>
+    <string name="tvStorage">Archivos</string>
 
     <!--PROJECT TEMPLATE-->
     <string name="tvTitleProjectTemplate">Proyecto #1</string>
@@ -87,9 +86,10 @@
     <string name="tvDescriptionEsceneET">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</string>
     <string name="tvTitlePlaneET">Plano #1</string>
     <string name="tvTitleTypePlaneET">Tipo:</string>
-    <string name="tvTypePlaneET">Info del tipo</string>dd
-    <string name="tvTitleDurationPlaneET">Duración:</string>dd
-    <string name="tvDurationPlaneET">20 seg</string>dd
+    <string name="tvTypePlaneET">Info del tipo</string>
+    <string name="tvTitleDurationPlaneET">Duración:</string>
+    <string name="tvDurationPlaneET">20 seg</string>
+    <string name="tvSharePIN">24357</string>
 
     <!--SCENES MAIN-->
 
@@ -106,8 +106,18 @@
     <string name="tvTimeEsceneForm">Tiempo</string>
     <string name="etTimeEsceneForm">ejem:.. día</string>
 
-    <!--PLANE MAIN-->
-
+    <!--PLANE TEMPLATE-->
+    <string name="tvTitlePlane">Plano#1</string>
+    <string name="tvDurationSubtitle">Duración:</string>
+    <string name="tvDurationPlane">20 seg</string>
+    <string name="tvShotSubtitle">Tiro:</string>
+    <string name="tvShotPlane">info..</string>
+    <string name="tvPlaneSubtitle">Plano:</string>
+    <string name="tvPlanePlane">Horizontal</string>
+    <string name="tvMoveSubtitle">Movimiento:</string>
+    <string name="tvMovePlane">Horizontal</string>
+    <string name="tvArgumentSubtitle">Argumento:</string>
+    <string name="tvArgumentPlane">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</string>
 
     <!--PLANE FORM-->
     <string name="tvTitleCreatePlaneForm">Nuevo plano</string>
@@ -136,20 +146,10 @@
     <!--USER PROFILE-->
     <string name="tvTitleUserProfile">Perfil</string>
     <string name="tvUserNameUP">SofíaMendez24</string>
-    <string name="tvTitleEmailUP">Correo</string>
-    <string name="tvEmailUP">sofMendez@gmail.com..</string>
-    <string name="tvTitlePssUP">Contraseña</string>
-    <string name="tvPssUP">***</string>
     <string name="btnUserProfileEdit">Editar</string>
 
     <!--USER PROFILE FORM-->
     <string name="tvTitleUserProfileForm">Editar perfil</string>
-    <string name="tvTitleUserNameForm">Nombre de usuario</string>
-    <string name="tvUserNameForm">SofíaMendez24</string>
-    <string name="tvTitleEmailForm">Correo</string>
-    <string name="tvEmailForm">sofMendez@gmail.com..</string>
-    <string name="tvTitlePssForm">Contraseña</string>
-    <string name="tvPssForm">***</string>
 
     <!--SETTINGS-->
     <string name="tvTitleSettings">Ajustes</string>
@@ -161,6 +161,7 @@
     <string name="tvTitleTeamMembers">Miembros</string>
     <string name="tvNameMember">DemirYaman</string>
     <string name="tvRolMember">Administrador</string>
+
 
 
 </resources>

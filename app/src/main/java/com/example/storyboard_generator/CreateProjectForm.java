@@ -29,7 +29,6 @@ import com.example.storyboard_generator.api.ResponseTaker;
 import java.io.ByteArrayOutputStream;
 
 public class CreateProjectForm extends OurActivity {
-
     private static final int REQUEST_CAMERA_CODE = 485;
     public static final int ACTION_CAMERA_CODE = 234;
     private static final int ACTION_GALLERY_CODE = 905;
@@ -40,6 +39,8 @@ public class CreateProjectForm extends OurActivity {
 
     private String mini64;
 
+    private ImageButton btnClose;
+    private ImageButton btnDeleteProject;
     private ImageButton ibAddImage;
     private ImageButton ibAddImageG;
     private EditText etTittle;
@@ -59,6 +60,8 @@ public class CreateProjectForm extends OurActivity {
     }
 
     private void begin(){
+        btnClose = findViewById(R.id.ibClose);
+        btnDeleteProject = findViewById(R.id.ibDeleteProject);
         etTittle = findViewById(R.id.etProjectNameForm);
         etProducer= findViewById(R.id.etProducer);
         etDescription = findViewById(R.id.etDescription);

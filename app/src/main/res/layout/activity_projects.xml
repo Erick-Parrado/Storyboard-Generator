@@ -41,17 +41,28 @@
         <ImageButton
             android:id="@+id/ibUser"
             android:layout_width="6dp"
-            android:layout_height="70dp"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:background="@color/Transparent"
             android:contentDescription="Imagen de perfil"
             android:scaleType="fitCenter"
-            app:srcCompat="@drawable/profile" />
+            app:srcCompat="@drawable/profile"
+            android:layout_marginTop="10dp"/>
             <!--
             android:text="show popup"
             android:onClick="showPopup"
             -->
 
+        <ImageButton
+            android:id="@+id/ibSettings"
+            android:layout_width="4dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="ajustes"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/settings"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
     <ListView
@@ -66,15 +77,35 @@
         android:divider="@color/Transparent"
         android:dividerHeight="10.0sp"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="15dp">
     <ImageButton
         android:id="@+id/ibAddProjects"
-        android:layout_width="159dp"
-        android:layout_height="65dp"
+        android:layout_width="145dp"
+        android:layout_height="63dp"
+        android:layout_centerInParent="true"
         android:layout_gravity="center"
         android:background="@color/Transparent"
         android:contentDescription="imgMore"
+        android:onClick="addProject"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/add" />
+        app:srcCompat="@drawable/add"
+        android:layout_marginLeft="30dp" />
+
+    <ImageButton
+        android:id="@+id/ibJoin"
+        android:layout_width="149dp"
+        android:layout_height="74dp"
+        android:layout_centerInParent="true"
+        android:background="@color/Transparent"
+        android:contentDescription="Button Unirse"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/members"
+        android:paddingBottom="10dp"/>
+    </LinearLayout>
 
 
 </LinearLayout>

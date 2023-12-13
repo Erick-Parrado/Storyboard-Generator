@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.ListView;
+
 import com.example.storyboard_generator.databinding.ActivityProjectsBinding;
 //import com.example.storyboard_generator.listview.ListAdapter;
 
@@ -13,6 +16,15 @@ import java.util.ArrayList;
 
 
 public class Projects extends AppCompatActivity {
+
+    private ImageButton btnBackArrow;
+    private ImageButton btnUser;
+    private ImageButton btnSettings;
+    private ImageButton btnAddProjects;
+    private ImageButton btnJoin;
+    //private ListView lvProjects;
+
+
     ActivityProjectsBinding binding;
     ListAdapterProjects listAdapter;
     ArrayList<ListDataProjects> dataArrayList = new ArrayList<>();
@@ -20,6 +32,7 @@ public class Projects extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        begin();
 
         binding = ActivityProjectsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -36,4 +49,13 @@ public class Projects extends AppCompatActivity {
         binding.lvProjects.setAdapter(listAdapter);
         binding.lvProjects.setClickable(true);
     }
+
+    private void begin(){
+        this.btnBackArrow =  findViewById(R.id.ibBackArrow);
+        this.btnUser = findViewById(R.id.ibUser);
+        this.btnSettings = findViewById(R.id.ibSettings);
+        this.btnAddProjects = findViewById(R.id.ibAddProjects);
+        this.btnJoin = findViewById(R.id.ibJoin);
+        //this.lvProjects = findViewById(R.id.lvProjects);
+        }
 }
