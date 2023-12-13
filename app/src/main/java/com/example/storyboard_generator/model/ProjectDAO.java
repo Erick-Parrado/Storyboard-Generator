@@ -1,5 +1,8 @@
 package com.example.storyboard_generator.model;
 
+import com.example.storyboard_generator.api.ProjectApi;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 import com.example.storyboard_generator.api.ServiceProject;
 
 import retrofit2.Call;
@@ -17,7 +20,7 @@ public class ProjectDAO extends DAO{
         super();
     }
 
-    public void createProject(int user_id,ResponseTaker responseTaker) throws Exception{
+    public void createProject(int user_id, ResponseTaker responseTaker) throws Exception{
         ProjectApi projectBody = new ProjectApi();
         projectBody.setProj_tittle(this.tittle);
         projectBody.setProj_description(this.description);

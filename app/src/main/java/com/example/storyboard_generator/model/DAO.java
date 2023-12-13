@@ -6,10 +6,12 @@ import static com.example.storyboard_generator.api.ApiValues.NO_RESPONSE_EXCEPTI
 
 import android.util.Log;
 
+import com.example.storyboard_generator.api.Error;
+import com.example.storyboard_generator.api.Info;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 import retrofit2.Call;

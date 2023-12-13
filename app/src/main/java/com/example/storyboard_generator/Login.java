@@ -1,6 +1,7 @@
 package com.example.storyboard_generator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,14 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.storyboard_generator.entities.User;
+import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.layout.OurActivity;
-import com.example.storyboard_generator.model.Credential;
+import com.example.storyboard_generator.api.Credential;
 import com.example.storyboard_generator.model.DAO;
-import com.example.storyboard_generator.model.ResponseObj;
-import com.example.storyboard_generator.model.ResponseTaker;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,12 +35,16 @@ public class Login extends OurActivity {
 
     private TextView tvError;
 
+    private Integer intents;
+    private Boolean justRegistered;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        intents = 0;
+        justRegistered = false;
         begin();
     }
 
@@ -50,9 +57,10 @@ public class Login extends OurActivity {
     public void justRegistered(){
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            boolean registered = (boolean) extras.get("justRegistered");
-            if(registered){
+            justRegistered = (boolean) extras.get("justRegistered");
+            if(justRegistered){
                 snackBar("Registro exitoso, ahora inicia tu sesion ;D",false);
+                Intent i= getIntent();
             }
         }
     }
@@ -63,6 +71,7 @@ public class Login extends OurActivity {
         this.etPass = findViewById(R.id.etPssLogin);
         //this.tvError = findViewById(R.id.tvError);
         btnLoginLogin.setOnClickListener(this::handleLogin);
+        fields=new ArrayList<>(Arrays.asList(etEmail,etPass));
     }
 
     private void setLoginSP(User user){
@@ -79,8 +88,20 @@ public class Login extends OurActivity {
     }
 
     private void handleLogin(View view){
+        AlertActor alertActor= new AlertActor() {
+            @Override
+            public void alertAction() {
+                goToLayout(Register.class);
+            }
+        };
+        if(intents>=3){
+            snackBar("Tal vez no estas registrado intentalo:",false,"Registrarse",alertActor);
+        }
         if(!validEmail(etEmail.getText().toString()) || !validPass(etPass.getText().toString())){
-            tinyAlert("Usuario o contraseña incorrectas",true);
+            if(intents<3){
+                snackBar("Usuario o contraseña incorrectas",true);
+                intents++;
+            }
         }
         else{
             ResponseTaker responseTaker = new ResponseTaker() {
@@ -98,16 +119,19 @@ public class Login extends OurActivity {
                         goToProject();
                     }
                     else{
-                        tinyAlert("Usuario o contraseña incorrectas",true);
+                        if(intents<3){
+                            intents++;
+                            snackBar("Usuario o contraseña incorrectas",true);
+                        }
                     }
                 }
             };
-            UserDAO userDAO = new UserDAO();
-            String email = etEmail.getText().toString();
-            String password = etPass.getText().toString();
-            tinyAlert(email+" "+password,false);
             try{
+                UserDAO userDAO = new UserDAO();
+                String email = etEmail.getText().toString();
+                String password = etPass.getText().toString();
                 userDAO.login(email,password,responseTaker);
+                clearFields(fields);
             }
             catch (Exception e){
                 tinyAlert(e.getMessage(),false);
@@ -116,6 +140,7 @@ public class Login extends OurActivity {
 
         }
     }
+
     private boolean validPass(String pass) {
         Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);

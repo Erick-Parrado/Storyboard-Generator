@@ -1,4 +1,8 @@
-package com.example.storyboard_generator.model;
+package com.example.storyboard_generator.api;
+
+import com.example.storyboard_generator.api.Credential;
+import com.example.storyboard_generator.api.Error;
+import com.example.storyboard_generator.api.Info;
 
 import java.util.ArrayList;
 

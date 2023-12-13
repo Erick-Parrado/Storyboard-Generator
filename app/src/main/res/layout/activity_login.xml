@@ -59,7 +59,8 @@
             android:backgroundTint="@color/BlueLightBtn"
             android:ems="10"
             android:hint="@string/etEmail"
-            android:textColorHint="@color/AppGray"
+            android:textColor="@color/AppGray"
+            android:textColorHint="@color/GraygeLight"
             android:inputType="textEmailAddress"
             android:minHeight="48dp" />
 
@@ -79,8 +80,9 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/etPss"
-            android:inputType="text"
-            android:textColorHint="@color/AppGray"
+            android:inputType="textPassword"
+            android:textColor="@color/AppGray"
+            android:textColorHint="@color/GraygeLight"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp"  />
 

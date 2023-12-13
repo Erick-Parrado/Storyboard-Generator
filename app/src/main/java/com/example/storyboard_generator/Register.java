@@ -10,8 +10,8 @@ import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.layout.ExtrasSetter;
 import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.layout.AlertActor;
-import com.example.storyboard_generator.model.ResponseObj;
-import com.example.storyboard_generator.model.ResponseTaker;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 import com.example.storyboard_generator.model.UserDAO;
 
 import java.util.ArrayList;
@@ -27,6 +27,8 @@ public class Register extends OurActivity {
     private EditText etPassConf;
     private Button btRegister;
 
+    private ArrayList<EditText> fields;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class Register extends OurActivity {
         etPass = findViewById(R.id.etPssRegister);
         etPassConf=findViewById(R.id.etPssConf);
         btRegister = findViewById(R.id.btRegister);
+        fields = new ArrayList<EditText>(Arrays.asList(etName,etPhone,etEmail,etPass,etPassConf));
         btRegister.setOnClickListener(this::handleRegister);
     }
 
@@ -55,6 +58,7 @@ public class Register extends OurActivity {
             @Override
             public void takeResponse(ResponseObj body) {
                 goToLayout(Login.class,extrasSetter);
+                clearFields(fields);
             }
         };
         AlertActor alertActor = new AlertActor() {
@@ -85,7 +89,6 @@ public class Register extends OurActivity {
         String email = etEmail.getText().toString();
         String pass = etPass.getText().toString();
         String passConf = etPassConf.getText().toString();
-        ArrayList<String> fields = new ArrayList<String>(Arrays.asList(name,phone,email,pass,passConf));
         validVoids(fields);
         validEmail(email);
         validPass(pass,passConf);

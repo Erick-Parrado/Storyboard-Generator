@@ -1,4 +1,4 @@
-package com.example.storyboard_generator.model;
+package com.example.storyboard_generator.api;
 
 public class Info {
     private String status;

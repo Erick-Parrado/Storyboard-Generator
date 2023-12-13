@@ -1,10 +1,11 @@
 package com.example.storyboard_generator.model;
 
-import android.view.View;
-import android.widget.Toast;
-
+import com.example.storyboard_generator.api.LogerApi;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 import com.example.storyboard_generator.api.ServiceLogin;
 import com.example.storyboard_generator.api.ServiceUsers;
+import com.example.storyboard_generator.api.UserApi;
 import com.example.storyboard_generator.entities.User;
 
 import java.security.MessageDigest;
@@ -18,7 +19,7 @@ public class UserDAO extends DAO {
         super();
     }
 
-    public void login(String email, String password,ResponseTaker responseTaker) throws Exception{
+    public void login(String email, String password, ResponseTaker responseTaker) throws Exception{
         String pass = md5(password);
         LogerApi loger = new LogerApi();
         loger.setUser_email(email);

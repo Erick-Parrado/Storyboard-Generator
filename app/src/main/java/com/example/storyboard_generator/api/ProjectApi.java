@@ -1,4 +1,4 @@
-package com.example.storyboard_generator.model;
+package com.example.storyboard_generator.api;
 
 public class ProjectApi {
     private int proj_id;

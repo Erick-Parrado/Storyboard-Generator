@@ -1,21 +1,15 @@
 package com.example.storyboard_generator;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.ParcelFileDescriptor;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -24,26 +18,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.storyboard_generator.entities.Project;
-import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.model.ProjectDAO;
-import com.example.storyboard_generator.model.ResponseObj;
-import com.example.storyboard_generator.model.ResponseTaker;
-import com.example.storyboard_generator.model.UserDAO;
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
 
 import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Date;
-import java.util.Locale;
 
 public class CreateProjectForm extends OurActivity {
 

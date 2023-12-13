@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AccessProject">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/GraygeLight"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <ImageButton
+            android:id="@+id/ibBackArrow"
+            android:layout_width="16dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@color/Transparent"
+            android:contentDescription="Parra cerrar el formulario"
+            android:paddingRight="20dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/close" />
+
+        <TextView
+            android:id="@+id/tvTitleCreateEsceneForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="7dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_font"
+            android:text="@string/tvTitleCreateEsceneForm"
+            android:textAlignment="textStart"
+            android:textColor="@color/GrayBackground"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:textColorHint="@color/GrayBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.266">
+
+
+            <TextView
+                android:id="@+id/tvPositionEsceneForm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/sans_font"
+                android:text="@string/tvPositionEsceneForm"
+                android:textColor="@color/BlackTurquesa"
+                android:textSize="28dp" />
+
+
+            <EditText
+                android:id="@+id/etPositionEsceneForm"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:ems="10"
+                android:hint="@string/etPositionEsceneForm"
+                android:inputType="text"
+                android:minHeight="48dp"
+                android:textColorHint="@color/GrayBackground"
+                android:textSize="28dp" />
+
+
+            <Button
+                android:id="@+id/btnConfirmarEscene"
+                android:layout_width="207dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/BlackTurquesa"
+                android:padding="10dp"
+                android:text="@string/btnConfirmar"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>
