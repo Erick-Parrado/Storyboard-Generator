@@ -42,13 +42,13 @@ public interface ApiValues {
 
         //PLANES
         
-        String GET_PLAENES_MOVES_URL = "planes/{move_id}/moves";
-        String GET_PLAENES_FRAMINGS_URL = "planes/{fram_id}/framings";
-        String GET_PLAENES_SHOTS_URL = "planes/{shot_id}/shots";
-        String GET_PLAENES_URL = "planes/{plan_number}/{scen_number}/{proj_id* ";
-        String POST_PLAENES_URL = "planes/{scen_number}/{proj_id}";
-        String PUT_PLAENES_URL = "planes/{plan_number}/{scen_number}/{proj_id*";
-        String DELETE_PLAENES_URL = "planes/{plan_number}/{scen_number}/{proj_id*";
+        String GET_PLANES_MOVES_URL = "planes/{move_id}/moves";
+        String GET_PLANES_FRAMINGS_URL = "planes/{fram_id}/framings";
+        String GET_PLANES_SHOTS_URL = "planes/{shot_id}/shots";
+        String GET_PLANES_URL = "planes/{plan_number}/{scen_number}/{proj_id* ";
+        String POST_PLANES_URL = "planes/{scen_number}/{proj_id}";
+        String PUT_PLANES_URL = "planes/{plan_number}/{scen_number}/{proj_id*";
+        String DELETE_PLANES_URL = "planes/{plan_number}/{scen_number}/{proj_id*";
 
         //Exceptions
         String NO_RESPONSE_EXCEPTION = "734";

@@ -118,8 +118,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:hint="@string/tvUserNameUP"
-                        android:backgroundTint="@color/GrayBackground"
-                        android:textColorHint="@color/GrayBackground"
+                        android:textColor="@color/AppGray"
+                        android:textColorHint="@color/GraygeLight"
                         android:textSize="23dp" />
                 </LinearLayout>
 
@@ -152,8 +152,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:text="@string/tvEmailResp"
-                        android:textColorHint="@color/GrayBackground"
-                        android:backgroundTint="@color/GrayBackground"
+                        android:textColor="@color/AppGray"
+                        android:textColorHint="@color/GraygeLight"
                         android:textSize="23dp" />
                 </LinearLayout>
 
@@ -186,8 +186,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:hint="@string/tvPhoneResp"
-                        android:textColorHint="@color/GrayBackground"
-                        android:backgroundTint="@color/GrayBackground"
+                        android:textColor="@color/AppGray"
+                        android:textColorHint="@color/GraygeLight"
                         android:textSize="23dp"
                         android:inputType="phone"/>
                 </LinearLayout>
@@ -221,12 +221,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:hint="@string/tvPssResp"
-                        android:textColorHint="@color/GrayBackground"
-                        android:backgroundTint="@color/GrayBackground"
+                        android:textColor="@color/AppGray"
+                        android:textColorHint="@color/GraygeLight"
                         android:textSize="23dp" />
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
+
 
             <Button
                 android:id="@+id/btnConfirmProfileForm"

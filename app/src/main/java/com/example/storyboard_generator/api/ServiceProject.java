@@ -1,6 +1,5 @@
 package com.example.storyboard_generator.api;
 
-import static com.example.storyboard_generator.api.ApiValues.DELETE_PLAENES_URL;
 import static com.example.storyboard_generator.api.ApiValues.DELETE_PROJECT_URL;
 import static com.example.storyboard_generator.api.ApiValues.GET_PROJECT_URL;
 import static com.example.storyboard_generator.api.ApiValues.PATCH_PROJECT_PIN_URL;

@@ -2,6 +2,7 @@ package com.example.storyboard_generator.api;
 
 import com.example.storyboard_generator.Projects;
 import com.example.storyboard_generator.entities.Project;
+import com.example.storyboard_generator.entities.User;
 
 public class Result{
     //USERS
@@ -40,7 +41,9 @@ public class Result{
     //PLANES
     private  int plan_id;
     private int plan_number;
-    private int plan_description;
+
+    private int plan_duration;
+    private String plan_description;
     private String plan_image;
 
     //FRAMINGS
@@ -62,8 +65,23 @@ public class Result{
         return project;
     }
 
+    public User getUser(){
+        User user = new User();
+        user.setName(user_name);
+        user.setEmail(user_email);
+        user.setPhone(user_phone);
+        user.setPassword(user_pass);
+        return user;
+    }
 
 
+    public int getPlan_duration() {
+        return plan_duration;
+    }
+
+    public void setPlan_duration(int plan_duration) {
+        this.plan_duration = plan_duration;
+    }
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;
@@ -161,7 +179,7 @@ public class Result{
         this.plan_number = plan_number;
     }
 
-    public void setPlan_description(int plan_description) {
+    public void setPlan_description(String plan_description) {
         this.plan_description = plan_description;
     }
 
@@ -293,7 +311,7 @@ public class Result{
         return plan_number;
     }
 
-    public int getPlan_description() {
+    public String getPlan_description() {
         return plan_description;
     }
 
