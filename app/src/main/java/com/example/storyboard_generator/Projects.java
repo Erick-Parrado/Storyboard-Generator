@@ -78,4 +78,6 @@ public class Projects extends AppCompatActivity {
         lvLista.setAdapter(itemsAdpater);
     }
 
+
+
 }
