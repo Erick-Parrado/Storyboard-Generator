@@ -123,7 +123,7 @@ public class Login extends OurActivity {
                 }
 
                 @Override
-                public void manageMessage(String mssg) {
+                public void manageMessage(String status,String mssg) {
                     tinyAlert(mssg,false);
                 }
             };

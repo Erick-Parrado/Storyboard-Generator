@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -21,12 +22,15 @@ import android.widget.ImageView;
 
 import com.example.storyboard_generator.entities.Project;
 import com.example.storyboard_generator.layout.AlertActor;
+import com.example.storyboard_generator.layout.ExtrasSetter;
 import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.model.ProjectDAO;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
 
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class CreateProjectForm extends OurActivity {
     private static final int REQUEST_CAMERA_CODE = 485;
@@ -71,40 +75,47 @@ public class CreateProjectForm extends OurActivity {
         ibAddImage.setOnClickListener(this::openCamera);
         ibAddImageG.setOnClickListener(this::openGallery);
         btConfirm = findViewById(R.id.btnConfirmarProject);
-        //btConfirm.setOnClickListener(this::handleCreateUser);
+        btConfirm.setOnClickListener(this::handleCreateProject);
     }
 
-//    private  void handleCreateUser(View view){
-//        ResponseTaker responseTaker = new ResponseTaker() {
-//            @Override
-//            public void takeResponse(ResponseObj body) {
-//                AlertActor alertActor = new AlertActor() {
-//                    @Override
-//                    public void alertAction() {
-//                        goToLayout(Login.class);
-//                    }
-//                };
-//                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
-//            }
-//        };
-//        try{
-//            Project project = takeProject();
-//            ProjectDAO projectDAO = new ProjectDAO();
-//            projectDAO.createProject(1001,responseTaker);
-//        }catch (Exception e){
-//            snackBar(e.getMessage(),true);
-//        }
-//    }
+    private  void handleCreateProject(View view){
+        ResponseTaker responseTaker = new ResponseTaker() {
+            @Override
+            public void takeResponse(ResponseObj body) {
+                AlertActor alertActor = new AlertActor() {
+                    @Override
+                    public void alertAction() {
+                        goToLayout(Projects.class);
+                    }
+                };
+                snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
+            }
+
+            @Override
+            public void manageMessage(String status,String mssg) {
+               tinyAlert(mssg,false);
+            }
+        };
+        Project project = takeProject();
+        ProjectDAO projectDAO = new ProjectDAO();
+        projectDAO.createProject(1001,project,responseTaker);
+    }
 
     private Project takeProject(){
-        Project project = new Project();
-        project.setTitle(etTittle.getText().toString());
-        project.setDescription(etDescription.getText().toString());
-        project.setProducer(etProducer.getText().toString());
-        return project;
-    }
-    private void validVoids(){
-
+        try {
+            ArrayList<EditText> fields = new ArrayList<>(Arrays.asList(etTittle, etDescription, etProducer));
+            validVoids(fields);
+            Project project = new Project();
+            project.setTitle(etTittle.getText().toString());
+            project.setDescription(etDescription.getText().toString());
+            project.setProducer(etProducer.getText().toString());
+            project.setImage(mini64);
+            return project;
+        }
+        catch (Exception e){
+            tinyAlert(e.getMessage(),false);
+            return new Project();
+        }
     }
 
     private void requestPermissionCamera(){

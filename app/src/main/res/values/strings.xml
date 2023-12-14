@@ -57,10 +57,6 @@
     <string name="etProjectNameForm">ejm: Proyecto #1..</string>
     <string name="tvProductoraProjectForm">Productora</string>
     <string name="etProductoraProjectForm">Productora</string>
-    <string name="tvDateStartProject">Fecha de inicio</string>
-    <string name="etDateStartProject">DD/MM/YYYY</string>
-    <string name="tvDateEndProject">Fecha de finalización</string>
-    <string name="etDateEndProject">DD/MM/YYYY</string>
     <string name="tvDescriptionProject">Descripción</string>
     <string name="etDescriptionProject">Descripción del proyecto</string>
     <string name="tvOptionPF">Elija una opción</string>

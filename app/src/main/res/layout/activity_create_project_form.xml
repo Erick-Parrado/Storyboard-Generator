@@ -80,7 +80,7 @@ android:layout_height="match_parent" >
       android:layout_height="55dp"
       android:backgroundTint="@color/BlackTurquesa"
       android:ems="10"
-      android:hint="@string/etNameUser"
+      android:hint="@string/etProjectNameForm"
       android:inputType="text"
       android:minHeight="48dp"
       android:textColorHint="@color/GrayBackground"
@@ -104,7 +104,8 @@ android:layout_height="match_parent" >
       android:ems="10"
       android:hint="@string/etProductoraProjectForm"
       android:inputType="text"
-      android:textColorHint="@color/GrayBackground"
+      android:textColor="@color/AppGray"
+      android:textColorHint="@color/GraygeLight"
       android:minHeight="48dp" />
 
   <!--<TextView
@@ -159,13 +160,17 @@ android:layout_height="match_parent" >
 
   <EditText
       android:id="@+id/etDescription"
-      android:layout_width="361dp"
+      android:layout_width="match_parent"
+      android:backgroundTint="@color/BlackTurquesa"
+      android:ems="10"
+      android:minHeight="48dp"
       android:layout_height="93dp"
       android:gravity="top|left"
       android:hint="@string/etDescriptionProject"
       android:inputType="textMultiLine"
       android:lines="5"
-      android:textColorHint="@color/GrayBackground"
+      android:textColor="@color/AppGray"
+      android:textColorHint="@color/GraygeLight"
       android:scrollHorizontally="false" />
 
   <TextView

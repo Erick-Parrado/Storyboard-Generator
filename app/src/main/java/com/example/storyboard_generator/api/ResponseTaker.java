@@ -6,5 +6,5 @@ public interface ResponseTaker {
 
     void takeResponse(ResponseObj body);
 
-    void manageMessage(String mssg);
+    void manageMessage(String status,String mssg);
 }
