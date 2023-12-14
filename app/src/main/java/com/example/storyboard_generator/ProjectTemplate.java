@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.databinding.ActivityProjectTemplateBinding;
 import com.example.storyboard_generator.entities.Project;
@@ -46,6 +47,7 @@ public class ProjectTemplate extends OurActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         begin();
+
 
         Intent intent = this.getIntent();
         if(intent != null){
@@ -113,7 +115,7 @@ public class ProjectTemplate extends OurActivity {
     private void setProject(){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 ArrayList<Result> results = body.getResults();
                 tinyAlert("Enter",true);
                 if(!DAO.isNullOrEmpty(results)){

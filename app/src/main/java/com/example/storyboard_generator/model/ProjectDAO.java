@@ -3,6 +3,7 @@ package com.example.storyboard_generator.model;
 import com.example.storyboard_generator.api.ProjectApi;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.ServiceProject;
 import com.example.storyboard_generator.entities.Project;
 

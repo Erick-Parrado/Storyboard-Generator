@@ -21,4 +21,12 @@ public class Info {
     public String getStatus() {
         return status;
     }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
+    }
 }

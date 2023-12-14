@@ -28,6 +28,7 @@ import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.model.ProjectDAO;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -82,7 +83,7 @@ public class CreateProjectForm extends OurActivity {
     private  void handleCreateProject(View view){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 AlertActor alertActor = new AlertActor() {
                     @Override
                     public void alertAction() {

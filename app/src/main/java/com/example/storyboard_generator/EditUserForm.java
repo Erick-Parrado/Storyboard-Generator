@@ -13,6 +13,7 @@ import android.widget.ImageView;
 
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.layout.AlertActor;
@@ -62,7 +63,7 @@ public class EditUserForm extends OurActivity {
     private void handleUpdate(View view){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 tinyAlert("Perfil actualizado",false);
                 goToLayout(UserProfile.class);
             }
@@ -149,7 +150,7 @@ public class EditUserForm extends OurActivity {
     private void setUser(){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 ArrayList<Result> results = body.getResults();
                 if(!DAO.isNullOrEmpty(results)){
                     User user = new User();

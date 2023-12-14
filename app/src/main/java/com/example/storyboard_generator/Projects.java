@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.databinding.ActivityProjectsBinding;
 import com.example.storyboard_generator.entities.Project;
@@ -77,7 +78,7 @@ public class Projects extends OurActivity {
         private void getProjectList(){
             ResponseTaker responseTaker = new ResponseTaker() {
                 @Override
-                public void takeResponse(ResponseObj body) {
+                public void takeResponse(ResponseObj body, Info info) {
                     ArrayList<Project> projects = new ArrayList<>();
                     ArrayList<Result> results = body.getResults();
                     if(!DAO.isNullOrEmpty(results)){
@@ -95,7 +96,8 @@ public class Projects extends OurActivity {
             };
             TeamDAO teamDAO = new TeamDAO();
             SharedPreferences dataSP = getSharedPreferences("USER",MODE_PRIVATE);
-            teamDAO.getProjects(dataSP.getInt("user_i",1001),responseTaker);
+            //dataSP.getInt("user_i",1001)
+            teamDAO.getProjects(1001,responseTaker);
         }
 
         private void handleNewProject(View view){

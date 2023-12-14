@@ -84,7 +84,7 @@ android:layout_height="match_parent" >
       android:inputType="text"
       android:minHeight="48dp"
       android:textColor="@color/AppGray"
-      android:textColorHint="@color/GraygeLight"
+      android:textColorHint="@color/HintColor"
       android:textSize="18dp" />
 
   <TextView
@@ -106,7 +106,7 @@ android:layout_height="match_parent" >
       android:hint="@string/etProductoraProjectForm"
       android:inputType="text"
       android:textColor="@color/AppGray"
-      android:textColorHint="@color/GraygeLight"
+      android:textColorHint="@color/HintColor"
       android:minHeight="48dp" />
 
   <!--<TextView
@@ -171,7 +171,7 @@ android:layout_height="match_parent" >
       android:inputType="textMultiLine"
       android:lines="5"
       android:textColor="@color/AppGray"
-      android:textColorHint="@color/GraygeLight"
+      android:textColorHint="@color/HintColor"
       android:scrollHorizontally="false" />
 
   <TextView

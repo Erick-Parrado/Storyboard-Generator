@@ -18,6 +18,7 @@ import com.example.storyboard_generator.api.Credential;
 import com.example.storyboard_generator.model.DAO;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.model.UserDAO;
 
 import java.util.ArrayList;
@@ -102,7 +103,7 @@ public class Login extends OurActivity {
         else{
             ResponseTaker responseTaker = new ResponseTaker() {
                 @Override
-                public void takeResponse(ResponseObj body) {
+                public void takeResponse(ResponseObj body,Info info) {
                     User user = new User();
                     ArrayList<Credential> credentials = body.getCredentials();
                     if(!DAO.isNullOrEmpty(credentials)){

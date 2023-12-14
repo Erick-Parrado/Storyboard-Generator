@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.entities.User;
 import com.example.storyboard_generator.layout.OurActivity;
@@ -60,7 +61,7 @@ public class UserProfile extends OurActivity {
     private void setUser(){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 ArrayList<Result> results = body.getResults();
                 tinyAlert("Enter",true);
                 if(!DAO.isNullOrEmpty(results)){

@@ -60,7 +60,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:textSize="18dp" />
 
         <TextView
@@ -83,7 +83,7 @@
             android:inputType="number"
             android:minHeight="48dp"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:textSize="18dp" />
 
         <TextView
@@ -105,7 +105,7 @@
             android:hint="@string/etEmail"
             android:inputType="textEmailAddress"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:minHeight="48dp" />
 
         <TextView
@@ -127,7 +127,7 @@
             android:hint="@string/etPss"
             android:inputType="text"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp" />
 
@@ -150,7 +150,7 @@
             android:hint="@string/etPssConf"
             android:inputType="text"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:minHeight="48dp" />
 
         <Button

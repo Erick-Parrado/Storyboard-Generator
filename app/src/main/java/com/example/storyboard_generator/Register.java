@@ -12,6 +12,7 @@ import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.layout.AlertActor;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.model.UserDAO;
 
 import java.util.ArrayList;
@@ -63,7 +64,7 @@ public class Register extends OurActivity {
         };
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
-            public void takeResponse(ResponseObj body) {
+            public void takeResponse(ResponseObj body,Info info) {
                 goToLayout(Login.class,extrasSetter);
                 clearFields(fields);
             }

@@ -10,6 +10,7 @@ import com.example.storyboard_generator.api.Error;
 import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Info;
 import com.example.storyboard_generator.remote.ClientRetrofit;
 
 import java.util.Collection;
@@ -39,9 +40,9 @@ public class DAO {
                     }
                     if(!isNullOrEmpty(body.getInfo())){
                         Info info = body.getInfo();
-                        //responseTaker.manageMessage(info.getStatus()+"");
+                        responseTaker.manageMessage(info.getStatus(),info.getCount()+"");
+                        responseTaker.takeResponse(body,info);
                     }
-                    responseTaker.takeResponse(body);
                 }
                 else{
                     responseTaker.manageMessage(NO_RESPONSE_EXCEPTION,"No hubo respuesta");

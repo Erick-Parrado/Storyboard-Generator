@@ -60,7 +60,7 @@
             android:ems="10"
             android:hint="@string/etEmail"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:inputType="textEmailAddress"
             android:minHeight="48dp" />
 
@@ -82,7 +82,7 @@
             android:hint="@string/etPss"
             android:inputType="textPassword"
             android:textColor="@color/AppGray"
-            android:textColorHint="@color/GraygeLight"
+            android:textColorHint="@color/HintColor"
             android:backgroundTint="@color/BlueLightBtn"
             android:minHeight="48dp"  />
 
