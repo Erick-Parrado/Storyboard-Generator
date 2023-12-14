@@ -1,9 +1,11 @@
 package com.example.storyboard_generator.api;
 
 import static com.example.storyboard_generator.api.ApiValues.DELETE_PROJECT_URL;
+import static com.example.storyboard_generator.api.ApiValues.DELETE_USER_URL;
 import static com.example.storyboard_generator.api.ApiValues.GET_USER_URL;
 import static com.example.storyboard_generator.api.ApiValues.POST_USER_URL;
 import static com.example.storyboard_generator.api.ApiValues.PUT_PROJECT_URL;
+import static com.example.storyboard_generator.api.ApiValues.PUT_USER_URL;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,10 +22,10 @@ public interface ServiceUsers {
     @POST(POST_USER_URL)
     public Call<ResponseObj> postUser(@Body UserApi userBody);
 
-    @PUT(PUT_PROJECT_URL)
+    @PUT(PUT_USER_URL)
     public Call<ResponseObj> putUser(@Path("user_id") int user_id,@Body UserApi userBody);
 
-    @DELETE(DELETE_PROJECT_URL)
+    @DELETE(DELETE_USER_URL)
     public Call<ResponseObj> deleteUser(@Path("user_id") int user_id);
 
 }

@@ -94,7 +94,6 @@ public class Register extends OurActivity {
             validVoids(fields);
             validEmail(email);
             validPass(pass,passConf);
-            validUnVoids(name);
             validPhone(phone);
             User user = new User(name,email,pass,phone);
             return user;
@@ -105,9 +104,6 @@ public class Register extends OurActivity {
         }
     }
 
-    private  void validUnVoids(String name) throws Exception{
-        if(name=="")throw new Exception("No pueden haber campos vacios");
-    }
     private  void validPhone(String phone) throws  Exception{
         Pattern pattern =Pattern.compile("^\\d{10}$");
         Matcher mather = pattern.matcher(phone);

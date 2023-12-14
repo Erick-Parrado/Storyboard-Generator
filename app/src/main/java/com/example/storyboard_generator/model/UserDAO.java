@@ -47,7 +47,19 @@ public class UserDAO extends DAO {
         calling(call,responseTaker);
     }
 
-    private static String md5(final String s) {
+    public void updateUser(int user_id,User user,ResponseTaker responseTaker){
+        ServiceUsers service = retrofit.create(ServiceUsers.class);
+        UserApi userBody = new UserApi();
+        userBody.setUser_name(user.getName());
+        userBody.setUser_email(user.getEmail());
+        //userBody.setUser_pass(md5(user.getPassword()));
+        userBody.setUser_phone(user.getPhone());
+        responseTaker.manageMessage("",userBody.getUser_phone());
+        Call<ResponseObj> call = service.putUser(user_id,userBody);
+        calling(call,responseTaker);
+    }
+
+    public static String md5(final String s) {
         final String MD5 = "MD5";
         try {
             // Create MD5 Hash
