@@ -3,8 +3,12 @@ package com.example.storyboard_generator.layout;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -14,12 +18,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class OurActivity extends AppCompatActivity {
     protected ArrayList<EditText> fields;
 
+
+    protected String encodeImage(Bitmap bm) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bm.compress(Bitmap.CompressFormat.JPEG,30,baos);
+        byte[] b = baos.toByteArray();
+        String imgDecodableString = Base64.encodeToString(b, Base64.DEFAULT);
+
+        return imgDecodableString;
+    }
+
+    protected static Bitmap decodeBase64(String input)
+    {
+        byte[] decodedBytes = Base64.decode(input.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    }
     protected void goToLayout(Class layout){
         try{
             Intent goProjects = new Intent(getApplicationContext(), layout);

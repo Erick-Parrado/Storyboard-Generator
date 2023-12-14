@@ -11,10 +11,17 @@ public class ResponseObj {
     private Error error;
     private Info info;
 
+    private ArrayList<Result> results;
     //Login
     private ArrayList<Credential> credentials;
 
-    //Users
+    public void setResults(ArrayList<Result> results) {
+        this.results = results;
+    }
+
+    public ArrayList<Result> getResults() {
+        return results;
+    }
 
     public void setCredentials(ArrayList<Credential> credentials) {
         this.credentials = credentials;

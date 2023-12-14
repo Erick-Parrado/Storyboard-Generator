@@ -194,6 +194,7 @@ public class CreateProjectForm extends OurActivity {
 
     }
 
+
     private void processCamera(Intent data){
         Bundle extras = data.getExtras();
         Bitmap imgBitmap = (Bitmap) extras.get("data");
@@ -207,21 +208,6 @@ public class CreateProjectForm extends OurActivity {
         Bitmap imgBitmap = BitmapFactory.decodeFile(imageUri.toString());
         ivMini.setImageURI(imageUri);
         mini64 = encodeImage(imgBitmap);
-    }
-
-    private String encodeImage(Bitmap bm) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bm.compress(Bitmap.CompressFormat.JPEG,30,baos);
-        byte[] b = baos.toByteArray();
-        String imgDecodableString = Base64.encodeToString(b, Base64.DEFAULT);
-
-        return imgDecodableString;
-    }
-
-    public static Bitmap decodeBase64(String input)
-    {
-        byte[] decodedBytes = Base64.decode(input.getBytes(), Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
     }
 
 }
