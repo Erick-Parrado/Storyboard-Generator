@@ -123,7 +123,7 @@ public class Register extends OurActivity {
 
     }
     private void validPass(String pass,String passConf) throws Exception{
-        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
+        Pattern pattern =Pattern.compile("^(?=.*[a-zñ]+)(?=.*[A-ZÑ]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zñA-ZÑ0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);
 
         if (mather.find() != true) {

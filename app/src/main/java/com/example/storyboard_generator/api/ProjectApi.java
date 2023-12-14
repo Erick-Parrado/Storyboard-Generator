@@ -7,7 +7,6 @@ public class ProjectApi {
     private String proj_description;
     private String proj_dateUpdate;
     private String proj_pin;
-
     private String proj_image;
 
     public void setProj_image(String proj_image) {

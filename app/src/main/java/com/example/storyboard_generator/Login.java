@@ -112,6 +112,7 @@ public class Login extends OurActivity {
                         }
                         setLoginSP(user);
                         goToProject();
+                        clearFields(fields);
                     }
                     else{
                         if(intents<3){
@@ -130,12 +131,11 @@ public class Login extends OurActivity {
             String email = etEmail.getText().toString();
             String password = etPass.getText().toString();
             userDAO.login(email,password,responseTaker);
-            clearFields(fields);
         }
     }
 
     private boolean validPass(String pass) {
-        Pattern pattern =Pattern.compile("^(?=.*[a-z]+)(?=.*[A-Z]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zA-Z0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
+        Pattern pattern =Pattern.compile("^(?=.*[a-zñ]+)(?=.*[A-ZÑ]+)(?=.*[0-9]+)(?=.*[!@#$%^&:;+*(){}\\-\\]\\[\\/<>]+)[a-zñA-ZÑ0-9!@#$%^&:;+*(){}\\-\\]\\[\\/<>]{8,}$");
         Matcher mather = pattern.matcher(pass);
 
         if (mather.find() == true) {
