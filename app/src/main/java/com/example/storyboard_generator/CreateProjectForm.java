@@ -5,6 +5,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -98,7 +99,9 @@ public class CreateProjectForm extends OurActivity {
         };
         Project project = takeProject();
         ProjectDAO projectDAO = new ProjectDAO();
-        projectDAO.createProject(1001,project,responseTaker);
+        SharedPreferences userSD = getSharedPreferences("USER",MODE_PRIVATE);
+
+        projectDAO.createProject(userSD.getInt("user_id",0),project,responseTaker);
     }
 
     private Project takeProject(){
@@ -180,7 +183,7 @@ public class CreateProjectForm extends OurActivity {
     protected void onActivityResult(int requestCode,int resultCode,Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if ((requestCode == ACTION_CAMERA_CODE || requestCode == ACTION_GALLERY_CODE) && resultCode == RESULT_OK){
-            tinyAlert("Image taken",true);
+            tinyAlert("Imagen seleccionada",true);
             switch (requestCode){
                 case ACTION_CAMERA_CODE:
                     processCamera(data);
@@ -204,10 +207,16 @@ public class CreateProjectForm extends OurActivity {
     }
 
     private void processGallery(Intent data){
-        Uri imageUri = data.getData();
-        Bitmap imgBitmap = BitmapFactory.decodeFile(imageUri.toString());
-        ivMini.setImageURI(imageUri);
-        mini64 = encodeImage(imgBitmap);
+        try{
+            Uri imageUri = data.getData();
+            Bitmap imgBitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            ivMini.setImageBitmap(imgBitmap);
+            ivMini.setMaxHeight(120);
+            mini64 = encodeImage(imgBitmap);
+
+        }catch (Exception e){
+            tinyAlert("No se pudo seleccionar la imagen :(",false);
+        }
     }
 
 }

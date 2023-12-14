@@ -191,30 +191,28 @@ android:layout_height="match_parent" >
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:paddingLeft="70dp">
+      android:paddingHorizontal="50dp"
+      >
 
     <ImageButton
         android:id="@+id/ibAddImage"
         android:layout_width="5dp"
         android:layout_height="73dp"
-        android:layout_gravity="center"
-        android:layout_marginRight="20dp"
         android:layout_weight="1"
+        android:padding="10dp"
         android:background="@drawable/roundstyle"
         android:backgroundTint="#81476A6C"
         android:contentDescription="Añadir imagen desde la camara"
         android:fontFamily="@font/sans_font"
         android:scaleType="fitCenter"
-        android:src="@drawable/camera" />
+        android:src="@drawable/camera"
+        android:layout_marginRight="5dp"/>
 
     <ImageButton
         android:id="@+id/ibAddImageG"
         android:layout_width="5dp"
         android:layout_height="73dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="80dp"
-        android:layout_marginBottom="9dp"
+        android:padding="10dp"
         android:layout_weight="1"
         android:background="@drawable/roundstyle"
         android:backgroundTint="#81476A6C"
@@ -222,9 +220,11 @@ android:layout_height="match_parent" >
         android:fontFamily="@font/sans_font"
         android:scaleType="fitCenter"
         android:src="@drawable/storage"
-        android:textSize="80dp" />
+        android:textSize="80dp"
+        android:layout_marginLeft="5dp"/>
 
   </LinearLayout>
+  <!--
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -256,21 +256,16 @@ android:layout_height="match_parent" >
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="20dp"/>
 
-  </LinearLayout>
+  </LinearLayout>-->
 
-  <androidx.cardview.widget.CardView
+  <ImageView
+      android:id="@+id/ivMini"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:backgroundTint="@color/Transparent">
-    <ImageView
-        android:id="@+id/ivMini"
-        android:layout_width="match_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content"
-        android:maxHeight="120dp"
-        android:scaleType="centerCrop" />
+      android:layout_height="120dp"
+      android:layout_marginTop="15dp"
+      android:maxHeight="120dp"
+      android:scaleType="centerCrop" />
 
-  </androidx.cardview.widget.CardView>
 
 
   <Button

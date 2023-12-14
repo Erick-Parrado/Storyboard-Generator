@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -117,16 +118,31 @@ public class Login extends OurActivity {
                     else{
                         if(intents<3){
                             intents++;
-                            snackBar("Usuario o contraseña incorrectas",true);
+                            snackBar("Usuario o contraseña incorrectas",false);
                         }
                     }
                 }
 
                 @Override
                 public void manageMessage(String status,String mssg) {
-                    tinyAlert(mssg,false);
+
+                    switch (status){
+                        case "209":
+                            intents++;
+                            snackBar("Usuario o contraseña incorrectas",false);
+                            break;
+                        default:
+                            tinyAlert("Error"+status,true);
+                    }
                 }
             };
+            if(etPass.isActivated() || etEmail.isActivated()){
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
+                }
+
+            }
             UserDAO userDAO = new UserDAO();
             String email = etEmail.getText().toString();
             String password = etPass.getText().toString();

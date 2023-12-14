@@ -1,6 +1,8 @@
 package com.example.storyboard_generator;
 
 
+import static com.google.android.material.internal.ContextUtils.getActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -34,8 +36,8 @@ public class Projects extends OurActivity {
     private ImageButton btnAddProjects;
     private ImageButton btnJoin;
 
-    ActivityProjectsBinding binding;
-    ListAdapterProjects listAdapter;
+    private ActivityProjectsBinding binding;
+    private ListAdapterProjects listAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +46,11 @@ public class Projects extends OurActivity {
         binding = ActivityProjectsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //^Ojito eso no se quita de ahi ^
+
+//        btnJoin.setOnClickListener(this::handleJoinProject);
+//        btnAddProjects.setOnClickListener(this::handleNewProject);
+//        btnBackArrow.setOnClickListener(this::handleGoBack);
+//        btnUser.setOnClickListener(this::handleGoProfile);
 
     }
 
@@ -59,7 +66,6 @@ public class Projects extends OurActivity {
         this.btnSettings = findViewById(R.id.ibSettings);
         this.btnAddProjects = findViewById(R.id.ibAddProjects);
         this.btnJoin = findViewById(R.id.ibJoin);
-
         }
 
         private void setProjectList(ArrayList<Project> projects){
@@ -69,7 +75,6 @@ public class Projects extends OurActivity {
         }
 
         private void getProjectList(){
-            tinyAlert(":v",false);
             ResponseTaker responseTaker = new ResponseTaker() {
                 @Override
                 public void takeResponse(ResponseObj body) {
@@ -90,8 +95,20 @@ public class Projects extends OurActivity {
             };
             TeamDAO teamDAO = new TeamDAO();
             SharedPreferences dataSP = getSharedPreferences("USER",MODE_PRIVATE);
-            int user_id = dataSP.getInt("user_id",0);
-            teamDAO.getProjects(1001,responseTaker);
+            teamDAO.getProjects(dataSP.getInt("user_id",0),responseTaker);
         }
 
+        private void handleNewProject(View view){
+                goToLayout(CreateProjectForm.class);
+        }
+        private void handleJoinProject(View view){
+            goToLayout(AccessProject.class);
+        }
+        private void handleGoBack(View view){
+            //getActivity().onBackPressed();
+        }
+
+        private void handleGoProfile(View view){
+            goToLayout(UserProfile.class);
+        }
 }

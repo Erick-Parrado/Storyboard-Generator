@@ -18,6 +18,8 @@
     <string name="tvPssResp">***</string><!--Respuesta provisional en user profile y edit user form-->
     <string name="tvPhoneResp">3229543498</string><!--Respuesta provisional en user profile y edit user form-->
     <string name="btnConfirmar">Confirmar</string>
+    <string name="Select">Seleccione una opción</string>
+    <string name="Void"></string>
 
     <!--MAIN - (Pantalla principal)-->
     <string name="tvBienvenidoSC">Bienvenido</string>
@@ -59,7 +61,7 @@
     <string name="etProductoraProjectForm">Productora</string>
     <string name="tvDescriptionProject">Descripción</string>
     <string name="etDescriptionProject">Descripción del proyecto</string>
-    <string name="tvOptionPF">Elija una opción</string>
+    <string name="tvOptionPF">Seleccione imagen de fondo</string>
     <string name="tvCamera">Cámara</string>
     <string name="tvStorage">Archivos</string>
 
@@ -157,7 +159,6 @@
     <string name="tvTitleTeamMembers">Miembros</string>
     <string name="tvNameMember">DemirYaman</string>
     <string name="tvRolMember">Administrador</string>
-
 
 
 </resources>

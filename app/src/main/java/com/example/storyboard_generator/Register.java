@@ -80,7 +80,6 @@ public class Register extends OurActivity {
             }
         };
         User user = takeUser();
-        tinyAlert(user.getEmail(),true);
         UserDAO userDAO = new UserDAO();
         userDAO.register(user,responseTaker);
     }
