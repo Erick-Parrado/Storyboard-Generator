@@ -72,17 +72,20 @@ public class OurActivity extends AppCompatActivity {
         Toast.makeText(this,message,(tiny)?Toast.LENGTH_SHORT:Toast.LENGTH_LONG).show();
     }
 
-    public  void simpleAlert(String tittle,String messge){
-        AlertActor positiveActor = new AlertActor() {
-            @Override
-            public void alertAction() {
-            }
-        };
-        seriousAlert(tittle,messge,"Aceptar",positiveActor);
-    }
-    public void seriousAlert(String title,String message,String positiveMssg,AlertActor positiveActor){
+    public  void simpleAlert(String tittle,String message){
         new AlertDialog.Builder(this)
-                .setTitle(title)
+                .setTitle(tittle)
+                .setMessage(message)
+                .setNeutralButton("Cerrar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+    }
+    public void seriousAlert(String tittle,String message,String positiveMssg,AlertActor positiveActor){
+        new AlertDialog.Builder(this)
+                .setTitle(tittle)
                 .setMessage(message)
                 .setPositiveButton(positiveMssg, new DialogInterface.OnClickListener() {
                     @Override
@@ -116,9 +119,9 @@ public class OurActivity extends AppCompatActivity {
                 "Ajustes",positiveActor,
                 "Salir",negativeActor);
     }
-    public void seriousAlert(String title,String message,String positiveMssg,AlertActor positiveActor, String negativeMssg,AlertActor negativeActor){
+    public void seriousAlert(String tittle,String message,String positiveMssg,AlertActor positiveActor, String negativeMssg,AlertActor negativeActor){
         new AlertDialog.Builder(this)
-                .setTitle(title)
+                .setTitle(tittle)
                 .setMessage(message)
                 .setPositiveButton(positiveMssg, new DialogInterface.OnClickListener() {
                     @Override

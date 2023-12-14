@@ -22,6 +22,7 @@ import android.widget.ImageView;
 
 import com.example.storyboard_generator.entities.Project;
 import com.example.storyboard_generator.layout.AlertActor;
+import com.example.storyboard_generator.layout.ExtrasSetter;
 import com.example.storyboard_generator.layout.OurActivity;
 import com.example.storyboard_generator.model.ProjectDAO;
 import com.example.storyboard_generator.api.ResponseObj;
@@ -74,17 +75,17 @@ public class CreateProjectForm extends OurActivity {
         ibAddImage.setOnClickListener(this::openCamera);
         ibAddImageG.setOnClickListener(this::openGallery);
         btConfirm = findViewById(R.id.btnConfirmarProject);
-        //btConfirm.setOnClickListener(this::handleCreateUser);
+        btConfirm.setOnClickListener(this::handleCreateProject);
     }
 
-    private  void handleCreateUser(View view){
+    private  void handleCreateProject(View view){
         ResponseTaker responseTaker = new ResponseTaker() {
             @Override
             public void takeResponse(ResponseObj body) {
                 AlertActor alertActor = new AlertActor() {
                     @Override
                     public void alertAction() {
-                        goToLayout(Login.class);
+                        goToLayout(Projects.class);
                     }
                 };
                 snackBar("Registro exitoso",false,"Iniciar Sesión", alertActor);
