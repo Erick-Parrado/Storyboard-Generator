@@ -12,13 +12,17 @@ import android.widget.ListView;
 
 import com.example.storyboard_generator.api.ResponseObj;
 import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.databinding.ActivityProjectsBinding;
+import com.example.storyboard_generator.entities.Project;
 import com.example.storyboard_generator.layout.OurActivity;
+import com.example.storyboard_generator.model.DAO;
 import com.example.storyboard_generator.model.TeamDAO;
 //import com.example.storyboard_generator.listview.ListAdapter;
 
 import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.prefs.Preferences;
 
 
@@ -32,13 +36,21 @@ public class Projects extends OurActivity {
 
     ActivityProjectsBinding binding;
     ListAdapterProjects listAdapter;
-    ArrayList<ListDataProjects> dataArrayList = new ArrayList<>();
-    ListDataProjects listDataProjects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         begin();
+        //VOjito eso no se quita de ahi V
+        binding = ActivityProjectsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        //^Ojito eso no se quita de ahi ^
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getProjectList();
     }
 
     private void begin(){
@@ -50,29 +62,25 @@ public class Projects extends OurActivity {
 
         }
 
-        private void setProjectList(ArrayList<Projects> projects){
-            binding = ActivityProjectsBinding.inflate(getLayoutInflater());
-            setContentView(binding.getRoot());
-
-            int[] imageList = {R.drawable.imggallery, R.drawable.logo, R.drawable.uniempresarial};
-            String[] titleList = {"El viaje de Chihiro", "Young Justice","Kimetsu No Yaiba"};
-            String[] studioList = {"Ghibli", "CN", "Uffotable"};
-
-            for (int i = 0; i < imageList.length; i++){
-                listDataProjects = new ListDataProjects(titleList[i], studioList[i], imageList[i]);
-                dataArrayList.add(listDataProjects);
-            }
-            listAdapter = new ListAdapterProjects(Projects.this, dataArrayList);
+        private void setProjectList(ArrayList<Project> projects){
+            listAdapter = new ListAdapterProjects(Projects.this, projects);
             binding.lvProjects.setAdapter(listAdapter);
             binding.lvProjects.setClickable(true);
         }
 
         private void getProjectList(){
+            tinyAlert(":v",false);
             ResponseTaker responseTaker = new ResponseTaker() {
                 @Override
                 public void takeResponse(ResponseObj body) {
-                    ArrayList<Projects> projects = new ArrayList<>();
-
+                    ArrayList<Project> projects = new ArrayList<>();
+                    ArrayList<Result> results = body.getResults();
+                    if(!DAO.isNullOrEmpty(results)){
+                        for(Result r:results){
+                            projects.add(r.getProject());
+                        }
+                    }
+                    setProjectList(projects);
                 }
 
                 @Override
@@ -83,7 +91,7 @@ public class Projects extends OurActivity {
             TeamDAO teamDAO = new TeamDAO();
             SharedPreferences dataSP = getSharedPreferences("USER",MODE_PRIVATE);
             int user_id = dataSP.getInt("user_id",0);
-            teamDAO.getProjects(user_id);
+            teamDAO.getProjects(1001,responseTaker);
         }
 
 }

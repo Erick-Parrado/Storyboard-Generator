@@ -44,13 +44,13 @@ public class DAO {
                     responseTaker.takeResponse(body);
                 }
                 else{
-                    responseTaker.manageMessage("",NO_RESPONSE_EXCEPTION);
+                    responseTaker.manageMessage(NO_RESPONSE_EXCEPTION,"No hubo respuesta");
                 }
             }
             @Override
             public void onFailure(Call<ResponseObj> call, Throwable t) {
                 Log.i("onFailure",t.getMessage());
-                responseTaker.manageMessage("",NO_RESPONDED_EXCEPTION);
+                responseTaker.manageMessage(NO_RESPONDED_EXCEPTION,"No responderr");
             }
         });
     }

@@ -1,5 +1,8 @@
 package com.example.storyboard_generator.api;
 
+import com.example.storyboard_generator.Projects;
+import com.example.storyboard_generator.entities.Project;
+
 public class Result{
     //USERS
     private int user_id;
@@ -51,6 +54,16 @@ public class Result{
     //MOVES
     private int move_id;
     private String move_name;
+
+
+    //TEMPLATES
+    public Project getProject(){
+        Project project = new Project(this.proj_id,this.proj_tittle,this.proj_description,this.proj_pin,this.proj_producer,this.proj_dateUpdate,this.proj_image);
+        return project;
+    }
+
+
+
 
     public void setUser_id(int user_id) {
         this.user_id = user_id;

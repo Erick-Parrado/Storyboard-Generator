@@ -12,12 +12,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.storyboard_generator.entities.Project;
+
 import java.util.ArrayList;
 
-public class ListAdapterProjects extends ArrayAdapter<ListDataProjects> {
-    public int id;
-    public ListAdapterProjects(@NonNull Context context, ArrayList<ListDataProjects> dataArrayList) {
-        super(context, R.layout.activity_projects_items, dataArrayList);
+public class ListAdapterProjects extends ArrayAdapter<Project> {
+    public ListAdapterProjects(@NonNull Context context, ArrayList<Project> dataProject) {
+        super(context, R.layout.activity_projects_items, dataProject);
     }
 
 
@@ -25,7 +26,7 @@ public class ListAdapterProjects extends ArrayAdapter<ListDataProjects> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
-        ListDataProjects listData = getItem(position);
+        Project itemProject = getItem(position);
 
         if (view == null){
             view = LayoutInflater.from(getContext()).inflate(R.layout.activity_projects_items, parent, false);
@@ -35,17 +36,15 @@ public class ListAdapterProjects extends ArrayAdapter<ListDataProjects> {
         TextView listName = view.findViewById(R.id.tvTitleNameProject);
         TextView listStudio = view.findViewById(R.id.tvStudioProjects);
 
-        listImage.setImageResource(listData.image);
-        listName.setText(listData.title);
-        listStudio.setText(listData.studio);
+        //listImage.setImageResource(listData.image);
+        listName.setText(itemProject.getTitle());
+        listStudio.setText(itemProject.getProducer());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProjectTemplate.class);
-                intent.putExtra("title", listData.title);
-                intent.putExtra("studio", listData.studio);
-                intent.putExtra("image", listData.image);
+                intent.putExtra("proj_id", itemProject.getId());
                 getContext().startActivity(intent);
             }
         });

@@ -5,13 +5,12 @@ import java.util.ArrayList;
 
 public class Project {
 
-    private String id;
+    private int id;
     private String title;
     private String description;
     private String pin;
     private String producer;
-    private LocalDateTime updateDate;
-    private ArrayList<TeamMember>teamMembers;
+    private String updateDate;
     private ArrayList<Scene> scenes;
 
     private String image;
@@ -19,14 +18,23 @@ public class Project {
     public Project() {
     }
 
-    public Project(String id, String title, String description, String pin, String producer, LocalDateTime updateDate, ArrayList<TeamMember> teamMembers, ArrayList<Scene> scenes, String image) {
+    public Project(int id, String title, String description, String pin, String producer, String updateDate, String image) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.pin = pin;
         this.producer = producer;
         this.updateDate = updateDate;
-        this.teamMembers = teamMembers;
+        this.image = image;
+    }
+
+    public Project(int id, String title, String description, String pin, String producer, LocalDateTime updateDateteamMembers, ArrayList<Scene> scenes, String image) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.pin = pin;
+        this.producer = producer;
+        this.updateDate = updateDate;
         this.scenes = scenes;
         this.image = image;
     }
@@ -68,11 +76,11 @@ public class Project {
         return image;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -108,20 +116,12 @@ public class Project {
         this.producer = producer;
     }
 
-    public LocalDateTime getUpdateDate() {
+    public String getUpdateDate() {
         return updateDate;
     }
 
-    public void setUpdateDate(LocalDateTime updateDate) {
+    public void setUpdateDate(String updateDate) {
         this.updateDate = updateDate;
-    }
-
-    public ArrayList<TeamMember> getTeamMembers() {
-        return teamMembers;
-    }
-
-    public void setTeamMembers(ArrayList<TeamMember> teamMembers) {
-        this.teamMembers = teamMembers;
     }
 
     public ArrayList<Scene> getScenes() {
