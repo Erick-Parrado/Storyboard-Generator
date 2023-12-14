@@ -2,6 +2,7 @@ package com.example.storyboard_generator.api;
 
 import com.example.storyboard_generator.Projects;
 import com.example.storyboard_generator.entities.Project;
+import com.example.storyboard_generator.entities.Scene;
 import com.example.storyboard_generator.entities.User;
 
 public class Result{
@@ -72,6 +73,15 @@ public class Result{
         user.setPhone(user_phone);
         user.setPassword(user_pass);
         return user;
+    }
+    public Scene getScene(){
+        Scene scene = new Scene();
+        scene.setId(scen_id);
+        scene.setDuration(scen_duration);
+        scene.setNumber(scen_number);
+        scene.setPlace(scen_place);
+        scene.setSpace(spac_abr);
+        return  scene;
     }
 
 

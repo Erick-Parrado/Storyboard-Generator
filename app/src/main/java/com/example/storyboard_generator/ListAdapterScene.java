@@ -11,19 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.storyboard_generator.entities.Scene;
+
 import java.util.ArrayList;
 
-public class ListAdapterScene extends ArrayAdapter<ListDataScene> {
-    public ListAdapterScene(@NonNull Context context, ArrayList<ListDataScene> dataArrayListScene) {
+public class ListAdapterScene extends ArrayAdapter<Scene> {
+    public ListAdapterScene(@NonNull Context context, ArrayList<Scene> dataArrayListScene) {
         super(context, R.layout.activity_escenes_item, dataArrayListScene);
     }
-
-
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
-        ListDataScene listData = getItem(position);
+        Scene itemScene = getItem(position);
 
         if (view == null){
             view = LayoutInflater.from(getContext()).inflate(R.layout.activity_escenes_item, parent, false);
@@ -35,21 +35,17 @@ public class ListAdapterScene extends ArrayAdapter<ListDataScene> {
         TextView listDayTime = view.findViewById(R.id.tvDayTimePT);
         TextView listDuration = view.findViewById(R.id.tvTimeDurationPT);
 
-        listName.setText(listData.title);
-        listScenery.setText(listData.scenery);
-        listSpace.setText(listData.space);
-        listDayTime.setText(listData.dayTime);
-        listDuration.setText(listData.duration);
+        listName.setText("Escena #"+itemScene.getNumber());
+        listScenery.setText(itemScene.getPlace());
+        listSpace.setText(itemScene.getSpace());
+        listDayTime.setText(itemScene.getDayTime());
+        listDuration.setText(itemScene.getDuration());
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SceneTemplate.class);
-                intent.putExtra("title", listData.title);
-                intent.putExtra("studio", listData.scenery);
-                intent.putExtra("image", listData.space);
-                intent.putExtra("image", listData.dayTime);
-                intent.putExtra("image", listData.duration);
+                intent.putExtra("id", itemScene.getId());
                 getContext().startActivity(intent);
             }
         });

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -45,6 +46,7 @@ public class ListAdapterProjects extends ArrayAdapter<Project> {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ProjectTemplate.class);
                 intent.putExtra("proj_id", itemProject.getId());
+                Toast.makeText(getContext(),itemProject.getId(),Toast.LENGTH_SHORT);
                 getContext().startActivity(intent);
             }
         });

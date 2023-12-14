@@ -1,7 +1,7 @@
 package com.example.storyboard_generator.api;
 
 public interface ApiValues {
-        String BASE_URL = "http://10.57.30.153/Storyboard-Generator-API/API/";
+        String BASE_URL = "http://10.57.30.140/Storyboard-Generator-API/API/";
 
         //End Points
         //LOGIN

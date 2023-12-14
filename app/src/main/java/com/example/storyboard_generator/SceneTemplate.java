@@ -27,10 +27,6 @@ public class SceneTemplate extends AppCompatActivity {
 
 
     ActivityEsceneTemplateBinding binding;
-    ListAdapterProjects listAdapter;
-    ArrayList<ListDataProjects> dataArrayList = new ArrayList<>();
-    ListDataProjects listDataEscenes;
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
