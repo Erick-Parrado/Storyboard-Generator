@@ -89,7 +89,8 @@
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:textSize="18dp"
-                    android:textColorHint="@color/GrayBackground"/>
+                    android:textColor="@color/AppGray"
+                    android:textColorHint="@color/GraygeLight"/>
 
                 <TextView
                     android:id="@+id/tvDurationSceneForm"
@@ -110,7 +111,8 @@
                     android:inputType="text"
                     android:hint="@string/etDurationEsceneForm"
                     android:minHeight="48dp"
-                    android:textColorHint="@color/GrayBackground"/>
+                    android:textColor="@color/AppGray"
+                    android:textColorHint="@color/GraygeLight"/>
 
                 <TextView
                     android:id="@+id/tvScenerySceneForm"
@@ -131,7 +133,8 @@
                     android:inputType="text"
                     android:hint="@string/etEscenaryEsceneForm"
                     android:minHeight="48dp"
-                    android:textColorHint="@color/GrayBackground"/>
+                    android:textColor="@color/AppGray"
+                    android:textColorHint="@color/GraygeLight"/>
 
                 <TextView
                     android:id="@+id/tvDescriptionSceneForm"
@@ -152,7 +155,8 @@
                     android:inputType="textMultiLine"
                     android:lines="5"
                     android:scrollHorizontally="false"
-                    android:textColorHint="@color/GrayBackground"/>
+                    android:textColor="@color/AppGray"
+                    android:textColorHint="@color/GraygeLight"/>
 
                 <TextView
                     android:id="@+id/tvTimeSceneForm"
@@ -173,7 +177,8 @@
                     android:inputType="text"
                     android:hint="@string/etTimeEsceneForm"
                     android:minHeight="48dp"
-                    android:textColorHint="@color/GrayBackground"/>
+                    android:textColor="@color/AppGray"
+                    android:textColorHint="@color/GraygeLight"/>
 
 
                 <Button

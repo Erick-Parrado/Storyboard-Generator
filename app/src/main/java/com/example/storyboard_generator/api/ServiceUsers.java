@@ -14,5 +14,5 @@ public interface ServiceUsers {
     public Call<ResponseObj> getUser(@Path("user_id") int user_id);
 
     @POST(POST_USER_URL)
-    public Call<ResponseObj> postUser(@Body UserApi user);
+    public Call<ResponseObj> postUser(@Body UserApi userBody);
 }

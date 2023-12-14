@@ -17,7 +17,8 @@ public interface ApiValues {
         String GET_PROJECT_URL = "projects/{proj_id}";
         String POST_PROJECT_URL = "projects/{user_id}";
         String PUT_PROJECT_URL = "projects/{proj_id}";
-        String PATCH_PROJECT_URL = "projects/{proj_id}/PIN";
+        String DELETE_PROJECT_URL = "projects/{proj_id}";
+        String PATCH_PROJECT_PIN_URL = "projects/{proj_id}/PIN";
 
         //TEAM_MEMBERS
 

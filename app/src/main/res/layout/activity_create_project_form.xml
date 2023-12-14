@@ -83,7 +83,8 @@ android:layout_height="match_parent" >
       android:hint="@string/etProjectNameForm"
       android:inputType="text"
       android:minHeight="48dp"
-      android:textColorHint="@color/GrayBackground"
+      android:textColor="@color/AppGray"
+      android:textColorHint="@color/GraygeLight"
       android:textSize="18dp" />
 
   <TextView
