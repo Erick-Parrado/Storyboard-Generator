@@ -24,4 +24,10 @@ public class ProjectDAO extends DAO{
         Call<ResponseObj> call = servive.postProject(projectBody,user_id);
         calling(call,responseTaker);
     }
+
+    public void getProject(int proj_id,ResponseTaker responseTaker){
+        ServiceProject servive = retrofit.create(ServiceProject.class);
+        Call<ResponseObj> call = servive.getProject(proj_id);
+        calling(call,responseTaker);
+    }
 }

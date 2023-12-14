@@ -3,6 +3,7 @@ package com.example.storyboard_generator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -10,11 +11,19 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.storyboard_generator.api.ResponseObj;
+import com.example.storyboard_generator.api.ResponseTaker;
+import com.example.storyboard_generator.api.Result;
 import com.example.storyboard_generator.databinding.ActivityProjectTemplateBinding;
+import com.example.storyboard_generator.entities.Project;
+import com.example.storyboard_generator.entities.User;
+import com.example.storyboard_generator.layout.OurActivity;
+import com.example.storyboard_generator.model.DAO;
+import com.example.storyboard_generator.model.ProjectDAO;
 
 import java.util.ArrayList;
 
-public class ProjectTemplate extends AppCompatActivity {
+public class ProjectTemplate extends OurActivity {
 
     private ImageButton btnBackArrow;
 
@@ -85,6 +94,7 @@ public class ProjectTemplate extends AppCompatActivity {
                     }
                 });
             }
+            setProject();
         }
     }
 
@@ -98,5 +108,37 @@ public class ProjectTemplate extends AppCompatActivity {
         this.imageProject = findViewById(R.id.ivImagePrincipalProject);
         //this.lvScenes = findViewById(R.id.lvScenes);
         this.btnAddScenes   = findViewById(R.id.ibAddScenes);
+    }
+
+    private void setProject(){
+        ResponseTaker responseTaker = new ResponseTaker() {
+            @Override
+            public void takeResponse(ResponseObj body) {
+                ArrayList<Result> results = body.getResults();
+                tinyAlert("Enter",true);
+                if(!DAO.isNullOrEmpty(results)){
+                    Project project = new Project();
+                    for(Result r:results){
+                        project = r.getProject();
+                    }
+                    titleProject.setText(project.getTitle());
+                    pin.setText(project.getPin());
+                    studioName.setText(project.getProducer());
+                    Bitmap back = decodeBase64(project.getImage());
+                    imageProject.setImageBitmap(back);
+                }
+            }
+
+            @Override
+            public void manageMessage(String status, String mssg) {
+
+            }
+        };
+        Bundle extrasReciever = getIntent().getExtras();
+
+        int proj_id = extrasReciever.getInt("proj_id",5);
+        tinyAlert(proj_id+"",false);
+        ProjectDAO projectDAO = new ProjectDAO();
+        projectDAO.getProject(proj_id,responseTaker);
     }
 }

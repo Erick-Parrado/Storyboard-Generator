@@ -151,7 +151,6 @@ public class EditUserForm extends OurActivity {
             @Override
             public void takeResponse(ResponseObj body) {
                 ArrayList<Result> results = body.getResults();
-                tinyAlert("Enter",true);
                 if(!DAO.isNullOrEmpty(results)){
                     User user = new User();
                     for(Result r:results){

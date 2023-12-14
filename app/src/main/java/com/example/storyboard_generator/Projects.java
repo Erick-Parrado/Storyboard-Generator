@@ -95,7 +95,7 @@ public class Projects extends OurActivity {
             };
             TeamDAO teamDAO = new TeamDAO();
             SharedPreferences dataSP = getSharedPreferences("USER",MODE_PRIVATE);
-            teamDAO.getProjects(dataSP.getInt("user_id",0),responseTaker);
+            teamDAO.getProjects(dataSP.getInt("user_i",1001),responseTaker);
         }
 
         private void handleNewProject(View view){
