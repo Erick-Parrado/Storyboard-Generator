@@ -4,5 +4,13 @@
         <!-- Customize your dark theme here. -->
         <item name="colorPrimary">@color/my_dark_primary</item>
     </style>
+    <style name="AutoCompleteTextViewDark" parent="Widget.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="android:popupBackground">@color/GrayBackground</item>
+    </style>
+    <style name="AutoCompleteTextViewDarkBox" parent="Widget.Material3.AutoCompleteTextView.OutlinedBox">
+        <item name="boxStrokeColor">@color/HintColor</item>
+        <item name="boxBackgroundColor">@color/Transparent</item>
+        <!-- Ajusta cualquier otra propiedad específica del modo oscuro aquí -->
+    </style>
 
 </resources>

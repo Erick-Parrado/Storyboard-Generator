@@ -120,7 +120,14 @@ public class OurActivity extends AppCompatActivity {
                         dialogInterface.dismiss();
                         negativeActor.alertAction();
                     }
-                }).show();
+                })
+                .setNeutralButton("Cerrar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .show();
     }
 
 }

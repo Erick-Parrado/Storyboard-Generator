@@ -5,6 +5,7 @@
 
     <color name="ExtraLightBlue">#F4FFFF</color><!--Fondo de las pantallas: principal, login y register-->
     <color name="LightBackground">#D3D3D3</color><!--Fondo de las pantallas: principal, login y register-->
+    <color name="HintColor">#8A8686</color><!--Para los hints antes de escribir-->
     <color name="GraygeLight">#E4E4E4</color><!--Fondo de las pantallas: principal, login y register-->
     <color name="TurquesaBlack">#219FAC</color>
     <color name="BlackTurquesa">#025159</color><!--Fondo de la aplicación-->

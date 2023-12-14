@@ -18,6 +18,7 @@
     <string name="tvPssResp">***</string><!--Respuesta provisional en user profile y edit user form-->
     <string name="tvPhoneResp">3229543498</string><!--Respuesta provisional en user profile y edit user form-->
     <string name="btnConfirmar">Confirmar</string>
+    <string name="Select">Seleccione una opción</string><!--DropDown de los forms-->
 
     <!--MAIN - (Pantalla principal)-->
     <string name="tvBienvenidoSC">Bienvenido</string>
@@ -130,7 +131,7 @@
     <string name="tvShotPlaneForm">Tiro</string>
     <string name="etShotPlaneForm">Shot</string>
     <string name="tvMovePlaneForm">Movimiento</string>
-    <string name="etMovePlaneForm">Shot</string>
+    <string name="etMovePlaneForm">Vertical</string>
     <string name="tvDescriptionPlaneForm">Descripción</string>
     <string name="etDescriptionPlaneForm">Escriba su descripción..</string>
 

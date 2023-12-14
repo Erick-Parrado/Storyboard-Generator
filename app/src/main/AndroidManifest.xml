@@ -36,9 +36,7 @@
         <activity
             android:name=".UserProfile"
             android:exported="false" />
-        <activity
-            android:name=".CreatePlaneForm"
-            android:exported="false" />
+
         <activity
             android:name=".CreateEsceneForm"
             android:exported="false" />
@@ -60,9 +58,15 @@
         <activity
             android:name=".Projects"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="false"/>
+        <activity
+            android:name=".CreatePlaneForm"
+            android:exported="true" >
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

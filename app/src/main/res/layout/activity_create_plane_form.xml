@@ -85,7 +85,8 @@
                 android:inputType="text"
                 android:minHeight="48dp"
                 android:textSize="18dp"
-                android:textColorHint="@color/GrayBackground"/>
+                android:textColor="@color/AppGray"
+                android:textColorHint="@color/HintColor"/>
 
 
             <TextView
@@ -96,18 +97,29 @@
                 android:fontFamily="@font/sans_font"
                 android:text="@string/tvTypePlaneForm"
                 android:textColor="@color/BlackTurquesa"
+
                 android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/etTypePlaneForm"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/BlackTurquesa"
-                android:ems="10"
-                android:inputType="text"
-                android:textColorHint="@color/GrayBackground"
-                android:hint="@string/etTypePlaneForm"
-                android:minHeight="48dp" />
+                android:layout_margin="10dp"
+                android:contentDescription="tipo de plano"
+                android:textColorHint="@color/HintColor"
+                android:background="@drawable/diseno_dropdown"
+                android:hint="@string/Select">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompletePlane"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:contentDescription="tipo de planos"
+                    android:inputType="none"
+                    android:theme="@style/AutoCompleteTextViewDark"  />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <TextView
                 android:id="@+id/tvDurationPlaneForm"
@@ -128,7 +140,8 @@
                 android:inputType="text"
                 android:hint="@string/etDurationPlaneForm"
                 android:minHeight="48dp"
-                android:textColorHint="@color/GrayBackground"/>
+                android:textColor="@color/AppGray"
+                android:textColorHint="@color/HintColor"/>
 
             <TextView
                 android:id="@+id/tvShotPlaneForm"
@@ -140,16 +153,26 @@
                 android:textColor="@color/BlackTurquesa"
                 android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/etShotPlaneForm"
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/BlackTurquesa"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="@string/etEscenaryEsceneForm"
-                android:minHeight="48dp"
-                android:textColorHint="@color/GrayBackground"/>
+                android:layout_margin="10dp"
+                android:contentDescription="tipo de plano"
+                android:textColorHint="@color/HintColor"
+                android:background="@drawable/diseno_dropdown"
+                android:hint="@string/Select">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteShot"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:contentDescription="tipo de planos"
+                    android:inputType="none"
+                    android:theme="@style/AutoCompleteTextViewDark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -163,16 +186,25 @@
                 android:textColor="@color/BlackTurquesa"
                 android:textSize="20dp" />
 
-            <EditText
-                android:id="@+id/etMovePlaneForm"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/BlackTurquesa"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="@string/etMovePlaneForm"
-                android:minHeight="48dp"
-                android:textColorHint="@color/GrayBackground"/>
+                android:layout_margin="10dp"
+                android:contentDescription="tipo de plano"
+                android:textColorHint="@color/HintColor"
+                android:background="@drawable/diseno_dropdown"
+                android:hint="@string/Select">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompleteMove"
+                    android:layout_width="match_parent"
+                    android:layout_height="58dp"
+                    android:contentDescription="tipo de planos"
+                    android:inputType="none"
+                    android:theme="@style/AutoCompleteTextViewDark" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/tvDescriptionPlaneForm"
@@ -193,7 +225,8 @@
                 android:inputType="textMultiLine"
                 android:lines="5"
                 android:scrollHorizontally="false"
-                android:textColorHint="@color/GrayBackground"/>
+                android:textColor="@color/AppGray"
+                android:textColorHint="@color/HintColor"/>
 
 
             <Button
