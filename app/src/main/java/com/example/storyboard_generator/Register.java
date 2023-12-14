@@ -69,10 +69,9 @@ public class Register extends OurActivity {
             }
 
             @Override
-            public void manageMessage(String mssg) {
-                switch (mssg){
+            public void manageMessage(String status,String mssg) {
+                switch (status){
                     case "209":
-                        tinyAlert(mssg,false);
                         snackBar("Ya estas registrado,intenta: ",false,"Iniciar sesion",alertActor);
                         break;
                     default:

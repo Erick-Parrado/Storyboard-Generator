@@ -71,19 +71,23 @@ public class OurActivity extends AppCompatActivity {
     protected void tinyAlert(String message,boolean tiny){
         Toast.makeText(this,message,(tiny)?Toast.LENGTH_SHORT:Toast.LENGTH_LONG).show();
     }
-    public void seriousAlert(String title,String message,String positive_mssg){
+
+    public  void simpleAlert(String tittle,String messge){
+        AlertActor positiveActor = new AlertActor() {
+            @Override
+            public void alertAction() {
+            }
+        };
+        seriousAlert(tittle,messge,"Aceptar",positiveActor);
+    }
+    public void seriousAlert(String title,String message,String positiveMssg,AlertActor positiveActor){
         new AlertDialog.Builder(this)
-                .setTitle("Alerta de permisos")
-                .setMessage("No se han concedido permisos para el acceso al Por favor, activarlos desde ajustes para continuar con el uso de la aplicacion")
-                .setPositiveButton("Ajustes", new DialogInterface.OnClickListener() {
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveMssg, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.fromParts("package",getPackageName(),null));
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
+                        positiveActor.alertAction();
                     }
                 }).show();
     }

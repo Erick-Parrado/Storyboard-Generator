@@ -34,7 +34,7 @@ public class DAO {
                     ResponseObj body = response.body();
                     if(!isNullOrEmpty(body.getError())) {
                         Error error =body.getError();
-                        responseTaker.manageMessage(error.getStatus()+"");
+                        responseTaker.manageMessage(error.getStatus()+"",error.getMessage());
                         return;
                     }
                     if(!isNullOrEmpty(body.getInfo())){
@@ -44,13 +44,13 @@ public class DAO {
                     responseTaker.takeResponse(body);
                 }
                 else{
-                    responseTaker.manageMessage(NO_RESPONSE_EXCEPTION);
+                    responseTaker.manageMessage("",NO_RESPONSE_EXCEPTION);
                 }
             }
             @Override
             public void onFailure(Call<ResponseObj> call, Throwable t) {
                 Log.i("onFailure",t.getMessage());
-                responseTaker.manageMessage(NO_RESPONDED_EXCEPTION);
+                responseTaker.manageMessage("",NO_RESPONDED_EXCEPTION);
             }
         });
     }
